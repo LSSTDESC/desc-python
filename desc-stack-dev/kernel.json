@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "shifter",
+    "--image=lsstdesc/stack-jupyter:dev",
+    "/global/common/software/lsst/common/miniconda/kernels/stack-dev.sh",
+    "-m",
+    "ipykernel_launcher",
+    "-f",
+    "{connection_file}"
+  ],
+  "display_name": "desc-stack-dev",
+  "language": "python"
+}

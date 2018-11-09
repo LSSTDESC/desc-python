@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "/global/common/software/lsst/common/miniconda/kernels/python.sh",
+    "-f",
+    "{connection_file}"
+  ],
+  "display_name": "desc-python",
+  "language": "python"
+}
