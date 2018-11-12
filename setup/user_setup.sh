@@ -20,6 +20,7 @@ jupyter kernelspec install $INST_DIR/kernels/desc-python-old --user
 jupyter kernelspec install $INST_DIR/kernels/desc-stack --user
 jupyter kernelspec install $INST_DIR/kernels/desc-stack-dev --user
 jupyter kernelspec install $INST_DIR/kernels/desc-stack-old --user
+jupyter kernelspec install $INST_DIR/kernels/desc-pyspark --user
 echo "Your JupyterLab URL is: "
 echo https://jupyter-dev.nersc.gov/user/$USER/lab/tree/$HOME
 
