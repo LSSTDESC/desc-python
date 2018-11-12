@@ -7,7 +7,7 @@ See: https://confluence.slac.stanford.edu/display/LSSTDESC/Using+Jupyter-dev+at+
 ## Current Kernels
 - desc-python
 - desc-python-dev
-- desc-spark
+- desc-pyspark
 - desc-stack
 - desc-stack-dev
 - desc-stack-old
