@@ -1,0 +1,8 @@
+{
+  "display_name": "desc-pyspark",
+  "language": "python",
+  "argv": [
+    "/global/common/software/lsst/common/miniconda/kernels/desc-pyspark.sh",
+    "-f",
+    "{connection_file}"]
+}
