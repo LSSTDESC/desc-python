@@ -8,3 +8,7 @@ The Apache Spark version in use is currently 2.3.2. This version is maintained b
 https://github.com/LSSTDESC/desc-spark#working-at-nersc-batch-mode
 
 If you have trouble with this kernel, contact me (Julien Peloton, peloton@lal.in2p3.fr).
+
+# Logbook
+
+- 12/11/2018: Initial release of the kernel.
