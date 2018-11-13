@@ -1,6 +1,9 @@
 #!/bin/bash
 # Where the Spark logs will be stored
 # Logs can be then be browsed from the Spark UI
+if [ -z ${SCRATCH} ]; then
+  SCRATCH=`mktemp -d`
+fi
 LOGDIR=${SCRATCH}/spark/event_logs
 mkdir -p ${LOGDIR}
 
