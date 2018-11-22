@@ -24,8 +24,9 @@ export SPARK_HOME="${SPARKPATH}"
 export PYSPARK_SUBMIT_ARGS="--master local[4]   --driver-memory 32g --executor-memory 32g   --packages com.github.astrolabsoftware:spark-fits_2.11:0.7.1 --conf spark.eventLog.enabled=true --conf spark.eventLog.dir=file://${SCRATCH}/spark/event_logs --conf spark.history.fs.logDirectory=file://${SCRATCH}/spark/event_logs pyspark-shell"
 export PYTHONSTARTUP="${SPARKPATH}/python/pyspark/shell.py"
 
-# Make sure the version of py4j is correct.
-export DESCPYTHONPATH="${SPARKPATH}/python/lib/py4j-0.10.7-src.zip:${SPARKPATH}/python"
+# Make sure the version of py4j is correct, and
+# propagate user $DESCPYTHONPATH
+export DESCPYTHONPATH="${SPARKPATH}/python/lib/py4j-0.10.7-src.zip:${SPARKPATH}/python:${DESCPYTHONPATH}"
 
 # Should correspond to desc-python
 export PYSPARK_PYTHON="${lSSTCONDA}/current/bin/python"
@@ -36,4 +37,4 @@ export JAVA_HOME="/opt/java/jdk1.8.0_51"
 
 # desc-python activation script
 source ${lSSTCONDA}/kernels/python.sh
-    
+
