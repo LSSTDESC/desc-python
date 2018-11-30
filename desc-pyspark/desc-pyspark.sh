@@ -12,7 +12,7 @@ mkdir -p ${LOGDIR}
 mkdir -p ${SCRATCH}/tmpfiles
 
 # Path to LSST miniconda installation at NERSC
-lSSTCONDA="/global/common/software/lsst/common/miniconda"
+LSSTCONDA="/global/common/software/lsst/common/miniconda"
 
 # Since the default NERSC Apache Spark runs inside of Shifter, we use
 # a custom local version of it. This is maintained by me (Julien Peloton)
@@ -28,12 +28,11 @@ export PYTHONSTARTUP="${SPARKPATH}/python/pyspark/shell.py"
 export DESCPYTHONPATH="${SPARKPATH}/python/lib/py4j-0.10.7-src.zip:${SPARKPATH}/python"
 
 # Should correspond to desc-python
-export PYSPARK_PYTHON="${lSSTCONDA}/current/bin/python"
-export PYSPARK_DRIVER_PYTHON="${lSSTCONDA}/current/bin/ipython3"
+export PYSPARK_PYTHON="${LSSTCONDA}/current/bin/python"
+export PYSPARK_DRIVER_PYTHON="${LSSTCONDA}/current/bin/ipython3"
 
 # We use Java 8. Spark 2+ does not work with Java 7 and earlier versions.
 export JAVA_HOME="/opt/java/jdk1.8.0_51"
 
 # desc-python activation script
-source ${lSSTCONDA}/kernels/python.sh
-    
+source ${LSSTCONDA}/kernels/python.sh
