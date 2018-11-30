@@ -3,8 +3,6 @@
     "shifter",
     "--image=lsstdesc/stack-jupyter:old",
     "/global/common/software/lsst/common/miniconda/kernels/stack-old.sh",
-    "-m",
-    "ipykernel_launcher",
     "-f",
     "{connection_file}"
   ],
