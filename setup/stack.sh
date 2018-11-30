@@ -9,3 +9,6 @@ mypy=$(which python)" -m ipykernel $@"
 eval $mypy
 #/opt/lsst/software/stack/python/miniconda3-4.5.4/envs/lsst-scipipe-10a4fa6/bin/python -m ipykernel $@
 
+if [ $# -gt 0 ] ; then
+    exec python -m ipykernel $@
+fi
