@@ -25,7 +25,7 @@ export PYSPARK_SUBMIT_ARGS="--master local[4]   --driver-memory 32g --executor-m
 export PYTHONSTARTUP="${SPARKPATH}/python/pyspark/shell.py"
 
 # Make sure the version of py4j is correct.
-export DESCPYTHONPATH="${SPARKPATH}/python/lib/py4j-0.10.7-src.zip:${SPARKPATH}/python"
+export DESCPYTHONPATH="${SPARKPATH}/python/lib/py4j-0.10.7-src.zip:${SPARKPATH}/python:${DESCPYTHONPATH}"
 
 # Should correspond to desc-python
 export PYSPARK_PYTHON="${LSSTCONDA}/current/bin/python"
