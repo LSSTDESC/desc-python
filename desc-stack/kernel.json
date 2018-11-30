@@ -3,8 +3,6 @@
     "shifter",
     "--image=lsstdesc/stack-jupyter:prod",
     "/global/common/software/lsst/common/miniconda/kernels/stack-prod.sh",
-    "-m",
-    "ipykernel_launcher",
     "-f",
     "{connection_file}"
   ],
