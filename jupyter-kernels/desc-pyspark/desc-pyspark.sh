@@ -19,7 +19,7 @@ LSSTCONDA="/global/common/software/lsst/common/miniconda"
 # Since the default NERSC Apache Spark runs inside of Shifter, we use
 # a custom local version of it. This is maintained by me (Julien Peloton)
 # at NERSC. If you encounter problems, let me know (peloton at lal.in2p3.fr)!
-SPARKPATH="/global/homes/p/peloton/myspark/spark-2.3.2-bin-hadoop2.7"
+SPARKPATH="/global/homes/p/peloton/myspark/spark-2.4.0-bin-hadoop2.7"
 
 # Here is the environment needed for Spark to run at NERSC.
 export SPARK_HOME="${SPARKPATH}"
