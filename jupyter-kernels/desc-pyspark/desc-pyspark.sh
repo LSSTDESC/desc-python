@@ -7,9 +7,11 @@ fi
 LOGDIR=${SCRATCH}/spark/event_logs
 mkdir -p ${LOGDIR}
 
+# Spark defaults to /tmp, overridden using the SPARK_LOCAL_DIRS environment variable
 # The directory `/global/cscratch1/sd/<user>/tmpfiles` will be created if it
 # does not exist to store temporary files used by Spark.
-mkdir -p ${SCRATCH}/tmpfiles
+mkdir -p ${SCRATCH}/sparktmp
+export SPARK_LOCAL_DIRS="${SCRATCH}/sparktmp"
 
 # Path to LSST miniconda installation at NERSC
 LSSTCONDA="/global/common/software/lsst/common/miniconda"
