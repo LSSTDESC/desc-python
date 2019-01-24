@@ -2,7 +2,7 @@
 
 source /opt/lsst/software/stack/loadLSST.bash ""
 setup lsst_distrib
-setup -r /opt/lsst/software/stack/obs_lsstCam
+setup -r /opt/lsst/software/stack/obs_lsst
 setup lsst_sims
 export OMP_NUM_THREADS=1
 
