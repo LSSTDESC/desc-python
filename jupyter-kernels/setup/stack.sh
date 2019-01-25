@@ -13,7 +13,7 @@ if [ -n "$DESCPYTHONPATH" ]; then
     echo "Including user python path: $DESCPYTHONPATH"
 fi
 
-export PYTHONPATH="'.':$PYTHONPATH"
+export PYTHONPATH=".:$PYTHONPATH"
 
 if [ $# -gt 0 ] ; then
     exec python -m ipykernel $@
