@@ -1,6 +1,6 @@
 {
   "argv": [
-    "/global/common/software/lsst/common/miniconda/kernels/sims.sh",
+    "/global/common/software/lsst/common/miniconda/kernels/desc-sims/sims.sh",
     "-f",
     "{connection_file}"
   ],
