@@ -17,5 +17,17 @@ setup lsst_sims
 
 export OMP_NUM_THREADS=1
 
+export PYTHONNOUSERSITE=' '
 
-exec python -m ipykernel $@
+if [ -n "$DESCPYTHONPATH" ]; then
+    export PYTHONPATH="$DESCPYTHONPATH:$PYTHONPATH"
+    echo "Including user python path: $DESCPYTHONPATH"
+fi
+
+export PYTHONPATH=".:$PYTHONPATH"
+
+if [ $# -gt 0 ] ; then
+    exec python -m ipykernel $@
+fi
+
+
