@@ -2,7 +2,7 @@
 Collection of DESC jupyter kernels for use with JupyterLab at NERSC
 
 ## Initial User setup
-See: https://confluence.slac.stanford.edu/display/LSSTDESC/Using+Jupyter-dev+at+NERSC
+See: https://confluence.slac.stanford.edu/display/LSSTDESC/Using+Jupyter+at+NERSC (Confluence log-in required)
 
 ## Current Kernels
 - desc-python
@@ -11,4 +11,3 @@ See: https://confluence.slac.stanford.edu/display/LSSTDESC/Using+Jupyter-dev+at+
 - desc-stack
 - desc-stack-dev
 - desc-stack-old
-
