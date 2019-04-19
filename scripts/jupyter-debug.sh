@@ -77,5 +77,5 @@ echo
 echo '========================'
 echo 'Content of ~/jupyter.log'
 echo '========================'
-tail -n 100 ~/jupyter.log
+tail -n 100 ~/.jupyter.log
 )
