@@ -6,6 +6,8 @@ setup -r /opt/lsst/software/stack/obs_lsst
 setup lsst_sims
 export OMP_NUM_THREADS=1
 
+unset PYTHONSTARTUP
+
 export PYTHONNOUSERSITE=' '
 
 if [ -n "$DESCPYTHONPATH" ]; then
