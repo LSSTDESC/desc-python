@@ -17,9 +17,9 @@ done
 export LSST_INST_DIR=/global/common/software/lsst/common/miniconda
 export LSST_PYTHON_VER=current
 
-module load pe_archive
 module unload python
 module swap PrgEnv-intel PrgEnv-gnu
+module load pe_archive
 module swap gcc gcc/6.3.0
 module rm craype-network-aries
 module rm cray-libsci
@@ -28,6 +28,7 @@ export CC=gcc
 
 unset PYTHONHOME
 unset PYTHONPATH
+unset PYTHONSTARTUP
 export PYTHONNOUSERSITE=' '
 
 if [ -n "$DESCPYTHONPATH" ]; then
@@ -36,4 +37,5 @@ if [ -n "$DESCPYTHONPATH" ]; then
 fi 
 
 export PATH=$LSST_INST_DIR/$LSST_PYTHON_VER/bin:$PATH
+source activate stack
 echo Now using $LSST_INST_DIR/$LSST_PYTHON_VER
