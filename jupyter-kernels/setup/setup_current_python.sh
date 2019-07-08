@@ -28,7 +28,6 @@ export CC=gcc
 
 unset PYTHONHOME
 unset PYTHONPATH
-unset PYTHONSTARTUP
 export PYTHONNOUSERSITE=' '
 
 if [ -n "$DESCPYTHONPATH" ]; then
