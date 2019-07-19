@@ -2,8 +2,8 @@
 
 source /opt/lsst/software/stack/loadLSST.bash ""
 setup lsst_distrib
-setup -r /global/common/software/lsst/cori-haswell-gcc/stack/dia/obs_lsst -j
 setup lsst_sims
+setup -r /global/common/software/lsst/cori-haswell-gcc/stack/dia/obs_lsst -j
 export OMP_NUM_THREADS=1
 
 unset PYTHONSTARTUP
