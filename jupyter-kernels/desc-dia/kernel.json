@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "shifter",
+    "--image=lsstdesc/stack-jupyter:prod",
+    "/global/common/software/lsst/common/miniconda/kernels/stack-dia.sh",
+    "-f",
+    "{connection_file}"
+  ],
+  "display_name": "desc-dia",
+  "language": "python"
+}
