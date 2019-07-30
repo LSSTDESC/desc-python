@@ -19,8 +19,7 @@ export LSST_PYTHON_VER=current
 
 module unload python
 module swap PrgEnv-intel PrgEnv-gnu
-module load pe_archive
-module swap gcc gcc/6.3.0
+module swap gcc gcc/7.3.0
 module rm craype-network-aries
 module rm cray-libsci
 module unload craype
