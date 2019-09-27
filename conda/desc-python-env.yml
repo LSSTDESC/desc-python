@@ -94,8 +94,10 @@ dependencies:
   - yaml=0.1.7=had09818_2
   - zlib=1.2.11=h7b6447c_3
   - pip:
+    - alabaster==0.7.12
+    - babel==2.7.0
     - backcall==0.1.0
-    - bcrypt==3.1.4
+    - bcrypt==3.1.6
     - bleach==3.1.0
     - bokeh==1.1.0
     - cachetools==3.1.0
@@ -115,6 +117,7 @@ dependencies:
     - descqa-2.0.0==0.7.0
     - dill==0.2.9
     - distributed==1.28.0
+    - docutils==0.14
     - easyquery==0.1.4
     - emcee==2.2.1
     - entrypoints==0.3
@@ -122,9 +125,11 @@ dependencies:
     - fast3tree==0.3.1
     - fastparquet==0.3.1
     - fitsio==1.0.3
+    - flask==1.1.1
+    - flask-sqlalchemy==2.4.0
     - fofcatalogmatching==0.1.0
-    - gcr==0.8.7
-    - gcrcatalogs==0.11.0
+    - gcr==0.8.8
+    - gcrcatalogs==0.14.3
     - globus-sdk==1.7.1
     - google-api-core==1.10.0
     - google-auth==1.6.3
@@ -137,21 +142,22 @@ dependencies:
     - helpers==0.3.2
     - holoviews==1.12.2
     - imageio==2.5.0
-    - iminuit==1.2
+    - imagesize==1.1.0
     - ipykernel==5.1.0
     - ipympl==0.2.1
-    - ipyparallel==6.0.2
+    - ipyparallel==6.2.3
     - ipython==7.5.0
     - ipython-genutils==0.2.0
     - ipywidgets==7.4.2
+    - itsdangerous==1.1.0
     - jedi==0.13.3
     - jinja2==2.10.1
     - jsonschema==3.0.1
     - jupyter-client==5.2.4
     - jupyter-core==4.4.0
-    - libsubmit==0.4.0
     - llvmlite==0.28.0
     - locket==0.2.0
+    - lockfile==0.12.2
     - lsstdesc.coord==1.1.1
     - mistune==0.8.4
     - mock==3.0.5
@@ -160,43 +166,59 @@ dependencies:
     - multipledispatch==0.6.0
     - nbconvert==5.5.0
     - nbformat==4.4.0
+    - nbsphinx==0.4.2
     - networkx==2.3
     - notebook==5.7.8
     - numba==0.43.1
     - packaging==19.0
     - pandocfilters==1.4.2
     - param==1.9.0
-    - paramiko==2.4.0
-    - parsl==0.5.2
+    - paramiko==2.4.2
+    - parsl==0.8.0
     - parso==0.4.0
     - partd==0.3.10
     - pexpect==4.7.0
     - pickleshare==0.7.5
     - pillow==6.0.0
+    - plotly==3.10.0
     - prometheus-client==0.6.0
     - prompt-toolkit==2.0.9
     - protobuf==3.7.1
     - psycopg2==2.8.2
     - ptyprocess==0.6.0
     - pyarrow==0.13.0
-    - pyasn1==0.4.2
+    - pyasn1==0.4.5
     - pyasn1-modules==0.2.5
     - pyccl==1.0.0
     - pyct==0.4.6
+    - pydot==1.4.1
     - pygments==2.4.0
     - pyjwt==1.7.1
+    - pymaster==1.0
     - pymssql==2.1.4
-    - pynacl==1.2.1
+    - pynacl==1.3.0
     - pyrsistent==0.15.1
+    - python-daemon==2.2.3
     - pyviz-comms==0.7.2
     - pywavelets==1.0.3
     - pyzmq==18.0.1
+    - retrying==1.3.3
     - rsa==4.0
     - scikit-image==0.15.0
     - seaborn==0.9.0
+    - semver==2.8.1
     - send2trash==1.5.0
-    - sncosmo==1.7.1
+    - snowballstemmer==1.9.0
     - sortedcontainers==2.1.0
+    - sphinx==2.1.2
+    - sphinxcontrib-applehelp==1.0.1
+    - sphinxcontrib-devhelp==1.0.1
+    - sphinxcontrib-htmlhelp==1.0.2
+    - sphinxcontrib-jsmath==1.0.1
+    - sphinxcontrib-qthelp==1.0.2
+    - sphinxcontrib-serializinghtml==1.1.3
+    - spython==0.0.73
+    - sqlalchemy-utils==0.34.0
     - stile==0.1
     - sympy==1.4
     - tables==3.5.1
@@ -207,8 +229,10 @@ dependencies:
     - toolz==0.9.0
     - traitlets==4.3.2
     - treecorr==4.0.1
+    - typeguard==2.3.1
     - wcwidth==0.1.7
     - webencodings==0.5.1
+    - werkzeug==0.15.4
     - widgetsnbextension==3.4.2
     - xarray==0.12.1
     - zict==0.1.4
