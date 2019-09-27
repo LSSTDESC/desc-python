@@ -25,6 +25,11 @@ module rm cray-libsci
 module unload craype
 export CC=gcc
 
+# NaMaster
+module load cfitsio/3.47
+module load cray-fftw/3.3.8.2
+
+
 unset PYTHONHOME
 unset PYTHONPATH
 export PYTHONNOUSERSITE=' '
@@ -37,3 +42,7 @@ fi
 export PATH=$LSST_INST_DIR/$LSST_PYTHON_VER/bin:$PATH
 source activate stack
 echo Now using $LSST_INST_DIR/$LSST_PYTHON_VER
+
+# NaMaster dependencies
+export LD_LIBRARY_PATH=$CFITSIO_DIR/lib:/global/common/software/lsst/common/miniconda/namaster-1.0/lib:$FFTW_DIR:$LD_LIBRARY_PATH
+
