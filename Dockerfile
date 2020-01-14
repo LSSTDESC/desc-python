@@ -2,41 +2,41 @@ FROM centos:7
 MAINTAINER Heather Kelly <heather@slac.stanford.edu>
 
 RUN yum update -y && \
-    yum install -y bash && \
-    bison && \
-    blas && \
-    bzip2 && \
-    bzip2-devel && \
-    cmake && \
-    curl && \
-    flex && \
-    fontconfig && \
-    freetype-devel && \
-    gawk && \
-    gcc-c++ && \
-    gcc-gfortran && \
-    gettext && \
-    git && \
-    glib2-devel && \
-    java-1.8.0-openjdk && \
-    libcurl-devel && \
-    libuuid-devel && \
-    libXext && \
-    libXrender && \
-    libXt-devel && \
-    make && \
-    mesa-libGL && \
-    ncurses-devel && \
-    openssl-devel && \
-    patch && \
-    perl && \
-    perl-ExtUtils-MakeMaker && \
-    readline-devel && \
-    sed && \
-    tar && \
-    which && \
-    zlib-devel && \
-    devtoolset-6
+    yum install -y bash \
+    bison \
+    blas \
+    bzip2 \
+    bzip2-devel \
+    cmake \
+    curl \
+    flex \
+    fontconfig \
+    freetype-devel \
+    gawk \
+    gcc-c++ \
+    gcc-gfortran \
+    gettext \
+    git \
+    glib2-devel \
+    java-1.8.0-openjdk \
+    libcurl-devel \
+    libuuid-devel \
+    libXext \
+    libXrender \
+    libXt-devel \
+    make \
+    mesa-libGL \
+    ncurses-devel \
+    openssl-devel \
+    patch  \
+    perl \
+    perl-ExtUtils-MakeMaker \
+    readline-devel \
+    sed \
+    tar \
+    which \
+    zlib-devel \
+    devtoolset-8
     
 RUN yum clean -y all && \
     rm -rf /var/cache/yum && \
