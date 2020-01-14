@@ -42,8 +42,6 @@ RUN yum clean -y all && \
     rm -rf /var/cache/yum && \
     groupadd -g 1000 -r lsst && useradd -u 1000 --no-log-init -m -r -g lsst lsst
     
-USER lsst
-
 RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-4.7.12.1-Linux-x86_64.sh -o /tmp/miniconda.sh && \
     bash /tmp/miniconda.sh -bfp /usr/local/ && \
     rm -rf /tmp/miniconda.sh && \
