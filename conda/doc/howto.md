@@ -1,6 +1,7 @@
 # How to set up a new DESC python enviroment
 
 * Run `bash ./install-desc.sh <path to installation> <name of yaml file>`
+
 Example:  `bash ./install-desc.sh $CSCRATCH/test-install desc-python-env.yml`
 
 Note there are two yaml files: 
