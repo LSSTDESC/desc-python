@@ -1,4 +1,4 @@
-name: desc-test
+name: desc
 channels:
   - conda-forge
   - defaults
@@ -36,6 +36,7 @@ dependencies:
   - pip  
   - pyarrow==0.13.0
   - pybind11
+  - pyccl
   - pymssql
   - pytest
   - sacc
