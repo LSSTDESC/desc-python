@@ -47,9 +47,5 @@ RUN cd /tmp && \
     cd desc-python/conda && \
     bash install-desc.sh /usr/local/py3.7 desc-python-env-nersc-vers.yml NERSC 
     
-#RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-4.7.12.1-Linux-x86_64.sh -o /tmp/miniconda.sh && \
-#    bash /tmp/miniconda.sh -bfp /usr/local/ && \
-#    rm -rf /tmp/miniconda.sh && \
-#    conda install -y python=3 && \
-#    conda update conda && \
-#    conda clean --all --yes 
+ENV HDF5_USE_FILE_LOCKING FALSE
+ENV PYTHONSTARTUP ''
