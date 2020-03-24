@@ -42,9 +42,13 @@ RUN yum clean -y all && \
     rm -rf /var/cache/yum && \
     groupadd -g 1000 -r lsst && useradd -u 1000 --no-log-init -m -r -g lsst lsst
     
-RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-4.7.12.1-Linux-x86_64.sh -o /tmp/miniconda.sh && \
-    bash /tmp/miniconda.sh -bfp /usr/local/ && \
-    rm -rf /tmp/miniconda.sh && \
-    conda install -y python=3 && \
-    conda update conda && \
-    conda clean --all --yes 
+RUN bash conda/install-desc.sh /usr/local/py3.7 conda/desc-python-env-nersc-vers.yml NERSC \
+    rm ./Miniconda3-4.7.12.1-Linux-x86_64.sh \
+    rm -Rf CatalogMatcher
+    
+#RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-4.7.12.1-Linux-x86_64.sh -o /tmp/miniconda.sh && \
+#    bash /tmp/miniconda.sh -bfp /usr/local/ && \
+#    rm -rf /tmp/miniconda.sh && \
+#    conda install -y python=3 && \
+#    conda update conda && \
+#    conda clean --all --yes 
