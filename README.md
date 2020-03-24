@@ -13,7 +13,7 @@ See: https://confluence.slac.stanford.edu/display/LSSTDESC/Using+Jupyter+at+NERS
 - desc-stack-old: Previous production version of desc-stack
 
 ## List of Packages Included in the desc-python Environment
-See: 
+See: [desc-python-packages.md](https://github.com/LSSTDESC/desc-python/blob/master/conda/desc-python-packages.md)
 
 ## Dockerfiles used to generate the underlying Shifter Image for desc-stack
 See: https://github.com/LSSTDESC/desc-stack
