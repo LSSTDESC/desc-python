@@ -42,7 +42,8 @@ RUN yum clean -y all && \
     rm -rf /var/cache/yum && \
     groupadd -g 1000 -r lsst && useradd -u 1000 --no-log-init -m -r -g lsst lsst
     
-RUN bash conda/install-desc.sh /usr/local/py3.7 conda/desc-python-env-nersc-vers.yml NERSC \
+RUN pwd \
+    bash ../conda/install-desc.sh /usr/local/py3.7 ../conda/desc-python-env-nersc-vers.yml NERSC \
     rm ./Miniconda3-4.7.12.1-Linux-x86_64.sh \
     rm -Rf CatalogMatcher
     
