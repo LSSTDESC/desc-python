@@ -30,12 +30,18 @@ cd CatalogMatcher
 python setup.py install
 cd ..
 
-# Install root_dir branch for now
-git clone https://github.com/LSSTDESC/gcr-catalogs.git
-cd gcr-catalogs
-git checkout u/jrb/root_dir
-python setup.py install
-cd ..
+# Install root_dir branch for now at CC
+if [[ -z $3 ]]
+then	
+  git clone https://github.com/LSSTDESC/gcr-catalogs.git
+  cd gcr-catalogs
+  git checkout u/jrb/root_dir
+  python setup.py install
+  cd ..
+else
+# Install latest release at NERSC
+  pip install https://github.com/LSSTDESC/gcr-catalogs/archive/v0.15.0.tar.gz	
+fi
 
 
 
