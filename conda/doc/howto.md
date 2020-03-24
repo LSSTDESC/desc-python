@@ -10,6 +10,16 @@ Note there are two yaml files:
 
 `desc-python-env-nersc-vers.yml` Contains the exact versions of each package installed at NERSC
 
+## Environment SetUp After Installation
+
+To prepare your environment to use the new `desc` conda environment, the following must be done:
+
+```
+source <path to installation>/etc/profile.d/conda.sh
+conda activate desc
+```
+
+When finished with the `desc` conda environment, do:  `conda deactivate`
 
 ### Permissions
 fast3tree builds its library on the fly.  Initially, write access is required to allow this library to be built.
