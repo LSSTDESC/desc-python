@@ -43,9 +43,10 @@ RUN yum clean -y all && \
     groupadd -g 1000 -r lsst && useradd -u 1000 --no-log-init -m -r -g lsst lsst
     
 RUN pwd && \
-    bash ../conda/install-desc.sh /usr/local/py3.7 ../conda/desc-python-env-nersc-vers.yml NERSC && \
-    rm ./Miniconda3-4.7.12.1-Linux-x86_64.sh && \
-    rm -Rf CatalogMatcher
+    ls 
+#    bash ../conda/install-desc.sh /usr/local/py3.7 ../conda/desc-python-env-nersc-vers.yml NERSC && \
+#    rm ./Miniconda3-4.7.12.1-Linux-x86_64.sh && \
+#    rm -Rf CatalogMatcher
     
 #RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-4.7.12.1-Linux-x86_64.sh -o /tmp/miniconda.sh && \
 #    bash /tmp/miniconda.sh -bfp /usr/local/ && \
