@@ -6,6 +6,8 @@ then
 	exit 1
 fi
 
+unset PYTHONPATH
+
 curl -LO https://repo.anaconda.com/miniconda/Miniconda3-4.7.12.1-Linux-x86_64.sh
 
 bash ./Miniconda3-4.7.12.1-Linux-x86_64.sh -b -p $1
@@ -34,6 +36,7 @@ cd ..
 if [[ -z $3 ]]
 then	
   pip install https://github.com/LSSTDESC/gcr-catalogs/archive/u/jrb/root_dir.tar.gz
+  pip install jupyterlab
 else
 # Install latest release at NERSC
   pip install https://github.com/LSSTDESC/gcr-catalogs/archive/v0.15.0.tar.gz	
