@@ -36,6 +36,11 @@ fi
 
 source $LSST_INST_DIR/$LSST_PYTHON_VER/etc/profile.d/conda.sh
 conda activate desc
-echo Now using $LSST_INST_DIR/$LSST_PYTHON_VER/envs/desc
+if [ -n "$DESCUSERENV" ]; then
+   conda activate $DESCUSERENV
+fi
+OUTPUTPY="$(which python)"
+echo Now using "${OUTPUTPY}"
+#echo Now using $LSST_INST_DIR/$LSST_PYTHON_VER/envs/desc
 
 export HDF5_USE_FILE_LOCKING=FALSE
