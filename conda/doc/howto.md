@@ -1,5 +1,9 @@
 # How to set up a new DESC python enviroment
 
+* If installing a shared conda environment
+  * Check the default Access Control List (ACL) for the installation directory ie. `getfacl <PathToYourInstallDirectory>`
+  * If group permissions allow write access, consider setting the default ACL group permissions to just rx
+      * `setfacl -d -m"group::rx" <PathToYourInstallDirectory>`
 * Run `bash ./install-desc.sh <path to installation> <name of yaml file>`
 
 Example:  `bash ./install-desc.sh $CSCRATCH/test-install desc-python-env.yml`
@@ -10,7 +14,7 @@ Note there are two yaml files:
 
 `desc-python-env-nersc-vers.yml` Contains the exact versions of each package installed at NERSC
 
-## Environment SetUp After Installation
+## Environment Set Up After Installation
 
 To prepare your environment to use the new `desc` conda environment, the following must be done:
 
