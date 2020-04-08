@@ -20,6 +20,11 @@ conda env create -f $2
 source $1/etc/profile.d/conda.sh
 conda activate desc
 
+# Finish installing fast3tree by forcing the creation of its library
+echo -e "from fast3tree.make_lib import make_lib\nmake_lib(3, True)\nmake_lib(3, False)\nmake_lib(2, True)\nmake_lib(2, False)" >> ./install_fast3tree.py
+python ./install_fast3tree.py
+rm ./install_fast3tree.py
+
 # Install additional packages that require special handling
 pip install https://bitbucket.org/yymao/helpers/get/v0.3.2.tar.gz
 pip install https://github.com/LSSTDESC/descqa/archive/v2.0.0-0.7.0.tar.gz
@@ -31,6 +36,7 @@ git clone https://github.com/LSSTDESC/CatalogMatcher.git
 cd CatalogMatcher
 python setup.py install
 cd ..
+rm -Rf CatalogMatcher
 
 # Install root_dir branch for now at CC
 if [[ -z $3 ]]
