@@ -45,7 +45,9 @@ RUN yum clean -y all && \
 RUN cd /tmp && \
     git clone https://github.com/LSSTDESC/desc-python && \
     cd desc-python/conda && \
-    bash install-desc.sh /usr/local/py3.7 desc-python-env-nersc-vers.yml NERSC 
+    bash install-desc.sh /usr/local/py3.7 desc-python-env-nersc-vers.yml NERSC && \
+    cd /tmp && \
+    rm -Rf desc-python
     
 ENV HDF5_USE_FILE_LOCKING FALSE
 ENV PYTHONSTARTUP ''
