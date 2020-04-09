@@ -40,9 +40,8 @@ RUN yum update -y && \
     
 RUN yum clean -y all && \
     rm -rf /var/cache/yum && \
-    groupadd -g 1000 -r lsst && useradd -u 1000 --no-log-init -m -r -g lsst lsst
-    
-RUN cd /tmp && \
+    groupadd -g 1000 -r lsst && useradd -u 1000 --no-log-init -m -r -g lsst lsst && \
+    cd /tmp && \
     git clone https://github.com/LSSTDESC/desc-python && \
     cd desc-python/conda && \
     bash install-desc.sh /usr/local/py3.7 desc-python-env-nersc-vers.yml NERSC && \
