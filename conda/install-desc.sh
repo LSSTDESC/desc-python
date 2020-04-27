@@ -25,19 +25,6 @@ echo -e "from fast3tree.make_lib import make_lib\nmake_lib(3, True)\nmake_lib(3,
 python ./install_fast3tree.py
 rm ./install_fast3tree.py
 
-# Install additional packages that require special handling
-#pip install https://bitbucket.org/yymao/helpers/get/v0.3.2.tar.gz
-#pip install https://github.com/LSSTDESC/descqa/archive/v2.0.0-0.7.0.tar.gz
-#pip install https://github.com/LSSTDESC/desc-dc2-dm-data/archive/v0.5.0.tar.gz
-#pip install https://github.com/yymao/FoFCatalogMatching/archive/v0.1.0.tar.gz
-#pip install git+https://github.com/msimet/Stile
-
-#git clone https://github.com/LSSTDESC/CatalogMatcher.git
-#cd CatalogMatcher
-#python setup.py install
-#cd ..
-#rm -Rf CatalogMatcher
-
 # Install root_dir branch for now at CC
 if [[ -z $3 ]]
 then	
