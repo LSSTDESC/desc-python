@@ -350,5 +350,10 @@ dependencies:
     - pyqtwebengine==5.12.1
     - starlink-pyast==3.14.4
     - tables==3.6.1
+    - https://bitbucket.org/yymao/helpers/get/v0.3.2.tar.gz
+    - https://github.com/LSSTDESC/descqa/archive/v2.0.0-0.7.0.tar.gz
+    - https://github.com/yymao/FoFCatalogMatching/archive/v0.1.0.tar.gz
+    - https://github.com/msimet/Stile/archive/v0.1.tar.gz
+    - https://github.com/LSSTDESC/CatalogMatcher/archive/master.tar.gz
 prefix: /global/cscratch1/sd/heatherk/desc-python/py-latest/envs/desc-test
 
