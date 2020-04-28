@@ -16,6 +16,7 @@ dependencies:
   - extinction
   - fastparquet
   - fitsio
+  - flake8
   - galsim
   - google-cloud-bigquery  
   - graphviz
@@ -23,7 +24,7 @@ dependencies:
   - hdf5
   - healpy
   - holoviews
-  - ipympl==0.2.1
+  - ipympl
   - jupyter
   - markupsafe
   - matplotlib
@@ -45,12 +46,14 @@ dependencies:
   - scipy
   - seaborn
   - sphinx
+  - tabulate
   - TreeCorr
   - yaml
   - pip:
     - fast3tree
     - fits2hdf
     - gcr==0.8.8
+    - healsparse
     - psycopg2-binary
     - starlink-pyast
     - tables
