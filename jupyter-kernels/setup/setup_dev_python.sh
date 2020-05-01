@@ -35,7 +35,7 @@ if [ -n "$DESCPYTHONPATH" ]; then
 fi 
 
 source $LSST_INST_DIR/$LSST_PYTHON_VER/etc/profile.d/conda.sh
-conda activate desc
+conda activate desc-dev
 if [ -n "$DESCUSERENV" ]; then
    conda activate $DESCUSERENV
 fi
