@@ -31,7 +31,7 @@ dependencies:
   - camb=1.1.2=py37h2e358b4_0
   - certifi=2020.4.5.1=py37hc8dfbb8_0
   - cffi=1.14.0=py37hd463f26_0
-  - cfitsio=3.470=h00dd3da_3
+  - cfitsio=3.470=h3eac812_5
   - chardet=3.0.4=py37hc8dfbb8_1006
   - chealpix=3.31.0=h60f8253_0
   - click=7.1.2=pyh9f0ad1d_0
@@ -236,7 +236,7 @@ dependencies:
   - pyasn1=0.4.8=py_0
   - pyasn1-modules=0.2.7=py_0
   - pybind11=2.5.0=py37h99015e2_0
-  - pyccl=2.0.1=py37h0db1de9_4
+  - pyccl=2.1.0=py37ha1970ed_0
   - pycodestyle=2.5.0=py_0
   - pycparser=2.20=py_0
   - pyct=0.4.6=py_0
