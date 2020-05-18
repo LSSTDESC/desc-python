@@ -15,7 +15,7 @@ which python
 export PATH=$1/bin:$PATH
 which python
 
-conda env create -f $2
+conda env create -n desc -f $2
 
 source $1/etc/profile.d/conda.sh
 conda activate desc
