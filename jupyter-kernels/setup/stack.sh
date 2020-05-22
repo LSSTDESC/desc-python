@@ -10,6 +10,8 @@ unset PYTHONSTARTUP
 
 export PYTHONNOUSERSITE=' '
 
+export DESC_GCR_SITE='nersc'
+
 if [ -n "$DESCPYTHONPATH" ]; then
     export PYTHONPATH="$DESCPYTHONPATH:$PYTHONPATH"
     echo "Including user python path: $DESCPYTHONPATH"
