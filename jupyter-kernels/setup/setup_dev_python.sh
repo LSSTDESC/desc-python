@@ -34,6 +34,8 @@ if [ -n "$DESCPYTHONPATH" ]; then
     echo "Including user python path: $DESCPYTHONPATH"
 fi 
 
+export DESC_GCR_SITE='nersc'
+
 source $LSST_INST_DIR/$LSST_PYTHON_VER/etc/profile.d/conda.sh
 conda activate desc-dev
 if [ -n "$DESCUSERENV" ]; then
