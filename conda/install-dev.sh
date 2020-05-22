@@ -24,14 +24,10 @@ echo -e "from fast3tree.make_lib import make_lib\nmake_lib(3, True)\nmake_lib(3,
 python ./install_fast3tree.py
 rm ./install_fast3tree.py
 
-# Install root_dir branch for now at CC
+# Install jupyterlab at CC
 if [[ -z $3 ]]
 then	
-  pip install https://github.com/LSSTDESC/gcr-catalogs/archive/u/jrb/root_dir.tar.gz
   pip install jupyterlab
-else
-# Install latest release at NERSC
-  pip install https://github.com/LSSTDESC/gcr-catalogs/archive/v0.15.0.tar.gz	
 fi
 
 
