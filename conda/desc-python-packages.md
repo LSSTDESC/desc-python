@@ -18,6 +18,7 @@
 * fastparquet
 * fits2hdf
 * fitsio
+* flake8
 * galsim
 * gcr==0.8.8
 * gcr-catalogs==0.15.0
@@ -26,6 +27,7 @@
 * gsl
 * hdf5
 * healpy
+* healsparse
 * helpers
 * holoviews
 * ipympl==0.2.1
@@ -54,4 +56,5 @@
 * starlink-pyast
 * TreeCorr
 * tables
+* tabulate
 * yaml

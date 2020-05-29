@@ -1,5 +1,12 @@
 #!/bin/sh
 
+## To Run at NERSC
+## bash install-dev.sh <pathToExistingCondaInstall> ./desc-python-env-nersc-install-nobuildinfo.yml NERSC
+## Note the inclusion of NERSC parameter skips the install of jupyterlab below
+
+## To Run at other sites
+## bash install-dev.sh <pathToExistingCondaInstall> ./desc-python-env-nersc-install-nobuildinfo.yml
+
 if [ -z "$1" ]
 then	
 	echo "Please provide a full path install directory"
