@@ -6,7 +6,7 @@ do
 done
 
 if [[ $HAS_LSST != 1 ]]; then
-    echo "Contact Richard Dubois <richard@slac.stanford.edu> or Debbie Bard <djbard@lbl.gov> to request joining the 'lsst' group."
+    echo "Contact Richard Dubois <richard@slac.stanford.edu> or Heather Kelly <heather@slac.stanford.edu> to request joining the 'lsst' group."
     exit 1
 fi
 
@@ -19,6 +19,8 @@ jupyter kernelspec install $INST_DIR/kernels/desc-python-old --user
 jupyter kernelspec install $INST_DIR/kernels/desc-stack --user
 jupyter kernelspec install $INST_DIR/kernels/desc-stack-dev --user
 jupyter kernelspec install $INST_DIR/kernels/desc-stack-old --user
+jupyter kernelspec install $INST_DIR/kernels/desc-stack-weekly --user
+jupyter kernelspec install $INST_DIR/kernels/desc-stack-weekly-latest --user
 jupyter kernelspec install $INST_DIR/kernels/desc-pyspark --user
 jupyter kernelspec install $INST_DIR/kernels/desc-sims --user
 jupyter kernelspec install $INST_DIR/kernels/desc-dia --user
