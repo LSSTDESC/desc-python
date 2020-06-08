@@ -1,0 +1,22 @@
+name: desc-python bleed
+
+on: 
+  push:
+    branches:
+      - bleed
+
+jobs:
+  build:
+    name: Build on Ubuntu
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Docker login
+        run: echo '${{ secrets.DOCKERHUB_ACCESSTOK }}' | docker login --username heather999 --password-stdin
+      - name: checkout desc-python
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      - name: do docker build
+        run: docker build --no-cache -t lsstdesc/desc-python:bleed -f $GITHUB_WORKSPACE/Dockerfile . 
+      - name: Docker push
+        run: docker push lsstdesc/desc-python:bleed
