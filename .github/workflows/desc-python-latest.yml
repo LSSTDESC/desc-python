@@ -7,6 +7,8 @@ jobs:
     name: Build on Ubuntu
     runs-on: ubuntu-18.04
     steps:
+      - name: Check Disk Space
+        run: df -h && sudo apt-get clean && df -h 
       - name: Docker login
         run: echo '${{ secrets.DOCKERHUB_ACCESSTOK }}' | docker login --username heather999 --password-stdin
       - name: checkout desc-python
