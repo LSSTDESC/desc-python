@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "shifter",
+    "--image=lsstdesc/desc-python:bleed",
+    "/global/common/software/lsst/common/miniconda/kernels/python-bleed.sh",
+    "-f",
+    "{connection_file}"
+  ],
+  "display_name": "desc-python-bleed",
+  "language": "python"
+}

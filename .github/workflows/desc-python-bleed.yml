@@ -1,9 +1,9 @@
-name: desc-python dev
+name: desc-python bleed
 
 on: 
   push:
     branches:
-      - dev
+      - bleed
 
 jobs:
   build:
@@ -19,6 +19,6 @@ jobs:
         with:
           fetch-depth: 1
       - name: do docker build
-        run: docker build --no-cache -t lsstdesc/desc-python:dev -f $GITHUB_WORKSPACE/Dockerfile . 
+        run: docker build --no-cache -t lsstdesc/desc-python:bleed -f $GITHUB_WORKSPACE/Dockerfile . 
       - name: Docker push
-        run: docker push lsstdesc/desc-python:dev
+        run: docker push lsstdesc/desc-python:bleed

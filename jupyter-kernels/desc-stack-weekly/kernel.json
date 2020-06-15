@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "shifter",
+    "--image=lsstdesc/stack-jupyter:weekly",
+    "/global/common/software/lsst/common/miniconda/kernels/stack-prod.sh",
+    "-f",
+    "{connection_file}"
+  ],
+  "display_name": "desc-stack-weekly",
+  "language": "python"
+}
