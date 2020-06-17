@@ -4,7 +4,7 @@ channels:
   - defaults
 dependencies:
   - astroplan
-  - astropy==3.2.3
+  - astropy
   - bokeh
   - camb
   - cmake
@@ -35,7 +35,7 @@ dependencies:
   - pandas
   - parsl
   - pip  
-  - pyarrow==0.13.0
+  - pyarrow
   - pybind11
   - pyccl
   - pymssql
@@ -52,7 +52,7 @@ dependencies:
   - pip:
     - fast3tree
     - fits2hdf
-    - gcr==0.8.8
+    - gcr
     - healsparse
     - psycopg2-binary
     - starlink-pyast
