@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - bleed
+  schedule:
+    - cron: '2 23 * * 0'
 
 jobs:
   build:
