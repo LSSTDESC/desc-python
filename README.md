@@ -14,6 +14,7 @@ See: https://confluence.slac.stanford.edu/display/LSSTDESC/Using+Jupyter+at+NERS
 ## Current Jupyter Kernels
 - desc-python:  Current producution release including all DESC requested packages
 - desc-python-dev: Upcoming production release of desc-python
+- desc-python-bleed: Picks up latest releases of all python packages. Updated weekly
 - desc-python-old: Previous production release of desc-python
 
 ## List of Packages Included in the desc-python Environment
