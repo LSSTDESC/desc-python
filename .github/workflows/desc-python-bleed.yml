@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - bleed
+  schedule:
+    - cron: '30 13 * * 1'
 
 jobs:
   build:
@@ -22,3 +24,7 @@ jobs:
         run: docker build --no-cache -t lsstdesc/desc-python:bleed -f $GITHUB_WORKSPACE/Dockerfile . 
       - name: Docker push
         run: docker push lsstdesc/desc-python:bleed
+
+
+
+
