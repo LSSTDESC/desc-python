@@ -21,6 +21,8 @@ See: [desc-python-packages.md](https://github.com/LSSTDESC/desc-python/blob/mast
 
 
 
+
+
 ## desc-python Releases
 
 ### First Run2.2i python env
@@ -33,3 +35,6 @@ Set up using `source /global/common/software/lsst/common/miniconda/setup_current
 
 ### Final Run1.2i python env 
 `/global/common/software/lsst/common/miniconda/py3-4.5.4`
+
+
+Force a rebuild
