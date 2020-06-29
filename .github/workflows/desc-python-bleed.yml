@@ -5,7 +5,7 @@ on:
     branches:
       - bleed
   schedule:
-    - cron: '45 13 * * 1'
+    - cron: '45 20 * * 0'
 
 jobs:
   build:
