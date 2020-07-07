@@ -10,6 +10,7 @@ dependencies:
   - cmake
   - corner
   - dask
+  - dask-mpi
   - datashader 
   - dustmaps
   - eigen
