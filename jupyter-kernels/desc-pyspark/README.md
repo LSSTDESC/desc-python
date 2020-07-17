@@ -11,5 +11,5 @@ If you have trouble with this kernel, contact me (Julien Peloton, peloton@lal.in
 
 # Logbook
 
-- 12/11/2018: Initial release of the kernel using Spark 2.4.4
+- 12/11/2018: Initial release of the kernel using Spark 2.4.0
 - 17/07/2020: Update Spark version to 3.0.0
