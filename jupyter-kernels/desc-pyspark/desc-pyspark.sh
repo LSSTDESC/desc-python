@@ -15,6 +15,7 @@ export SPARK_LOCAL_DIRS="${SCRATCH}/sparktmp"
 
 # Path to LSST miniconda installation at NERSC
 LSSTCONDA="/global/common/software/lsst/common/miniconda"
+LSSTCONDABIN="${LSSTCONDA}/py3.7-4.7.12.1-v1/envs/desc/bin"
 
 # Since the default NERSC Apache Spark runs inside of Shifter, we use
 # a custom local version of it. This is maintained by me (Julien Peloton)
@@ -30,8 +31,8 @@ export PYTHONSTARTUP="${SPARKPATH}/python/pyspark/shell.py"
 export DESCPYTHONPATH="${SPARKPATH}/python/lib/py4j-0.10.9-src.zip:${SPARKPATH}/python:${DESCPYTHONPATH}"
 
 # Should correspond to desc-python
-export PYSPARK_PYTHON="${LSSTCONDA}/current/bin/python"
-export PYSPARK_DRIVER_PYTHON="${LSSTCONDA}/current/bin/ipython3"
+export PYSPARK_PYTHON="${LSSTCONDABIN}/python"
+export PYSPARK_DRIVER_PYTHON="${LSSTCONDABIN}/ipython"
 
 export JAVA_HOME="/usr/lib64/jvm/java"
 
