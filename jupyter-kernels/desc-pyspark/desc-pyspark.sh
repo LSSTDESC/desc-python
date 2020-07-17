@@ -19,22 +19,21 @@ LSSTCONDA="/global/common/software/lsst/common/miniconda"
 # Since the default NERSC Apache Spark runs inside of Shifter, we use
 # a custom local version of it. This is maintained by me (Julien Peloton)
 # at NERSC. If you encounter problems, let me know (peloton at lal.in2p3.fr)!
-SPARKPATH="/global/homes/p/peloton/myspark/spark-2.4.0-bin-hadoop2.7"
+SPARKPATH="/global/homes/p/peloton/myspark/spark-3.0.0-bin-hadoop2.7"
 
 # Here is the environment needed for Spark to run at NERSC.
 export SPARK_HOME="${SPARKPATH}"
-export PYSPARK_SUBMIT_ARGS="--master local[4] --driver-memory 8g --executor-memory 8g --packages com.github.astrolabsoftware:spark-fits_2.11:0.7.2 --conf spark.eventLog.enabled=true --conf spark.eventLog.dir=file://${SCRATCH}/spark/event_logs --conf spark.history.fs.logDirectory=file://${SCRATCH}/spark/event_logs pyspark-shell"
+export PYSPARK_SUBMIT_ARGS="--master local[4] --driver-memory 8g --executor-memory 8g --packages com.github.astrolabsoftware:spark-fits_2.11:0.8.4 --conf spark.eventLog.enabled=true --conf spark.eventLog.dir=file://${SCRATCH}/spark/event_logs --conf spark.history.fs.logDirectory=file://${SCRATCH}/spark/event_logs pyspark-shell"
 export PYTHONSTARTUP="${SPARKPATH}/python/pyspark/shell.py"
 
 # Make sure the version of py4j is correct.
-export DESCPYTHONPATH="${SPARKPATH}/python/lib/py4j-0.10.7-src.zip:${SPARKPATH}/python:${DESCPYTHONPATH}"
+export DESCPYTHONPATH="${SPARKPATH}/python/lib/py4j-0.10.9-src.zip:${SPARKPATH}/python:${DESCPYTHONPATH}"
 
 # Should correspond to desc-python
 export PYSPARK_PYTHON="${LSSTCONDA}/current/bin/python"
 export PYSPARK_DRIVER_PYTHON="${LSSTCONDA}/current/bin/ipython3"
 
-# We use Java 8. Spark 2+ does not work with Java 7 and earlier versions.
-export JAVA_HOME="/opt/java/jdk1.8.0_51"
+export JAVA_HOME="/usr/lib64/jvm/java"
 
 # desc-python activation script
 source ${LSSTCONDA}/kernels/python.sh
