@@ -53,7 +53,7 @@ dependencies:
   - snappy
   - sphinx
   - tabulate
-  - TreeCorr
+  - TreeCorr==4.1.4
   - yaml
   - pip:
     - fast3tree
