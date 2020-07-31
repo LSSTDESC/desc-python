@@ -29,6 +29,7 @@ dependencies:
   - holoviews
   - ipympl
   - jupyter
+  - lsstdesc.coord
   - markupsafe
   - matplotlib
   - namaster
@@ -50,7 +51,7 @@ dependencies:
   - seaborn
   - sphinx
   - tabulate
-  - TreeCorr==4.1.4
+  - TreeCorr
   - yaml
   - pip:
     - fast3tree
