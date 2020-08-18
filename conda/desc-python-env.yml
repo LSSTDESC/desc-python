@@ -44,11 +44,14 @@ dependencies:
   - pyccl
   - pymssql
   - pytest
+  - python-snappy
   - sacc
   - scikit-image
   - scikit-learn
   - scipy
   - seaborn
+  - selenium
+  - snappy
   - sphinx
   - tabulate
   - TreeCorr
