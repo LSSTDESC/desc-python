@@ -19,7 +19,13 @@ jobs:
         with:
           fetch-depth: 0
           ref: bleed
-      - name: do docker build
+      - name: pull old build
+        run: docker pull lsstdesc/desc-python:bleed
+      - name: tag old build
+        run: docker tag lsstdesc/desc-python:bleed lsstdesc/desc-python:bleed-old
+      - name: push old
+        run: docker push lsstdesc/desc-python:bleed-old
+      - name: do fresh docker build
         run: docker build --no-cache -t lsstdesc/desc-python:bleed -f $GITHUB_WORKSPACE/Dockerfile . 
       - name: Docker push
         run: docker push lsstdesc/desc-python:bleed
