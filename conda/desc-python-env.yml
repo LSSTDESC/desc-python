@@ -57,6 +57,7 @@ dependencies:
   - TreeCorr
   - yaml
   - pip:
+    - ceci
     - fast3tree
     - fits2hdf
     - gcr
