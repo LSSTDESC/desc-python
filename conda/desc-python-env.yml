@@ -8,6 +8,7 @@ dependencies:
   - bokeh
   - camb
   - cmake
+  - cookiecutter
   - corner
   - dask
   - dask-jobqueue
