@@ -21,6 +21,8 @@ bash ./Miniconda3-4.7.12.1-Linux-x86_64.sh -b -p $1
 which python
 export PATH=$1/bin:$PATH
 which python
+echo $2
+conda env create --help
 
 conda env create -n desc -f $2
 
