@@ -43,16 +43,19 @@ dependencies:
   - pyccl
   - pymssql
   - pytest
+  - python-snappy
   - sacc
   - scikit-image
   - scikit-learn
   - scipy
   - seaborn
+  - snappy
   - sphinx
   - tabulate
   - TreeCorr
   - yaml
   - pip:
+    - ceci
     - dustmaps
     - fast3tree
     - fits2hdf
