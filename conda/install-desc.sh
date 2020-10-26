@@ -19,6 +19,7 @@ curl -LO https://repo.anaconda.com/miniconda/Miniconda3-4.7.12.1-Linux-x86_64.sh
 
 bash ./Miniconda3-4.7.12.1-Linux-x86_64.sh -b -p $1
 which python
+export PATH=$1/bin:$PATH
 source $1/etc/profile.d/conda.sh
 which python
 conda env create -n desc -f $2
