@@ -22,7 +22,7 @@ which python
 export PATH=$1/bin:$PATH
 which python
 
-conda create -n desc -f $2
+conda create -n desc --file $2
 
 source $1/etc/profile.d/conda.sh
 conda activate desc
