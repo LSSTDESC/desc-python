@@ -48,6 +48,8 @@ RUN yum clean -y all && \
     groupadd -g 1000 -r lsst && useradd -u 1000 --no-log-init -m -r -g lsst lsst && \
     pwd && \
     ls && \
+    echo $WORKDIR && \
+    ls /home/runner && \
     bash install-desc.sh /usr/local/py3.7 desc-python-env.yml NERSC 
 
 ##    cd /tmp && \
