@@ -15,7 +15,9 @@ jobs:
       - name: Docker login
         run: echo '${{ secrets.DOCKERHUB_ACCESSTOK }}' | docker login --username heather999 --password-stdin
       - name: checkout desc-python
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
       - name: pull old build
         run: docker pull lsstdesc/desc-python:bleed
       - name: tag old build
