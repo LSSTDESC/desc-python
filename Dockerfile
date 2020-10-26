@@ -46,10 +46,14 @@ RUN yum update -y && \
 RUN yum clean -y all && \
     rm -rf /var/cache/yum && \
     groupadd -g 1000 -r lsst && useradd -u 1000 --no-log-init -m -r -g lsst lsst && \
-    cd /tmp && \
-    echo $GITHUB_WORKSPACE && \
-    cd $GITHUB_WORKSPACE/conda && \
+    pwd && \
+    ls && \
     bash install-desc.sh /usr/local/py3.7 desc-python-env.yml NERSC 
+
+##    cd /tmp && \
+###    echo $GITHUB_WORKSPACE && \
+ ##   cd $GITHUB_WORKSPACE/conda && \
+##    bash install-desc.sh /usr/local/py3.7 desc-python-env.yml NERSC 
     
     #&& \
     #cd /tmp && \
