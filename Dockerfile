@@ -38,15 +38,22 @@ RUN yum update -y && \
     zlib-devel \
     devtoolset-8
     
+    
+#git clone https://github.com/LSSTDESC/desc-python && \
+#cd desc-python/conda && \
+#
+#
 RUN yum clean -y all && \
     rm -rf /var/cache/yum && \
     groupadd -g 1000 -r lsst && useradd -u 1000 --no-log-init -m -r -g lsst lsst && \
     cd /tmp && \
-    git clone https://github.com/LSSTDESC/desc-python && \
-    cd desc-python/conda && \
-    bash install-desc.sh /usr/local/py3.7 desc-python-env.yml NERSC && \
-    cd /tmp && \
-    rm -Rf desc-python
+    echo $GITHUB_WORKSPACE && \
+    cd $GITHUB_WORKSPACE/conda && \
+    bash install-desc.sh /usr/local/py3.7 desc-python-env.yml NERSC 
+    
+    #&& \
+    #cd /tmp && \
+    #rm -Rf desc-python
     
 ENV HDF5_USE_FILE_LOCKING FALSE
 ENV PYTHONSTARTUP ''
