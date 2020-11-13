@@ -15,17 +15,11 @@ jobs:
       - name: Docker login
         run: echo '${{ secrets.DOCKERHUB_ACCESSTOK }}' | docker login --username heather999 --password-stdin
       - name: checkout desc-python
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
         with:
-          fetch-depth: 1
-      - name: pull old build
-        run: docker pull lsstdesc/desc-python:bleed
-      - name: tag old build
-        run: docker tag lsstdesc/desc-python:bleed lsstdesc/desc-python:bleed-old
-      - name: push old
-        run: docker push lsstdesc/desc-python:bleed-old
+          fetch-depth: 0
+          ref: bleed
       - name: do fresh docker build
         run: docker build --no-cache -t lsstdesc/desc-python:bleed -f $GITHUB_WORKSPACE/Dockerfile . 
       - name: Docker push
         run: docker push lsstdesc/desc-python:bleed
-
