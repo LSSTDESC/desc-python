@@ -27,6 +27,8 @@ dependencies:
   - hdf5
   - healpy
   - holoviews
+  - intake 
+  - intake-parquet
   - ipympl
   - jupyter
   - lsstdesc.coord
