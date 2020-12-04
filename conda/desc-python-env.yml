@@ -13,7 +13,8 @@ dependencies:
   - dask
   - dask-mpi
   - dask-jobqueue
-  - datashader 
+  - datashader
+  - dustmaps
   - eigen
   - emcee
   - extinction
@@ -21,14 +22,17 @@ dependencies:
   - fitsio
   - flake8
   - galsim
+  - gcr
   - google-cloud-bigquery  
   - graphviz
   - gsl
   - hdf5
   - healpy
+  - healsparse
   - holoviews
   - ipympl
   - jupyter
+  - lsstdesc-gcr-catalogs
   - markupsafe
   - matplotlib
   - namaster
@@ -42,6 +46,7 @@ dependencies:
   - pybind11
   - pyccl
   - pymssql
+  - pytables
   - pytest
   - python-snappy
   - sacc
@@ -56,18 +61,13 @@ dependencies:
   - yaml
   - pip:
     - ceci
-    - dustmaps
     - fast3tree
     - fits2hdf
-    - gcr==0.8.8
-    - healsparse
     - psycopg2-binary
     - starlink-pyast
-    - tables
-    - https://github.com/LSSTDESC/desc-dc2-dm-data/archive/v0.7.0.tar.gz
-    - https://bitbucket.org/yymao/helpers/get/v0.3.2.tar.gz
-    - https://github.com/LSSTDESC/descqa/archive/v2.0.0-0.7.0.tar.gz
-    - https://github.com/yymao/FoFCatalogMatching/archive/v0.1.0.tar.gz
-    - https://github.com/msimet/Stile/archive/v0.1.tar.gz
+    - https://github.com/LSSTDESC/desc-dc2-dm-data/archive/master.tar.gz
+    - https://bitbucket.org/yymao/helpers/get/master.tar.gz
+    - https://github.com/LSSTDESC/descqa/archive/master.tar.gz
+    - https://github.com/yymao/FoFCatalogMatching/archive/master.tar.gz
+    - https://github.com/msimet/Stile/archive/master.tar.gz
     - https://github.com/LSSTDESC/CatalogMatcher/archive/master.tar.gz
-    - https://github.com/LSSTDESC/gcr-catalogs/archive/v1.0.3.tar.gz
