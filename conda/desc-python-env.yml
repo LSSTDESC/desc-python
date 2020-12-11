@@ -44,6 +44,7 @@ dependencies:
   - pymssql
   - pytest
   - python-snappy
+  - redmapper
   - sacc
   - scikit-image
   - scikit-learn
@@ -59,7 +60,7 @@ dependencies:
     - dustmaps
     - fast3tree
     - fits2hdf
-    - gcr==0.8.8
+    - gcr==0.9.0
     - healsparse
     - psycopg2-binary
     - starlink-pyast
@@ -70,4 +71,4 @@ dependencies:
     - https://github.com/yymao/FoFCatalogMatching/archive/v0.1.0.tar.gz
     - https://github.com/msimet/Stile/archive/v0.1.tar.gz
     - https://github.com/LSSTDESC/CatalogMatcher/archive/master.tar.gz
-    - https://github.com/LSSTDESC/gcr-catalogs/archive/v1.0.3.tar.gz
+    - https://github.com/LSSTDESC/gcr-catalogs/archive/v1.0.4.tar.gz
