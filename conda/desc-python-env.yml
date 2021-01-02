@@ -23,7 +23,7 @@ dependencies:
   - flake8
   - galsim
   - gcr
-  - google-cloud-bigquery  
+  - google-cloud-bigquery
   - graphviz
   - gsl
   - hdf5
@@ -41,7 +41,8 @@ dependencies:
   - numpy
   - pandas
   - parsl
-  - pip  
+  - pip
+  - psycopg2
   - pyarrow
   - pybind11
   - pyccl
@@ -57,17 +58,16 @@ dependencies:
   - snappy
   - sphinx
   - tabulate
-  - TreeCorr
+  - treecorr
   - yaml
   - pip:
     - ceci
     - fast3tree
+    - fofcatalogmatching
     - fits2hdf
-    - psycopg2-binary
     - starlink-pyast
     - https://github.com/LSSTDESC/desc-dc2-dm-data/archive/master.tar.gz
     - https://bitbucket.org/yymao/helpers/get/master.tar.gz
     - https://github.com/LSSTDESC/descqa/archive/master.tar.gz
-    - https://github.com/yymao/FoFCatalogMatching/archive/master.tar.gz
     - https://github.com/msimet/Stile/archive/master.tar.gz
     - https://github.com/LSSTDESC/CatalogMatcher/archive/master.tar.gz
