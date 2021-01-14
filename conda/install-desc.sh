@@ -22,7 +22,7 @@ which python
 #export PATH=$1/bin:$PATH
 echo $1
 source $1/etc/profile.d/conda.sh
-#conda activate base
+conda activate base
 which python
 which conda
 conda env create -n desc -f $2
