@@ -17,7 +17,6 @@ jobs:
       - name: checkout desc-python
         uses: actions/checkout@v2
         with:
-          fetch-depth: 0
           ref: bleed
       - name: do fresh docker build
         run: docker build --no-cache -t lsstdesc/desc-python:bleed -f $GITHUB_WORKSPACE/Dockerfile . 
