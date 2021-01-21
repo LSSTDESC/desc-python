@@ -25,7 +25,9 @@ source $1/etc/profile.d/conda.sh
 conda activate base
 which python
 which conda
-conda env create -n desc -f $2
+#conda env create -n desc -f $2
+conda env create -f $2
+conda env list
 conda activate desc
 
 # May no longer be required due to recent 0.4.0 release of fast3tree
