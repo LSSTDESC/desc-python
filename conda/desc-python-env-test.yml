@@ -31,6 +31,7 @@ dependencies:
   - holoviews
   - ipympl
   - jupyter
+  - lsstdesc-coord
   - markupsafe
   - matplotlib
   - namaster
