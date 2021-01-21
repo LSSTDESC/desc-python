@@ -46,7 +46,7 @@ RUN yum clean -y all && \
     cd desc-python && \ 
     git checkout bleed && \
     cd conda && \
-    bash install-desc.sh /usr/local/py3.7 desc-python-env.yml NERSC && \
+    bash install-desc.sh /usr/local/py3.7 desc-python-env-test.yml NERSC && \
     cd /tmp && \
     rm -Rf desc-python
     
