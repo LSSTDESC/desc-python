@@ -25,8 +25,7 @@ source $1/etc/profile.d/conda.sh
 conda activate base
 which python
 which conda
-#conda env create -n desc -f $2
-conda env create -f $2
+conda env create -n desc -f $2
 conda env list
 conda activate desc
 
