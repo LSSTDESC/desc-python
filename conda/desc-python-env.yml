@@ -34,7 +34,7 @@ dependencies:
   - intake-sql
   - ipympl
   - jupyter
-  - lsstdesc.coord
+  - lsstdesc-coord
   - markupsafe
   - matplotlib
   - namaster
