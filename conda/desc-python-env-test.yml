@@ -29,6 +29,11 @@ dependencies:
   - hdf5
   - healpy
   - holoviews
+  - intake
+  - intake-astro
+  - intake-parquet
+  - intake-spark
+  - intake-sql
   - ipympl
   - jupyter
   - lsstdesc-coord
