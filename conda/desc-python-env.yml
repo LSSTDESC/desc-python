@@ -8,10 +8,11 @@ dependencies:
   - bokeh
   - camb
   - cmake
+  - cookiecutter
   - corner
   - dask
-  - dask-jobqueue
   - dask-mpi
+  - dask-jobqueue
   - datashader 
   - dustmaps
   - eigen
@@ -21,13 +22,14 @@ dependencies:
   - fitsio
   - flake8
   - galsim
+  - gcr
   - google-cloud-bigquery  
   - graphviz
   - gsl
   - hdf5
   - healpy
   - holoviews
-  - intake 
+  - intake
   - intake-astro
   - intake-parquet
   - intake-spark
@@ -50,6 +52,7 @@ dependencies:
   - pymssql
   - pytest
   - python-snappy
+  - redmapper
   - sacc
   - scikit-image
   - scikit-learn
@@ -65,7 +68,6 @@ dependencies:
     - ceci
     - fast3tree
     - fits2hdf
-    - gcr
     - healsparse
     - psycopg2-binary
     - starlink-pyast
