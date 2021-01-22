@@ -18,6 +18,7 @@ dependencies:
   - eigen
   - emcee
   - extinction
+  - fast-pt
   - fastparquet
   - fitsio
   - flake8
