@@ -26,6 +26,7 @@ echo '====================='
 echo "SHELL               = $SHELL"
 echo "SHELL_PARSING       = $SHELL_PARSING"
 echo "DESCPYTHONPATH      = $DESCPYTHONPATH"
+echo "DESCUSERENV         = $DESCUSERENV"
 echo "PYTHONHOME          = $PYTHONHOME"
 echo "JUPYTER_CONFIG_DIR  = $JUPYTER_CONFIG_DIR"
 echo "JUPYTER_RUNTIME_DIR = $JUPYTER_RUNTIME_DIR"
@@ -54,6 +55,12 @@ echo '=================================='
 echo 'Content of desc-stack kernel file'
 echo '=================================='
 cat ~/.local/share/jupyter/kernels/desc-stack/kernel.json
+
+echo 
+echo '========================'
+echo 'Content of ~/.bashrc'
+echo '========================'
+cat ~/.bashrc
 
 echo 
 echo '========================'
