@@ -2,9 +2,9 @@
 
 source /opt/lsst/software/stack/loadLSST.bash ""
 setup lsst_distrib
-[ -d "$LSST_STACK_DIR/obs_lsst" ] && setup -r $LSST_STACK_DIR/obs_lsst
+[ -d "$LSST_HOME/obs_lsst" ] && setup -r $LSST_HOME/obs_lsst
 setup lsst_sims
-[ -d "$LSST_STACK_DIR/supreme" ] && setup -r $LSST_STACK_DIR/supreme -j
+[ -d "$LSST_HOME/supreme" ] && setup -r $LSST_HOME/supreme -j
 export OMP_NUM_THREADS=1
 
 unset PYTHONSTARTUP
