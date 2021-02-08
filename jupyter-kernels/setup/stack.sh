@@ -2,7 +2,7 @@
 
 source /opt/lsst/software/stack/loadLSST.bash ""
 setup lsst_distrib
-setup -r /opt/lsst/software/stack/obs_lsst
+[ -d "$LSST_STACK_DIR/obs_lsst" ] && setup -r $LSST_STACK_DIR/obs_lsst
 setup lsst_sims
 [ -d "$LSST_STACK_DIR/supreme" ] && setup -r $LSST_STACK_DIR/supreme -j
 export OMP_NUM_THREADS=1
