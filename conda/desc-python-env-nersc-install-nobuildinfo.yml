@@ -70,7 +70,7 @@ dependencies:
   - fastavro=0.23.6
   - fastcache=1.1.0
   - fastparquet=0.4.1
-  - fftw=3.3.8
+  - fftw=3.3.9
   - fitsio=1.1.2
   - flake8=3.8.3
   - flask=1.1.2
@@ -155,9 +155,9 @@ dependencies:
   - libedit=3.1.20191231
   - libevent=2.1.10
   - libffi=3.2.1
-  - libgcc-ng=9.2.0
+  - libgcc-ng=9.3.0
   - libgfortran-ng=7.5.0
-  - libgomp=9.2.0
+  - libgomp=9.3.0
   - libiconv=1.15
   - liblapack=3.8.0
   - libllvm9=9.0.1
@@ -167,7 +167,7 @@ dependencies:
   - libsharp=1.0.0
   - libsodium=1.0.17
   - libssh2=1.9.0
-  - libstdcxx-ng=9.2.0
+  - libstdcxx-ng=9.3.0
   - libtiff=4.1.0
   - libtool=2.4.6
   - libuuid=2.32.1
@@ -214,7 +214,7 @@ dependencies:
   - olefile=0.46
   - openjpeg=2.3.1
   - openmpi=4.0.4
-  - openssl=1.1.1h
+  - openssl=1.1.1j
   - orderedmultidict=1.0.1
   - packaging=20.4
   - pandas=1.0.5
@@ -250,7 +250,7 @@ dependencies:
   - pyarrow=0.17.1
   - pyasn1=0.4.8
   - pybind11=2.5.0
-  - pyccl=2.1.0
+  - pyccl=2.2.0
   - pycodestyle=2.6.0
   - pycparser=2.20
   - pyct=0.4.6
@@ -385,6 +385,6 @@ dependencies:
     - https://github.com/yymao/FoFCatalogMatching/archive/v0.1.0.tar.gz
     - https://github.com/msimet/Stile/archive/v0.1.tar.gz
     - https://github.com/LSSTDESC/CatalogMatcher/archive/master.tar.gz
-    - https://github.com/LSSTDESC/gcr-catalogs/archive/v1.2.2.tar.gz
+    - https://github.com/LSSTDESC/gcr-catalogs/archive/v1.3.0.tar.gz
 prefix: /global/common/software/lsst/common/miniconda/py3.7-4.7.12.1-v2/envs/desc
 
