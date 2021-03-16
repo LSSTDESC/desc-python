@@ -26,7 +26,9 @@ jobs:
 #      - name: push old
 #        run: docker push lsstdesc/desc-python:pyspark-old
       - name: do fresh docker build
-        run: docker build --no-cache -t lsstdesc/desc-python:pyspark -f $GITHUB_WORKSPACE/Dockerfile . 
+        run: |
+        cd $GITHUB_WORKSPACE
+        docker build --no-cache -t lsstdesc/desc-python:pyspark -f $GITHUB_WORKSPACE/Dockerfile . 
       - name: Docker push
         run: docker push lsstdesc/desc-python:pyspark
 
