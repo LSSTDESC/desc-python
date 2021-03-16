@@ -8,7 +8,8 @@ MAINTAINER Heather Kelly <heather@slac.stanford.edu>
 COPY conda /tmp
 
 RUN ls /tmp && \
-    conda install -c conda-forge -y --file=/tmp/desc-python-conda-install.txt && \
+    conda install -c conda-forge -y mamba && \
+    mamba install -c conda-forge -y --file=/tmp/desc-python-conda-install.txt && \
     pip install -r /tmp/desc-python-pip-install.txt && \
     cd /tmp && \
     rm -Rf conda
