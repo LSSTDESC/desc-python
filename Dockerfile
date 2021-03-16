@@ -5,13 +5,13 @@ MAINTAINER Heather Kelly <heather@slac.stanford.edu>
 #    git checkout pyspark && \
 #    cd desc-python/conda && \
 
-COPY desc-python /tmp
+COPY conda /tmp
 
 RUN ls /tmp && \
-    conda install -c conda-forge -y --file=/tmp/desc-python/conda/desc-python-conda-install.txt && \
-    pip install -r /tmp/desc-python/conda/desc-python-pip-install.txt && \
+    conda install -c conda-forge -y --file=/tmp/conda/desc-python-conda-install.txt && \
+    pip install -r /tmp/conda/desc-python-pip-install.txt && \
     cd /tmp && \
-    rm -Rf desc-python
+    rm -Rf conda
     
 ENV HDF5_USE_FILE_LOCKING FALSE
 ENV PYTHONSTARTUP ''
