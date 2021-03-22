@@ -1,0 +1,28 @@
+name: desc-python dev-tag
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build on Ubuntu
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Check Disk Space
+        run: df -h && sudo apt-get clean && df -h 
+      - name: Docker login
+        run: echo '${{ secrets.DOCKERHUB_ACCESSTOK }}' | docker login --username heather999 --password-stdin
+      - name: checkout desc-python
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: pull latest build
+        run: docker pull lsstdesc/desc-python:latest
+      - name: tag dev build
+        run: docker tag lsstdesc/desc-python:latest lsstdesc/desc-python:dev
+      - name: push dev
+        run: docker push lsstdesc/desc-python:dev
+
+
+
+
