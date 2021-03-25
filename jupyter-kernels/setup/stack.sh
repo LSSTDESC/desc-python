@@ -15,12 +15,14 @@ export DESC_GCR_SITE='nersc'
 
 if [ -n "$DESCPYTHONPATH" ]; then
     export PYTHONPATH="$DESCPYTHONPATH:$PYTHONPATH"
-    echo "Including user python path: $DESCPYTHONPATH"
+    echo "Including DESCPYTHONPATH: $DESCPYTHONPATH"
+    echo "Wondering Why? DESCPYTHONPATH is likely set in your $HOME/.basrhc, $HOME/.bashrc.ext, or similar config script"
 fi
 
 if [ -n "$DESCSTACKUSERENV" ]; then
    conda activate $DESCSTACKUSERENV
    echo "Activated your DESCSTACKUSERENV: $DESCSTACKUSERENV"
+    echo "Wondering Why? DESCSTACKUSERENV is likely set in your $HOME/.basrhc, $HOME/.bashrc.ext, or similar config script"
 fi
 
 
