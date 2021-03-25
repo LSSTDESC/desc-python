@@ -20,10 +20,10 @@ if [ -n "$DESCPYTHONPATH" ]; then
     echo "Wondering Why? DESCPYTHONPATH is likely set in your $HOME/.basrhc, $HOME/.bashrc.ext, or similar config script"
 fi
 
-if [ -n "$DESCPYTHONUSERENV" ]; then
-   conda activate $DESCPYTHONUSERENV
-   echo "Activated your DESCPYTHONUSERENV: $DESCPYTHONUSERENV"
-   echo "Wondering Why? DESCPYTHONUSERENV is likely set in your $HOME/.basrhc, $HOME/.bashrc.ext, or similar config script"
+if [ -n "$DESCUSERENV" ]; then
+   conda activate $DESCUSERENV
+   echo "Activated your DESCUSERENV: $DESCUSERENV"
+   echo "Wondering Why? DESCUSERENV is likely set in your $HOME/.basrhc, $HOME/.bashrc.ext, or similar config script"
 fi
 
 
