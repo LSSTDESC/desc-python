@@ -18,6 +18,7 @@ if [ -n "$DESCPYTHONPATH" ]; then
     export PYTHONPATH="$DESCPYTHONPATH:$PYTHONPATH"
     echo "Including DESCPYTHONPATH: $DESCPYTHONPATH"
     echo "Wondering Why? DESCPYTHONPATH is likely set in your $HOME/.basrhc, $HOME/.bashrc.ext, or similar config script"
+fi
 
 if [ -n "$DESCPYTHONUSERENV" ]; then
    conda activate $DESCPYTHONUSERENV
