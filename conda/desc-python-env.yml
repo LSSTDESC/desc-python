@@ -33,6 +33,7 @@ dependencies:
   - ipympl
   - jupyter
   - lsstdesc-gcr-catalogs
+  - mamba
   - markupsafe
   - matplotlib
   - namaster
