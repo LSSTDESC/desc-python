@@ -1,6 +1,8 @@
 {
   "argv": [
-    "/global/common/software/lsst/common/miniconda/kernels/python.sh",
+    "shifter",
+    "--image=lsstdesc/desc-python:prod",
+    "/global/common/software/lsst/common/miniconda/kernels/setup_prod_python.sh",
     "-f",
     "{connection_file}"
   ],

@@ -6,7 +6,7 @@ do
 done
 
 if [[ $HAS_LSST != 1 ]]; then
-    echo "Contact Richard Dubois <richard@slac.stanford.edu> or Heather Kelly <heather@slac.stanford.edu> to request joining the 'lsst' group."
+    echo "Contact Heather Kelly <heather@slac.stanford.edu> to request joining the NERSC 'lsst' group."
     exit 1
 fi
 
@@ -23,7 +23,5 @@ jupyter kernelspec install $INST_DIR/kernels/desc-stack-old --user
 jupyter kernelspec install $INST_DIR/kernels/desc-stack-weekly --user
 jupyter kernelspec install $INST_DIR/kernels/desc-stack-weekly-latest --user
 jupyter kernelspec install $INST_DIR/kernels/desc-pyspark --user
-jupyter kernelspec install $INST_DIR/kernels/desc-sims --user
-jupyter kernelspec install $INST_DIR/kernels/desc-dia --user
 echo "Your JupyterLab URL is: "
 echo "https://jupyter.nersc.gov/user/$USER/cori-shared-node-cpu/lab/tree/$HOME"
