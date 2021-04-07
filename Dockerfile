@@ -45,7 +45,8 @@ RUN yum clean -y all && \
     cd /tmp && \
     git clone https://github.com/LSSTDESC/desc-python && \
     cd desc-python/conda && \
-    bash install-desc-latest.sh /usr/local/py3.8 desc-python-env.yml NERSC && \
+    bash install-desc-latest.sh /usr/local/py desc-python-env.yml NERSC && \
+    ln -s /usr/local/py /usr/local/py3.8 && \
     cd /tmp && \
     rm -Rf desc-python
     
