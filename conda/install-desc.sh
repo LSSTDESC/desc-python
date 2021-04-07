@@ -29,11 +29,6 @@ conda env create -n desc -f $2
 #source $1/etc/profile.d/conda.sh
 conda activate desc
 
-# Finish installing fast3tree by forcing the creation of its library  No Longer Necessary
-echo -e "from fast3tree.make_lib import make_lib\nmake_lib(3, True)\nmake_lib(3, False)\nmake_lib(2, True)\nmake_lib(2, False)" >> ./install_fast3tree.py
-python ./install_fast3tree.py
-rm ./install_fast3tree.py
-
 # Install jupyterlab at CC
 if [[ -z $3 ]]
 then	
