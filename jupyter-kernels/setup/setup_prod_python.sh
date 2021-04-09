@@ -14,16 +14,15 @@ export DESC_GCR_SITE='nersc'
 
 conda activate desc
 
-if [ -n "$DESCPYTHONPATH" ]; then
-    export PYTHONPATH="$DESCPYTHONPATH:$PYTHONPATH"
-    echo "Including DESCPYTHONPATH: $DESCPYTHONPATH"
-    echo "Wondering Why? DESCPYTHONPATH is likely set in your $HOME/.basrhc, $HOME/.bashrc.ext, or similar config script"
-fi
-
 if [ -n "$DESCUSERENV" ]; then
    conda activate $DESCUSERENV
    echo "Activated your DESCUSERENV: $DESCUSERENV"
    echo "Wondering Why? DESCUSERENV is likely set in your $HOME/.basrhc, $HOME/.bashrc.ext, or similar config script"
+
+elif [ -n "$DESCPYTHONPATH" ]; then
+    export PYTHONPATH="$DESCPYTHONPATH:$PYTHONPATH"
+    echo "Including DESCPYTHONPATH: $DESCPYTHONPATH"
+    echo "Wondering Why? DESCPYTHONPATH is likely set in your $HOME/.basrhc, $HOME/.bashrc.ext, or similar config script"
 fi
 
 
