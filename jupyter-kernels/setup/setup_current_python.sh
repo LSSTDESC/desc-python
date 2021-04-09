@@ -1,1 +1,4 @@
-python /global/common/software/lsst/common/miniconda/start-kernel-cli.py desc-python
+#!/bin/bash
+
+shifter --image=lsstdesc/desc-python:prod bash --init-file /global/common/software/lsst/common/miniconda/kernels/setup_prod_python.sh
+
