@@ -1,4 +1,4 @@
-FROM nersc/spark-3.1.1:v1
+FROM nersc/spark-3.1.1:v2
 MAINTAINER Heather Kelly <heather@slac.stanford.edu>
 
 #    git clone https://github.com/LSSTDESC/desc-python && \
