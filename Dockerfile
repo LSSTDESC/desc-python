@@ -34,9 +34,10 @@ RUN yum update -y && \
     readline-devel \
     sed \
     tar \
+    time \
     which \
     zlib-devel \
-    devtoolset-8
+    zsh
     
 RUN yum clean -y all && \
     rm -rf /var/cache/yum && \
