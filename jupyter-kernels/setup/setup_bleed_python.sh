@@ -1,7 +1,7 @@
 #!/bin/sh
 
 export DESC_INST_DIR=/usr/local/
-export DESC_PYTHON_VER=py3.7
+export DESC_PYTHON_VER=py
 
 export OMP_NUM_THREADS=1
 
