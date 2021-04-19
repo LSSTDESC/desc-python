@@ -34,6 +34,7 @@ RUN yum update -y && \
     readline-devel \
     sed \
     tar \
+    texlive \
     time \
     which \
     zlib-devel \
