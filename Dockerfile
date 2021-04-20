@@ -9,6 +9,7 @@ RUN yum update -y && \
     bzip2-devel \
     cmake \
     curl \
+    dvipng \
     flex \
     fontconfig \
     freetype-devel \
