@@ -8,6 +8,7 @@ dependencies:
   - bokeh
   - camb
   - cmake
+  - compilers
   - cookiecutter
   - corner
   - dask
