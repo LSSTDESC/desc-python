@@ -1,0 +1,27 @@
+name: desc-python-test
+
+on:
+  push:
+    branches: 
+      - issue/96/fix-latest
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    name: Build on Ubuntu
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Check Disk Space
+        run: df -h && sudo apt-get clean && df -h 
+      - name: Docker login
+        run: echo '${{ secrets.DOCKERHUB_ACCESSTOK }}' | docker login --username heather999 --password-stdin
+      - name: checkout desc-python
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          ref: issue/96/fix-latest
+      - name: do docker build
+        run: docker build --no-cache -t lsstdesc/desc-python:latest -f $GITHUB_WORKSPACE/Dockerfile . 
+      - name: Docker push
+        run: docker push lsstdesc/desc-python:latest
