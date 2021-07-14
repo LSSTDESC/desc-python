@@ -26,7 +26,7 @@ which python
 which conda
 conda info --envs
 
-conda env create -n desc -f $2
+conda env create -f $2
 
 #source $1/etc/profile.d/conda.sh
 conda activate desc
