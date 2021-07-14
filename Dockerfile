@@ -34,9 +34,9 @@ RUN yum update -y && \
     readline-devel \
     sed \
     tar \
+    time \
     which \
-    zlib-devel \
-    devtoolset-8
+    zlib-devel 
     
     
 RUN yum clean -y all && \
