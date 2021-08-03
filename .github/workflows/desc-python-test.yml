@@ -1,9 +1,9 @@
 name: desc-python-test
 
 on:
-  push:
+  pull_request:
     branches: 
-      - issue/96/fix-latest
+      - master
   workflow_dispatch:
 
 
@@ -23,5 +23,7 @@ jobs:
           ref: issue/96/fix-latest
       - name: do docker build
         run: docker build --no-cache -t lsstdesc/desc-python:latest -f $GITHUB_WORKSPACE/Dockerfile . 
+      - name: Test desc-python 
+        run: docker run --rm lsstdesc/desc-python:latest /bin/bash -c "source /opt/desc/py/etc/profile.d/conda.sh && conda activate desc && python -c 'import pyccl'"
       - name: Docker push
         run: docker push lsstdesc/desc-python:latest
