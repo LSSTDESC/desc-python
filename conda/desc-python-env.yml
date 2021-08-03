@@ -8,7 +8,6 @@ dependencies:
   - bokeh
   - camb
   - cmake
-  - compilers
   - cookiecutter
   - corner
   - dask
@@ -42,7 +41,6 @@ dependencies:
   - numba
   - numpy
   - pandas
-  - parsl
   - pip  
   - pot
   - pyarrow
@@ -71,6 +69,7 @@ dependencies:
     - fits2hdf
     - psycopg2-binary
     - starlink-pyast
+    - git+https://github.com/Parsl/parsl.git@lsst-dm-202103
     - https://bitbucket.org/yymao/helpers/get/v0.3.2.tar.gz
     - https://github.com/LSSTDESC/descqa/archive/v2.0.0-0.7.0.tar.gz
     - https://github.com/yymao/FoFCatalogMatching/archive/v0.1.0.tar.gz
