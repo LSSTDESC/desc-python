@@ -47,8 +47,8 @@ RUN yum clean -y all && \
     cd desc-python && \ 
     git checkout issue/96/fix-latest && \
     cd conda && \
-    bash install-desc-latest.sh /usr/local/py desc-python-env.yml NERSC && \
-    ln -s /usr/local/py /usr/local/py3.8 && \
+    bash install-desc-latest.sh /opt/desc/py desc-python-env.yml NERSC && \
+    ln -s /opt/desc/py /opt/desc/py3.8 && \
     cd /tmp && \
     rm -Rf desc-python
     
