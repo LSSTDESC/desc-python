@@ -14,7 +14,8 @@ dependencies:
   - dask
   - dask-mpi
   - dask-jobqueue
-  - datashader 
+  - datashader
+  - dustmaps
   - eigen
   - emcee
   - extinction
@@ -33,18 +34,20 @@ dependencies:
   - holoviews
   - ipympl
   - jupyter
+  - lsstdesc-coord
   - lsstdesc-gcr-catalogs
   - mamba
   - markupsafe
   - matplotlib
   - namaster
+  - ndcctools
   - nose
   - numba
   - numpy
   - pandas
-  - parsl
   - pip  
   - pot
+  - psycopg2
   - pyarrow
   - pybind11
   - pyccl
@@ -66,11 +69,10 @@ dependencies:
   - yaml
   - pip:
     - ceci
-    - dustmaps
     - fast3tree
     - fits2hdf
-    - psycopg2-binary
     - starlink-pyast
+    - git+https://github.com/Parsl/parsl.git@lsst-dm-202103
     - https://bitbucket.org/yymao/helpers/get/v0.3.2.tar.gz
     - https://github.com/LSSTDESC/descqa/archive/v2.0.0-0.7.0.tar.gz
     - https://github.com/yymao/FoFCatalogMatching/archive/v0.1.0.tar.gz

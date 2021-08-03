@@ -34,9 +34,9 @@ RUN yum update -y && \
     readline-devel \
     sed \
     tar \
+    time \
     which \
-    zlib-devel \
-    devtoolset-8
+    zlib-devel 
     
     
 RUN yum clean -y all && \
@@ -45,8 +45,8 @@ RUN yum clean -y all && \
     cd /tmp && \
     git clone https://github.com/LSSTDESC/desc-python && \
     cd desc-python/conda && \
-    bash install-desc-latest.sh /usr/local/py desc-python-env.yml NERSC && \
-    ln -s /usr/local/py /usr/local/py3.8 && \
+    bash install-desc-latest.sh /opt/desc/py desc-python-env.yml NERSC && \
+    ln -s /opt/desc/py /opt/desc/py3.8 && \
     cd /tmp && \
     rm -Rf desc-python
     
