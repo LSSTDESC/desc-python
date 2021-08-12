@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - bleed
+  workflow_dispatch:
   schedule:
     - cron: '45 20 * * 0'
 
