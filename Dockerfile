@@ -1,6 +1,8 @@
 FROM centos:7
 MAINTAINER Heather Kelly <heather@slac.stanford.edu>
 
+ARG PR_BRANCH=bleed
+
 RUN yum update -y && \
     yum install -y bash \
     bison \
@@ -47,7 +49,7 @@ RUN yum clean -y all && \
     cd /tmp && \
     git clone https://github.com/LSSTDESC/desc-python && \
     cd desc-python && \ 
-    git checkout bleed && \
+    git checkout $PR_BRANCH && \
     cd conda && \
     bash install-desc.sh /usr/local/py desc-python-env.yml NERSC && \
     cd /tmp && \
