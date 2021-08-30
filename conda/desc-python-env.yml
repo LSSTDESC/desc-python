@@ -60,6 +60,7 @@ dependencies:
   - pyarrow
   - pybind11
   - pyccl
+  - pygraphviz
   - pymssql
   - pyparsing
   - pytables
