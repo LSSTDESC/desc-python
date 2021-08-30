@@ -7,7 +7,7 @@ ARG PR_BRANCH=bleed
 RUN apt-get update -y && DEBIAN_FRONTEND="noninteractive" apt-get install -y gcc g++ gfortran \
     cmake swig wget make libopenblas-dev libchealpix-dev \
     pkg-config curl python3 python3-distutils python3-dev python3-pip \
-    libcfitsio-dev  libfftw3-dev   git  libgsl-dev autoconf libbz2-dev zsh which \ 
+    libcfitsio-dev  libfftw3-dev   git  libgsl-dev autoconf libbz2-dev zsh \ 
     graphviz libgraphviz-dev pkg-config time sed \
     && apt-get clean all
 
