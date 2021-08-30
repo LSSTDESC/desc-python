@@ -54,7 +54,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           builder: '${{ steps.buildx.outputs.name }}'
-          context: ./ubuntu
+          context: .
           file: ./ubuntu/Dockerfile
           push: false
           tags: lsstdesc/desc-python:bleed-ubuntu-${{env.DATE_TAG}}
