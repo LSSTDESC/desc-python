@@ -1,0 +1,34 @@
+name: desc-python-bleed-pr
+
+on:
+  pull_request:
+    branches:
+    - bleed
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build on Ubuntu
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Check Disk Space
+        run: df -h && sudo apt-get clean && df -h 
+      - name: Docker login
+        run: echo '${{ secrets.DOCKERHUB_ACCESSTOK }}' | docker login --username heather999 --password-stdin
+      - name: checkout desc-stack
+        uses: actions/checkout@v2
+        with:
+          ref: ''
+          fetch-depth: 1
+      - name : Docker prune
+        run: sudo docker system prune && df -h 
+      - name : Get weekly number and date 
+        run: |
+          echo "DATE_TAG=$(date "+%F")" >> $GITHUB_ENV
+          echo "PR_NUM=${{github.event.number}}" >> $GITHUB_ENV
+      - name: do docker build
+        run: docker build --no-cache --build-arg PR_BRANCH=$GITHUB_HEAD_REF -t lsstdesc/desc-python:bleed-pr${{env.PR_NUM}}-${{env.DATE_TAG}} -f $GITHUB_WORKSPACE/Dockerfile . 
+      - name: test pyccl
+        run: docker run --rm lsstdesc/desc-python:bleed-pr${{env.PR_NUM}}-${{env.DATE_TAG}} /bin/bash -c "source /usr/local/py/etc/profile.d/conda.sh && conda activate desc && python -c 'import pyccl'"
+      - name: Docker push
+        run: docker push lsstdesc/desc-python:bleed-pr${{env.PR_NUM}}-${{env.DATE_TAG}}
