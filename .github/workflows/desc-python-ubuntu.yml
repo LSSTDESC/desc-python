@@ -61,12 +61,6 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
 
-      - name: Move cache
-        run: |
-          rm -rf /tmp/.buildx-cache
-          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
-      
-      
       
  #    # - name: do docker build
  #    #   run: docker build --no-cache -t lsstdesc/desc-python:bleed-ubuntu-${{env.DATE_TAG}} -f $GITHUB_WORKSPACE/ubuntu/Dockerfile . 
@@ -74,3 +68,8 @@ jobs:
         run: docker run --rm lsstdesc/desc-python:bleed-ubuntu-${{env.DATE_TAG}} /bin/bash -c "source /usr/local/py/etc/profile.d/conda.sh && conda activate desc && python -c 'import pyccl'"
       - name: Docker push
         run: docker push lsstdesc/desc-python:bleed-ubuntu-${{env.DATE_TAG}}
+
+      - name: Move cache
+        run: |
+          rm -rf /tmp/.buildx-cache
+          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
