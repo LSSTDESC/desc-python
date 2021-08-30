@@ -43,7 +43,7 @@ RUN groupadd -g 1000 -r lsst && useradd -u 1000 --no-log-init -m -r -g lsst lsst
     cd desc-python && \ 
     git checkout $PR_BRANCH && \
     cd conda && \
-    bash install-desc.sh /usr/local/py desc-python-env.yml NERSC && \
+    bash install-desc.sh /opt/desc/py desc-python-env.yml NERSC && \
     cd /tmp && \
     rm -Rf desc-python
     
