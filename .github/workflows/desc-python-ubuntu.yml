@@ -13,21 +13,63 @@ jobs:
     steps:
       - name: Check Disk Space
         run: df -h && sudo apt-get clean && df -h 
-      - name: Docker login
-        run: echo '${{ secrets.DOCKERHUB_ACCESSTOK }}' | docker login --username heather999 --password-stdin
+     
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Cache Docker layers
+        uses: actions/cache@v2
+        with:
+          path: /tmp/.buildx-cache
+          key: '${{ runner.os }}-buildx-${{ github.sha }}'
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+            
+#     # - name: Docker login
+#        run: echo '${{ secrets.DOCKERHUB_ACCESSTOK }}' | docker login --username heather999 --password-stdin
+      
       - name: checkout desc-python
         uses: actions/checkout@v2
         with:
           ref: ''
           fetch-depth: 1
+      
+      - name: Docker login
+        uses: docker/login-action@v1
+        with:
+          username: heather999
+          password: '${{ secrets.DOCKERHUB_ACCESSTOK }}'
+      
       - name : Docker prune
         run: sudo docker system prune && df -h 
+      
       - name : Get date 
         run: |
           echo "DATE_TAG=$(date "+%F")" >> $GITHUB_ENV
   #        echo "PR_NUM=${{github.event.number}}" >> $GITHUB_ENV
-      - name: do docker build
-        run: docker build --no-cache -t lsstdesc/desc-python:bleed-ubuntu-${{env.DATE_TAG}} -f $GITHUB_WORKSPACE/ubuntu/Dockerfile . 
+      
+      - name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          builder: '${{ steps.buildx.outputs.name }}'
+          context: ./ubuntu
+          file: ./ubuntu/Dockerfile
+          push: false
+          tags: lsstdesc/desc-python:bleed-ubuntu-${{env.DATE_TAG}}
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache-new
+
+      - name: Move cache
+        run: |
+          rm -rf /tmp/.buildx-cache
+          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
+      
+      
+      
+ #    # - name: do docker build
+ #    #   run: docker build --no-cache -t lsstdesc/desc-python:bleed-ubuntu-${{env.DATE_TAG}} -f $GITHUB_WORKSPACE/ubuntu/Dockerfile . 
       - name: test pyccl
         run: docker run --rm lsstdesc/desc-python:bleed-ubuntu-${{env.DATE_TAG}} /bin/bash -c "source /usr/local/py/etc/profile.d/conda.sh && conda activate desc && python -c 'import pyccl'"
       - name: Docker push
