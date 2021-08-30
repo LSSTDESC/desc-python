@@ -84,3 +84,4 @@ dependencies:
     - https://github.com/msimet/Stile/archive/v0.1.tar.gz
     - https://github.com/LSSTDESC/CatalogMatcher/archive/master.tar.gz
     - https://github.com/LSSTDESC/gcr-catalogs/archive/master.tar.gz
+    - snmachine
