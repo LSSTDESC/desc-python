@@ -7,9 +7,11 @@ dependencies:
   - astropy
   - bokeh
   - camb
+  - cffi
   - cmake
   - cookiecutter
   - corner
+  - cython
   - dask
   - dask-mpi
   - dask-jobqueue
@@ -38,6 +40,8 @@ dependencies:
   - intake-spark
   - intake-sql
   - ipympl
+  - ipython
+  - jedi
   - jupyter
   - lsstdesc-coord
   - mamba
@@ -51,14 +55,17 @@ dependencies:
   - pandas
   - pip  
   - pot
+  - psutil
   - psycopg2
   - pyarrow
   - pybind11
   - pyccl
   - pymssql
+  - pyparsing
   - pytables
   - pytest
   - python-snappy
+  - pyyaml
   - redmapper
   - sacc
   - scikit-image
@@ -66,17 +73,22 @@ dependencies:
   - scipy
   - seaborn
   - selenium
+  - six
   - snappy
   - sphinx
   - tabulate
+  - threadpoolctl
   - TreeCorr
   - vim
   - yaml
   - pip:
     - ceci
+    - descformats
     - fast3tree
     - fits2hdf
+    - mlz_desc
     - starlink-pyast
+    - tjpcov
     - git+https://github.com/Parsl/parsl.git@desc
     - https://bitbucket.org/yymao/helpers/get/v0.3.2.tar.gz
     - https://github.com/LSSTDESC/descqa/archive/v2.0.0-0.7.0.tar.gz
