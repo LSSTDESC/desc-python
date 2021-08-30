@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 MAINTAINER heather@slac.stanford.edu
 
-ARG PR_BRANCH=bleed
+#ARG PR_BRANCH=bleed
 
 # Basic compilers and tools dependencies
 RUN apt-get update -y && DEBIAN_FRONTEND="noninteractive" apt-get install -y gcc g++ gfortran \
@@ -38,14 +38,14 @@ ENV LD_LIBRARY_PATH /usr/local/lib
 ENV C_INCLUDE_PATH /usr/local/include
 
 RUN groupadd -g 1000 -r lsst && useradd -u 1000 --no-log-init -m -r -g lsst lsst && \
-    cd /tmp && \
-    git clone https://github.com/LSSTDESC/desc-python && \
-    cd desc-python && \ 
-    git checkout $PR_BRANCH && \
+# #   cd /tmp && \
+# #   git clone https://github.com/LSSTDESC/desc-python && \
+# #   cd desc-python && \ 
+# #   git checkout $PR_BRANCH && \
     cd conda && \
-    bash install-desc.sh /opt/desc/py desc-python-env.yml NERSC && \
-    cd /tmp && \
-    rm -Rf desc-python
+    bash install-desc.sh /opt/desc/py desc-python-env.yml NERSC 
+#    cd /tmp && \
+#    rm -Rf desc-python
     
 # Also need a manual install of mpi4py so that it uses the right libraries - pip seems not to work
 #RUN pip install -vv --no-binary=mpi4py mpi4py
