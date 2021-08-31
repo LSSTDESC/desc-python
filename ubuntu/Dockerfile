@@ -15,7 +15,7 @@ RUN apt-get update -y && DEBIAN_FRONTEND="noninteractive" apt-get install -y gcc
 #RUN update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 10
 
 # Manual installation of mpich seems to be required to work on NERSC
-RUN mkdir /opt/mpich && cd /opt/mpich \
+RUN echo $PWD && ls && mkdir /opt/mpich && cd /opt/mpich \
     && wget http://www.mpich.org/static/downloads/3.3.1/mpich-3.3.1.tar.gz \
     && tar xvzf mpich-3.3.1.tar.gz &&  cd mpich-3.3.1 && ./configure --disable-wrapper-rpath && make -j4 \
     && make install && rm -rf /opt/mpich
