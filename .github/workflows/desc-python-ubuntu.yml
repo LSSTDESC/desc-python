@@ -57,7 +57,7 @@ jobs:
           context: .
           file: ./ubuntu/Dockerfile
           build-args: |
-            GH_SHA=$GITHUB_SHA
+            GH_SHA=${{ github.sha }}
           load: true
           push: false
           tags: lsstdesc/desc-python:bleed-ubuntu-${{env.DATE_TAG}}
