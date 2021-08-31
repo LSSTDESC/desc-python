@@ -23,7 +23,7 @@ which python
 echo $1
 source $1/etc/profile.d/conda.sh
 conda activate base
-conda install -y mamba
+conda install -c conda-forge -y mamba
 which python
 which conda
 mamba env create -n desc -f $2
