@@ -48,13 +48,13 @@ RUN groupadd -g 1000 -r lsst && useradd -u 1000 --no-log-init -m -r -g lsst lsst
     rm -Rf desc-python
     
 # Also need a manual install of mpi4py so that it uses the right libraries - pip seems not to work
-#RUN pip install -vv --no-binary=mpi4py mpi4py
+RUN pip install -vv --no-binary=mpi4py mpi4py
     
 ENV PYTHONSTARTUP ''
 
 
 # Install h5py, recompiling so that we use HDF5 with MPI
-#RUN pip install --no-cache-dir --no-binary=h5py h5py==3.1.0
+RUN pip install --no-cache-dir --no-binary=h5py h5py==3.1.0
 
 
 
