@@ -1,24 +1,52 @@
 name: desc-python dev
 
-on: 
+on:
   push:
+    branches: 
+      - master
+  pull_request:
     branches:
-      - dev
+      - master
+  workflow_dispatch:
+  schedule:
+    - cron: '45 20 * * 1'        
+
 
 jobs:
   build:
     name: Build on Ubuntu
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
       - name: Check Disk Space
         run: df -h && sudo apt-get clean && df -h 
       - name: Docker login
         run: echo '${{ secrets.DOCKERHUB_ACCESSTOK }}' | docker login --username heather999 --password-stdin
       - name: checkout desc-python
-        uses: actions/checkout@v1
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 1
+      - uses: tibdex/github-app-token@v1
+        id: generate-token
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.APP_PRIVATE_KEY }}
       - name: do docker build
         run: docker build --no-cache -t lsstdesc/desc-python:dev -f $GITHUB_WORKSPACE/Dockerfile . 
+      - name: Test desc-python dev
+        run: docker run --rm lsstdesc/desc-python:dev /bin/bash -c "source /opt/desc/py/etc/profile.d/conda.sh && conda activate desc && python -c 'import pyccl'"  
       - name: Docker push
         run: docker push lsstdesc/desc-python:dev
+      - name: Create export yaml
+        run: docker run --rm -v $PWD/conda:/tmp/desc lsstdesc/desc-python:dev /bin/bash -c "source /opt/desc/py/etc/profile.d/conda.sh && conda activate desc && conda env export --no-builds > /tmp/desc/desc-python-env-nersc-install-nobuildinfo.yml"  
+     - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v3
+      with:
+        author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+        token: ${{ steps.generate-token.outputs.token }}
+        commit-message: update conda export
+        title: "[bot] update conda export"
+        body: |
+           This is an auto-generated PR to update export yaml .
+        branch: actions/update-export
+        labels: 'Type: Install'
+  
