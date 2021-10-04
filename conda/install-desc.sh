@@ -22,9 +22,11 @@ which python
 #export PATH=$1/bin:$PATH
 source $1/etc/profile.d/conda.sh
 conda activate base
+conda install -c conda-forge -y mamba
 which python
-
-conda env create -n desc -f $2
+which conda
+mamba env create -n desc -f $2
+conda env list
 
 #source $1/etc/profile.d/conda.sh
 conda activate desc
