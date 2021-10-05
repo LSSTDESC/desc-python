@@ -16,6 +16,7 @@ jobs:
   build:
     name: Build on Ubuntu
     runs-on: ubuntu-20.04
+    if: ${{ !contains(github.event.head_commit.message, '[skip actions]') }}
     steps:
       - name: Check Disk Space
         run: df -h && sudo apt-get clean && df -h 
