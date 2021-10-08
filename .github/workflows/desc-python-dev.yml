@@ -7,6 +7,7 @@ on:
   pull_request:
     branches:
       - master
+      - '!actions/update-export'
   workflow_dispatch:
   schedule:
     - cron: '45 20 * * 1'        
