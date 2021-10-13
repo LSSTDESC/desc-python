@@ -16,12 +16,12 @@ on:
 jobs:
   build:
     name: Build on Ubuntu
-    if: ${{ !(github.ref == 'refs/heads/actions/update-export') }}
+    if: ${{ !(github.head_ref == 'refs/heads/actions/update-export') }}
     runs-on: ubuntu-20.04
 #if: ${{ !contains(github.event.head_commit.message, '[skip actions]') }}
     steps:
       - name: Check ref
-        run: echo ${{github.ref}}
+        run: echo ${{github.head_ref}}
         
       - name: Check Disk Space
         run: df -h && sudo apt-get clean && df -h 
