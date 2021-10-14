@@ -7,7 +7,6 @@ on:
   pull_request:
     branches:
       - master
-      - '!actions/update-export'
   workflow_dispatch:
   schedule:
     - cron: '45 20 * * 1'        
@@ -18,7 +17,6 @@ jobs:
     name: Build on Ubuntu
     if: ${{ !(github.head_ref == 'actions/update-export') }}
     runs-on: ubuntu-20.04
-#if: ${{ !contains(github.event.head_commit.message, '[skip actions]') }}
     steps:
       - name: Check ref
         run: echo ${{github.head_ref}}
@@ -70,7 +68,14 @@ jobs:
         run: docker push lsstdesc/desc-python:dev
       
       - name: Create export yaml
-        run: docker run --rm -v $PWD/conda:/tmp/desc lsstdesc/desc-python:dev /bin/bash -c "source /opt/desc/py/etc/profile.d/conda.sh && conda activate desc && conda env export --no-builds > /tmp/desc/desc-python-env-nersc-install-nobuildinfo.yml"  
+        run: |
+          docker run --rm -v $PWD/conda:/tmp/desc lsstdesc/desc-python:dev /bin/bash -c "source /opt/desc/py/etc/profile.d/conda.sh && conda activate desc && conda env export --no-builds > /tmp/desc/desc-python-env-nersc-install-nobuildinfo.yml"  
+          sed -i "/helpers/c\    - https://bitbucket.org/yymao/helpers/get/v0.3.2.tar.gz" $PWD/conda/desc-python-env-nersc-install-nobuildinfo.yml
+          sed -i "/descqa/c\    - https://github.com/LSSTDESC/descqa/archive/v2.0.0-0.7.0.tar.gz" $PWD/conda/desc-python-env-nersc-install-nobuildinfo.yml
+          sed -i "/FoFCatalogMatching/c\    - https://github.com/yymao/FoFCatalogMatching/archive/v0.1.0.tar.gz" $PWD/conda/desc-python-env-nersc-install-nobuildinfo.yml
+          sed -i "/Stile/c\    - https://github.com/msimet/Stile/archive/v0.1.tar.gz" $PWD/conda/desc-python-env-nersc-install-nobuildinfo.yml
+          sed -i "/CatalogMatcher/c\    - https://github.com/LSSTDESC/CatalogMatcher/archive/master.tar.gz" $PWD/conda/desc-python-env-nersc-install-nobuildinfo.yml
+          sed -i "/parsl/c\    - git+https://github.com/Parsl/parsl.git@desc" $PWD/conda/desc-python-env-nersc-install-nobuildinfo.yml
       
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
