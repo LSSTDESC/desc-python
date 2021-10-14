@@ -16,7 +16,7 @@ on:
 jobs:
   build:
     name: Build on Ubuntu
-    if: ${{ !(github.head_ref == 'refs/heads/actions/update-export') }}
+    if: ${{ !(github.head_ref == 'actions/update-export') }}
     runs-on: ubuntu-20.04
 #if: ${{ !contains(github.event.head_commit.message, '[skip actions]') }}
     steps:
