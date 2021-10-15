@@ -398,7 +398,7 @@ dependencies:
   - rtree=0.9.7
   - ruamel_yaml=0.15.80
   - s2n=1.0.10
-  - sacc=0.4.5
+  - sacc=0.4.9
   - schwimmbad=0.3.2
   - scikit-image=0.18.3
   - scikit-learn=1.0
