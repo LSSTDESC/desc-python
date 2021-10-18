@@ -12,11 +12,12 @@ fi
 
 module unload python
 INST_DIR=/global/common/software/lsst/common/miniconda
-source $INST_DIR/setup_old_python.sh
+source $INST_DIR/setup_dev_python.sh
 jupyter kernelspec install $INST_DIR/kernels/desc-python --user
 jupyter kernelspec install $INST_DIR/kernels/desc-python-dev --user
 jupyter kernelspec install $INST_DIR/kernels/desc-python-bleed --user
 jupyter kernelspec install $INST_DIR/kernels/desc-python-old --user
+jupyter kernelspec install $INST_DIR/kernels/desc-python-img --user
 jupyter kernelspec install $INST_DIR/kernels/desc-stack --user
 jupyter kernelspec install $INST_DIR/kernels/desc-stack-dev --user
 jupyter kernelspec install $INST_DIR/kernels/desc-stack-old --user
