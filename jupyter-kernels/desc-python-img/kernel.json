@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "shifter",
+    "--image=lsstdesc/desc-python:prod",
+    "/global/common/software/lsst/common/miniconda/kernels/setup_prod_img_python.sh",
+    "-f",
+    "{connection_file}"
+  ],
+  "display_name": "desc-python-img",
+  "language": "python"
+}
