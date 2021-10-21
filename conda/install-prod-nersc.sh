@@ -9,7 +9,7 @@ fi
 
 if [ -z "$2" ]
 then	
-     export DESC_PYTHON_INSTALL_DIR=dev	
+     export DESC_PYTHON_INSTALL_DIR=prod
      echo $DESC_PYTHON_INSTALL_DIR
 else
      export DESC_PYTHON_INSTALL_DIR=$2
@@ -33,8 +33,6 @@ export PYTHONNOUSERSITE=' '
 
 export DESC_GCR_SITE='nersc'
 
-echo $DESC_PYTHON_INSTALL_DIR
-
-source $DESC_PYTHON_PATH/conda/install-desc.sh $LSST_INST_DIR/$DESC_PYTHON_INSTALL_DIR $DESC_PYTHON_PATH/conda/dev/desc-python-dev-env-nersc-install-nobuildinfo.yml NERSC
+source $DESC_PYTHON_PATH/conda/install-desc.sh $LSST_INST_DIR/$DESC_PYTHON_INSTALL_DIR $DESC_PYTHON_PATH/conda/desc-python-env-nersc-install-nobuildinfo.yml NERSC
 
 
