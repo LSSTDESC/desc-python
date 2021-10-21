@@ -19,5 +19,3 @@ conda activate desc
 
 When finished with the `desc` conda environment, do:  `conda deactivate`
 
-### Permissions
-fast3tree builds its library on the fly.  Initially, write access is required to allow this library to be built.  This is handled in the install-desc.sh script.
