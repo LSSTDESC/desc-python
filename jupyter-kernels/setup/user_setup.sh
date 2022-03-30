@@ -25,5 +25,12 @@ jupyter kernelspec install $INST_DIR/kernels/desc-stack-weekly --user
 jupyter kernelspec install $INST_DIR/kernels/desc-stack-weekly-latest --user
 jupyter kernelspec install $INST_DIR/kernels/desc-pyspark --user
 jupyter kernelspec install $INST_DIR/kernels/desc-td-env --user
-echo "Your JupyterLab URL is: "
-echo "https://jupyter.nersc.gov/user/$USER/cori-shared-node-cpu/lab/tree/$HOME"
+#echo "Your JupyterLab URL is: "
+#echo "https://jupyter.nersc.gov/user/$USER/cori-shared-node-cpu/lab/tree/$HOME"
+echo "DESC Kernels Now Available"
+
+# Deactivate conda environment
+for i in $(seq ${CONDA_SHLVL}); do
+    conda deactivate
+done
+
