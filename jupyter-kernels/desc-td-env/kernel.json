@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "/global/common/software/lsst/common/miniconda/kernels/td-env.sh",
+    "-f",
+    "{connection_file}"
+  ],
+  "display_name": "desc-td-env",
+  "language": "python"
+}
+
