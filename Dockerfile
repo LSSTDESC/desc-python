@@ -51,7 +51,7 @@ RUN yum clean -y all && \
     cd desc-python && \ 
     git checkout $PR_BRANCH && \
     cd conda && \
-    bash install-desc.sh /usr/local/py desc-python-env.yml NERSC && \
+    bash install-desc.sh /opt/desc/py desc-python-env.yml NERSC && \
     cd /tmp && \
     rm -Rf desc-python
     
