@@ -19,6 +19,7 @@ dependencies:
   - emacs
   - emcee
   - extinction
+  - fast3tree
   - fast-pt
   - fastparquet
   - fitsio
@@ -40,6 +41,7 @@ dependencies:
   - ipympl
   - jupyter
   - lsstdesc-coord
+  - lsstdesc-gcr-catalogs
   - mamba
   - markupsafe
   - matplotlib
@@ -68,19 +70,17 @@ dependencies:
   - selenium
   - snappy
   - sphinx
+  - starlink-ast
   - tabulate
-  - TreeCorr
+  - treecorr
   - vim
   - yaml
   - pip:
     - ceci
-    - fast3tree
     - fits2hdf
-    - starlink-pyast
     - git+https://github.com/Parsl/parsl.git@desc
     - https://bitbucket.org/yymao/helpers/get/v0.3.2.tar.gz
     - https://github.com/LSSTDESC/descqa/archive/v2.0.0-0.7.0.tar.gz
     - https://github.com/yymao/FoFCatalogMatching/archive/v0.1.0.tar.gz
     - https://github.com/msimet/Stile/archive/v0.1.tar.gz
     - https://github.com/LSSTDESC/CatalogMatcher/archive/master.tar.gz
-    - https://github.com/LSSTDESC/gcr-catalogs/archive/master.tar.gz
