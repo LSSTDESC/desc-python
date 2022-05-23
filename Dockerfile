@@ -36,6 +36,7 @@ RUN cd /tmp && \
     cd desc-python && \ 
     git checkout $PR_BRANCH && \
     cd conda && \
+    bash install-mpich.sh && \
     bash install-desc.sh /opt/desc/py desc-python-env.yml NERSC && \
     cd /tmp && \
     echo "source /opt/desc/py/etc/profile.d/conda.sh" >> ~/.bashrc && \
