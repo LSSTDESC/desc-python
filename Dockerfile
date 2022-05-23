@@ -32,6 +32,7 @@ WORKDIR $DESC_PYTHON_DIR
     
 RUN cd /tmp && \
     git clone https://github.com/LSSTDESC/desc-python && \
+    chmod -R ugo+rw desc-python && \
     cd desc-python && \ 
     git checkout $PR_BRANCH && \
     cd conda && \
