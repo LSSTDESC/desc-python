@@ -8,9 +8,11 @@ dependencies:
   - bokeh
   - camb
   - cmake
+  - compilers
   - corner
   - dask
   - dask-jobqueue
+  - dask-mpi
   - datashader 
   - dustmaps
   - eigen
@@ -38,6 +40,7 @@ dependencies:
   - mamba
   - markupsafe
   - matplotlib
+  - mpi4py
   - namaster
   - ndcctools
   - nose
