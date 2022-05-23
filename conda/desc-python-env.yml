@@ -9,6 +9,9 @@ dependencies:
   - camb
   - cmake
   - corner
+  - dask
+  - dask-jobqueue
+  - datashader 
   - dustmaps
   - eigen
   - emacs
