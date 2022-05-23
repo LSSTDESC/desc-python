@@ -36,6 +36,7 @@ RUN cd /tmp && \
     git checkout $PR_BRANCH && \
     cd conda && \
     bash install-mpich.sh && \
+    cd /tmp && \
     chmod -R ugo+rwx desc-python 
 
 USER lsst
