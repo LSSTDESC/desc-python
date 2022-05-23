@@ -8,7 +8,6 @@ dependencies:
   - bokeh
   - camb
   - cmake
-  - cookiecutter
   - corner
   - dustmaps
   - eigen
@@ -29,11 +28,6 @@ dependencies:
   - healpy
   - healsparse
   - holoviews
-  - intake
-  - intake-astro
-  - intake-parquet
-  - intake-spark
-  - intake-sql
   - ipympl
   - jupyter
   - lsstdesc-coord
