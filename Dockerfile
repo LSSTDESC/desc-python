@@ -32,11 +32,11 @@ WORKDIR $DESC_PYTHON_DIR
     
 RUN cd /tmp && \
     git clone https://github.com/LSSTDESC/desc-python && \
-    chmod -R ugo+rwx desc-python && \
     cd desc-python && \ 
     git checkout $PR_BRANCH && \
     cd conda && \
-    bash install-mpich.sh 
+    bash install-mpich.sh && \
+    chmod -R ugo+rwx desc-python 
 
 USER lsst
 
