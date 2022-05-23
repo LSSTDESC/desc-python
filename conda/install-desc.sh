@@ -30,7 +30,7 @@ mamba install -c conda-forge -y mpich=3.3.*=external_*
 which python
 which conda
 #mamba install -c conda-forge -y --file $2
-mamba env update --file $2 
+mamba env update -n desc --file $2 
 #mamba env create -n desc -f $2
 
 conda clean -y -a 
