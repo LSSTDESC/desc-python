@@ -26,7 +26,6 @@ RUN apt update -y && \
 ARG LSST_USER=lsst
 ARG LSST_GROUP=lsst
 
-USER lsst
 
 WORKDIR $DESC_PYTHON_DIR
    
@@ -36,7 +35,11 @@ RUN cd /tmp && \
     cd desc-python && \ 
     git checkout $PR_BRANCH && \
     cd conda && \
-    bash install-mpich.sh && \
+    bash install-mpich.sh 
+
+USER lsst
+
+RUN cd /tmp/desc-python/conda && \ 
     bash install-desc.sh /opt/desc/py desc-python-env.yml NERSC && \
     cd /tmp && \
     echo "source /opt/desc/py/etc/profile.d/conda.sh" >> ~/.bashrc && \
