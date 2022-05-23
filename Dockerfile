@@ -37,7 +37,7 @@ RUN cd /tmp && \
     cd conda && \
     bash install-mpich.sh && \
     cd /tmp && \
-    chmod -R ugo+rwx desc-python 
+    chown -R lsst desc-python 
 
 USER lsst
 
