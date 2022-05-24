@@ -32,7 +32,6 @@ ipympl
 jupyter
 lsstdesc-coord
 lsstdesc-gcr-catalogs
-mamba
 markupsafe
 matplotlib
 mpi4py
