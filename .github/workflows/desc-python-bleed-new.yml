@@ -48,7 +48,7 @@ jobs:
    
       - name: test image before pushing
         run: |
-          docker run --rm ${{ env.TEST_TAG }} /bin/bash -c "source /opt/desc/py/etc/profile.d/conda.sh && conda activate desc && python -c 'import astropy'"
+          docker run --rm ${{ env.TEST_TAG }} /bin/bash -c "python -c 'import astropy'"
           docker tag ${{ env.TEST_TAG }} lsstdesc/desc-python:bleed-${{env.DATE_TAG}}
           docker push lsstdesc/desc-python:bleed-${{env.DATE_TAG}}
           docker tag ${{ env.TEST_TAG }} lsstdesc/desc-python:bleed-dev
