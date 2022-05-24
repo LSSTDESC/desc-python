@@ -1,59 +1,57 @@
-FROM centos:7
+FROM ubuntu:20.04
 MAINTAINER Heather Kelly <heather@slac.stanford.edu>
 
 ARG PR_BRANCH=bleed
 
-RUN yum update -y && \
-    yum install -y bash \
-    bison \
-    blas \
-    bzip2 \
-    bzip2-devel \
-    cmake \
-    curl \
-    dvipng \
-    flex \
-    fontconfig \
-    freetype-devel \
-    gawk \
-    gcc-c++ \
-    gcc-gfortran \
-    gettext \
+ARG GH_SHA
+ARG DESC_PYTHON_DIR=/opt/desc
+
+#RUN pwd && ls && echo $GH_SHA 
+
+RUN apt update -y && \
+    apt install -y curl \
+    build-essential \
+    gfortran \
     git \
-    glib2-devel \
-    java-1.8.0-openjdk \
-    libcurl-devel \
-    libuuid-devel \
-    libXext \
-    libXrender \
-    libXt-devel \
-    make \
-    mesa-libGL \
-    ncurses-devel \
-    openssl-devel \
-    patch  \
-    perl \
-    perl-ExtUtils-MakeMaker \
-    readline-devel \
-    sed \
-    tar \
-    texlive \
-    time \
-    which \
-    zlib-devel \
-    zsh
-    
-RUN yum clean -y all && \
-    rm -rf /var/cache/yum && \
+    patch \
+    wget && \
+    apt-get clean  && \
+    rm -rf /var/cache/apt && \
     groupadd -g 1000 -r lsst && useradd -u 1000 --no-log-init -m -r -g lsst lsst && \
-    cd /tmp && \
+    usermod --shell /bin/bash lsst && \
+    mkdir -p $DESC_PYTHON_DIR && \
+    chown lsst $DESC_PYTHON_DIR && \
+    chgrp lsst $DESC_PYTHON_DIR
+
+ARG LSST_USER=lsst
+ARG LSST_GROUP=lsst
+
+
+WORKDIR $DESC_PYTHON_DIR
+   
+    
+RUN cd /tmp && \
     git clone https://github.com/LSSTDESC/desc-python && \
     cd desc-python && \ 
     git checkout $PR_BRANCH && \
     cd conda && \
-    bash install-desc.sh /opt/desc/py desc-python-env.yml NERSC && \
+    bash install-mpich.sh && \
     cd /tmp && \
+    chown -R lsst desc-python 
+
+USER lsst
+
+RUN cd /tmp/desc-python/conda && \ 
+    bash install-desc.sh /opt/desc/py conda-pack.txt pip-pack.txt NERSC && \
+    cd /tmp && \
+    echo "source /opt/desc/py/etc/profile.d/conda.sh" >> ~/.bashrc && \
+    echo "conda activate base" >> ~/.bashrc && \
     rm -Rf desc-python
     
 ENV HDF5_USE_FILE_LOCKING FALSE
 ENV PYTHONSTARTUP ''
+
+ENV PATH="${DESC_PYTHON_DIR}:${PATH}"
+
+
+CMD ["/bin/bash"]

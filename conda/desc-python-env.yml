@@ -8,11 +8,11 @@ dependencies:
   - bokeh
   - camb
   - cmake
-  - cookiecutter
+  - compilers
   - corner
   - dask
-  - dask-mpi
   - dask-jobqueue
+  - dask-mpi
   - datashader 
   - dustmaps
   - eigen
@@ -33,11 +33,6 @@ dependencies:
   - healpy
   - healsparse
   - holoviews
-  - intake
-  - intake-astro
-  - intake-parquet
-  - intake-spark
-  - intake-sql
   - ipympl
   - jupyter
   - lsstdesc-coord
@@ -45,6 +40,7 @@ dependencies:
   - mamba
   - markupsafe
   - matplotlib
+  - mpi4py
   - namaster
   - ndcctools
   - nose

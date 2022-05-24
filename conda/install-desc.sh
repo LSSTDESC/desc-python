@@ -23,20 +23,22 @@ which python
 echo $1
 source $1/etc/profile.d/conda.sh
 conda activate base
+#conda create --name desc -y
+#conda activate desc
+conda install -c conda-forge -y "mamba>=0.22.1"
+mamba install -c conda-forge -y mpich=3.3.*=external_*
 which python
 which conda
-conda env create -n desc -f $2
-conda env list
-conda activate desc
+#mamba install -c conda-forge -y --file $2
+mamba install -c conda-forge -y --file $2
+pip install --no-cache-dir -r $3 
+#mamba env update -n desc --file $2 
+#mamba env create -n desc -f $2
 
-# May no longer be required due to recent 0.4.0 release of fast3tree
-# Finish installing fast3tree by forcing the creation of its library
-#echo -e "from fast3tree.make_lib import make_lib\nmake_lib(3, True)\nmake_lib(3, False)\nmake_lib(2, True)\nmake_lib(2, False)" >> ./install_fast3tree.py
-#python ./install_fast3tree.py
-#rm ./install_fast3tree.py
+conda clean -y -a 
 
 # Install jupyterlab at CC
-if [[ -z $3 ]]
+if [[ -z $4 ]]
 then	
   pip install jupyterlab
 fi
