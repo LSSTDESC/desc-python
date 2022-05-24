@@ -42,10 +42,10 @@ RUN cd /tmp && \
 USER lsst
 
 RUN cd /tmp/desc-python/conda && \ 
-    bash install-desc.sh /opt/desc/py desc-python-env.yml NERSC && \
+    bash install-desc.sh /opt/desc/py conda-pack.txt pip-pack.txt NERSC && \
     cd /tmp && \
     echo "source /opt/desc/py/etc/profile.d/conda.sh" >> ~/.bashrc && \
-    echo "conda activate desc" >> ~/.bashrc && \
+    echo "conda activate base" >> ~/.bashrc && \
     rm -Rf desc-python
     
 ENV HDF5_USE_FILE_LOCKING FALSE

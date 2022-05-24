@@ -29,14 +29,16 @@ conda install -c conda-forge -y mamba
 mamba install -c conda-forge -y mpich=3.3.*=external_*
 which python
 which conda
+#mamba install -c conda-forge -y --file $2
 mamba install -c conda-forge -y --file $2
+pip install --no-cache-dir -r $3 
 #mamba env update -n desc --file $2 
 #mamba env create -n desc -f $2
 
 conda clean -y -a 
 
 # Install jupyterlab at CC
-if [[ -z $3 ]]
+if [[ -z $4 ]]
 then	
   pip install jupyterlab
 fi
