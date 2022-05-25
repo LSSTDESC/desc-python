@@ -44,14 +44,14 @@ USER lsst
 RUN cd /tmp/desc-python/conda && \ 
     bash install-desc.sh /opt/desc/py conda-pack.txt pip-pack.txt NERSC && \
     cd /tmp && \
-    echo "source /opt/desc/py/etc/profile.d/conda.sh" >> ~/.bashrc && \
-    echo "conda activate base" >> ~/.bashrc && \
     rm -Rf desc-python
     
 ENV HDF5_USE_FILE_LOCKING FALSE
 ENV PYTHONSTARTUP ''
 
-ENV PATH="${DESC_PYTHON_DIR}:${PATH}"
+# echo "source /opt/desc/py/etc/profile.d/conda.sh" >> ~/.bashrc && \
+# echo "conda activate base" >> ~/.bashrc && \
+#ENV PATH="${DESC_PYTHON_DIR}:${PATH}"
 
 
 CMD ["/bin/bash"]
