@@ -57,6 +57,7 @@ dependencies:
   - pytables
   - pytest
   - python-snappy
+  - pyvo
   - redmapper
   - sacc
   - scikit-image
