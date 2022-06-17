@@ -13,6 +13,7 @@ dependencies:
   - dask
   - dask-mpi
   - dask-jobqueue
+  - dask-sql
   - datashader
   - dustmaps
   - eigen
