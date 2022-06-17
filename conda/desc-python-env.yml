@@ -9,7 +9,6 @@ dependencies:
   - camb
   - cmake
   - compilers
-  - cookiecutter
   - corner
   - dask
   - dask-mpi
@@ -20,6 +19,7 @@ dependencies:
   - emcee
   - extinction
   - fast-pt
+  - fast3tree
   - fastparquet
   - fitsio
   - flake8
@@ -36,9 +36,9 @@ dependencies:
   - jupyter
   - lsstdesc-coord
   - lsstdesc-gcr-catalogs
-  - mamba
   - markupsafe
   - matplotlib
+  - mpi4py
   - namaster
   - ndcctools
   - nose
@@ -55,6 +55,7 @@ dependencies:
   - pytables
   - pytest
   - python-snappy
+  - pyvo
   - redmapper
   - sacc
   - scikit-image
@@ -64,14 +65,13 @@ dependencies:
   - selenium
   - snappy
   - sphinx
+  - starlink-ast
   - tabulate
   - TreeCorr
   - yaml
   - pip:
     - ceci
-    - fast3tree
     - fits2hdf
-    - starlink-pyast
     - git+https://github.com/Parsl/parsl.git@desc
     - https://bitbucket.org/yymao/helpers/get/v0.3.2.tar.gz
     - https://github.com/LSSTDESC/descqa/archive/v2.0.0-0.7.0.tar.gz
