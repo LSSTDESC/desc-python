@@ -8,6 +8,7 @@ corner
 dask
 dask-jobqueue
 dask-mpi
+dask-sql
 datashader 
 dustmaps
 eigen
@@ -50,6 +51,7 @@ pymssql
 pytables
 pytest
 python-snappy
+pyvo
 redmapper
 sacc
 scikit-image
