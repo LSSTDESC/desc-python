@@ -23,11 +23,12 @@ which python
 source $1/etc/profile.d/conda.sh
 conda activate base
 conda install -c conda-forge -y mamba
+mamba install -c conda-forge -y mpich=3.3.*=external_*
 which python
 which conda
 mamba env create -n desc -f $2
 conda env list
-
+conda clean -y -a 
 #source $1/etc/profile.d/conda.sh
 conda activate desc
 
