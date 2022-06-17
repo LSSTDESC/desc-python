@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 export DESC_INST_DIR=/opt/desc
 export DESC_PYTHON_VER=py
