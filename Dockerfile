@@ -43,6 +43,7 @@ USER lsst
 
 RUN cd /tmp/desc-python/conda && \ 
     bash install-desc.sh /opt/desc/py conda-pack.txt pip-pack.txt NERSC && \
+    ln -s /opt/desc/py /usr/local/py && \
     cd /tmp && \
     rm -Rf desc-python
     
