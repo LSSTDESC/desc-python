@@ -21,17 +21,16 @@ To be useful, this exported list must be modified for those packages requiring a
     - https://github.com/yymao/FoFCatalogMatching/archive/v0.1.0.tar.gz
     - https://github.com/msimet/Stile/archive/v0.1.tar.gz
     - https://github.com/LSSTDESC/CatalogMatcher/archive/master.tar.gz
-    - https://github.com/LSSTDESC/gcr-catalogs/archive/v0.19.0.tar.gz
 ```
 
 ## Environment Set Up After Installation
 
-To prepare your environment to use the new `desc` conda environment, the following must be done:
+To prepare your environment to use the new conda environment, the following must be done:
 
 ```
 source <path to installation>/etc/profile.d/conda.sh
-conda activate desc
+conda activate base
 ```
 
-When finished with the `desc` conda environment, do:  `conda deactivate`
+When finished with the conda environment, do:  `conda deactivate`
 

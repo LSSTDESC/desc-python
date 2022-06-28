@@ -10,12 +10,12 @@ Example:  `bash ./install-desc.sh $CSCRATCH/test-install desc-python-env-nersc-i
 
 ## Environment Set Up After Installation
 
-To prepare your environment to use the new `desc` conda environment, the following must be done:
+To prepare your environment to use the conda environment, the following must be done:
 
 ```
 source <path to installation>/etc/profile.d/conda.sh
-conda activate desc
+conda activate base
 ```
 
-When finished with the `desc` conda environment, do:  `conda deactivate`
+When finished with the conda environment, do:  `conda deactivate`
 
