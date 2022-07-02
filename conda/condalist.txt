@@ -23,7 +23,7 @@ galsim
 gcr
 google-cloud-bigquery  
 graphviz
-gsl
+gsl==2.7=he838d99_0
 hdf5
 healpy
 healsparse
