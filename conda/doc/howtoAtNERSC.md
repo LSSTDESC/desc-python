@@ -7,10 +7,10 @@
 * Run `bash ./install-desc.sh <path to installation> <name of yaml file>`
 
 To set up a new desc-python:
-`bash ./install-desc.sh $CSCRATCH/test-install desc-python-env.yml NERSC`
+`bash ./install-desc-python.sh $CSCRATCH/test-install`
 
-If reinstalling an existing desc-python
-`bash ./install-desc.sh $CSCRATCH/test-install desc-python-env-nersc-install-nobuildinfo.yml NERSC`
+If reinstalling desc-python using an input yaml file
+`bash ./install-desc-python.sh $CSCRATCH/test-install desc-python-env-nersc-install-nobuildinfo.yml`
 
 To export a full list of versions without build info:
 `conda env export --no-builds > desc-python-env-nersc-install-nobuildinfo.yml`
@@ -25,7 +25,7 @@ To be useful, this exported list must be modified for those packages requiring a
 
 ## Environment Set Up After Installation
 
-To prepare your environment to use the new conda environment, the following must be done:
+To prepare your environment to use the new conda environment:
 
 ```
 source <path to installation>/etc/profile.d/conda.sh
