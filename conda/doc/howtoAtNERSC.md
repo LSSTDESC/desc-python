@@ -4,7 +4,6 @@
   * Check the default Access Control List (ACL) for the installation directory ie. `getfacl <PathToYourInstallDirectory>`
   * If group permissions allow write access, consider setting the default ACL group permissions to just rx
       * `setfacl -d -m"group::rx" <PathToYourInstallDirectory>`
-* Run `bash ./install-desc.sh <path to installation> <name of yaml file>`
 
 To set up a new desc-python:
 `bash ./install-desc-python.sh $CSCRATCH/test-install`
