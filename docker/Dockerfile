@@ -34,7 +34,12 @@ RUN cd /tmp && \
     git clone https://github.com/LSSTDESC/desc-python && \
     ls && \
     pwd && \
-    cd desc-python/conda && \ 
+    cd desc-python && \
+    ls && \
+    pwd && \
+    cd conda && \ 
+    ls && \
+    pwd && \
     bash install-mpich.sh && \
     cd /tmp && \
     chown -R lsst desc-python 
