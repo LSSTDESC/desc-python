@@ -32,9 +32,7 @@ WORKDIR $DESC_PYTHON_DIR
     
 RUN cd /tmp && \
     git clone https://github.com/LSSTDESC/desc-python && \
-    cd desc-python && \ 
-    git checkout $PR_BRANCH && \
-    cd conda && \
+    cd desc-python/conda && \ 
     bash install-mpich.sh && \
     cd /tmp && \
     chown -R lsst desc-python 
