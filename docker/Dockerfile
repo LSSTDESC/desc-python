@@ -32,6 +32,8 @@ WORKDIR $DESC_PYTHON_DIR
     
 RUN cd /tmp && \
     git clone https://github.com/LSSTDESC/desc-python && \
+    ls && \
+    pwd && \
     cd desc-python/conda && \ 
     bash install-mpich.sh && \
     cd /tmp && \
