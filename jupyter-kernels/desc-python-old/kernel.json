@@ -1,11 +1,11 @@
 {
   "argv": [
-    "shifter",
-    "--image=lsstdesc/desc-python:old",
-    "/global/common/software/lsst/common/miniconda/kernels/setup_old_python.sh",
+    "/global/common/software/lsst/common/miniconda/kernels/python-old.sh",
     "-f",
     "{connection_file}"
   ],
   "display_name": "desc-python-old",
   "language": "python"
 }
+
+
