@@ -12,6 +12,7 @@ then
 	exit 1
 fi
 
+{
 
 unset PYTHONPATH
 
@@ -46,7 +47,7 @@ fi
 conda env export --no-builds > $1/desc-python-nobuildinfo.yml
 conda env export > $1/desc-python.yml
 
-#exit
+exit
 
-
+}
 
