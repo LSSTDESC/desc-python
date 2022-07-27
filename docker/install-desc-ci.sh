@@ -22,7 +22,7 @@ bash ./$2 -b -p $1
 which python
 source $1/etc/profile.d/conda.sh
 conda activate base
-conda install -c conda-forge -y mamba
+conda install -c conda-forge -y "mamba>=0.22.1"
 mamba install -c conda-forge -y mpich=3.3.*=external_*
 which python
 which conda
