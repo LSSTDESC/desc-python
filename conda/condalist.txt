@@ -24,7 +24,8 @@ gcr
 google-cloud-bigquery  
 graphviz
 gsl==2.7=he838d99_0
-hdf5
+h5py=*=mpi*
+hdf5=*=mpi*
 healpy
 healsparse
 holoviews
