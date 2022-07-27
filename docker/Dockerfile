@@ -6,7 +6,12 @@ ARG PR_BRANCH=master
 ARG GH_SHA
 ARG DESC_PYTHON_DIR=/opt/desc
 
-#RUN pwd && ls && echo $GH_SHA 
+#RUN pwd && ls && echo $GH_SHA
+
+ARG LSST_USER=lsst
+ARG LSST_GROUP=lsst
+
+WORKDIR $DESC_PYTHON_DIR
 
 RUN apt update -y && \
     apt install -y curl \
@@ -21,25 +26,11 @@ RUN apt update -y && \
     usermod --shell /bin/bash lsst && \
     mkdir -p $DESC_PYTHON_DIR && \
     chown lsst $DESC_PYTHON_DIR && \
-    chgrp lsst $DESC_PYTHON_DIR
-
-ARG LSST_USER=lsst
-ARG LSST_GROUP=lsst
-
-
-WORKDIR $DESC_PYTHON_DIR
-   
-    
-RUN cd /tmp && \
+    chgrp lsst $DESC_PYTHON_DIR && \
+    cd /tmp && \
     git clone https://github.com/LSSTDESC/desc-python && \
-    ls && \
-    pwd && \
     cd desc-python && \
-    ls && \
-    pwd && \
     cd conda && \ 
-    ls && \
-    pwd && \
     bash install-mpich.sh && \
     cd /tmp && \
     chown -R lsst desc-python 
