@@ -48,7 +48,9 @@ USER lsst
 
 RUN cd /tmp/desc-python/docker && \ 
     bash install-desc-ci.sh /opt/desc/py37 Miniconda3-py37_4.12.0-Linux-x86_64.sh && \
+    which conda && \
     bash install-desc-ci.sh /opt/desc/py38 Miniconda3-py38_4.12.0-Linux-x86_64.sh && \
+    which conda && \
     bash install-desc-ci.sh /opt/desc/py39 Miniconda3-py39_4.12.0-Linux-x86_64.sh && \
     cd /tmp && \
     rm -Rf desc-python
