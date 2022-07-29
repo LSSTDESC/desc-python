@@ -30,7 +30,7 @@ jobs:
           fetch-depth: 0
           
       - name: setup VM python to install docker-squash
-      - uses: actions/setup-python@v4
+        uses: actions/setup-python@v4
         with:
         python-version: '3.x'
         
