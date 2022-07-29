@@ -63,6 +63,9 @@ jobs:
             GH_SHA=${{ github.sha }}
           push: true
           tags: ${{ env.TEST_TAG }}
+          
+#            docker tag ${{ env.TEST_TAG }} lsstdesc/desc-python:ci-${{env.DATE_TAG}}
+
 
    
       - name: test image before pushing
@@ -70,7 +73,6 @@ jobs:
           docker run --rm ${{ env.TEST_TAG }} /bin/bash -c "source /opt/desc/py37/etc/profile.d/conda.sh && conda activate base && python -c 'import astropy'"
           docker run --rm ${{ env.TEST_TAG }} /bin/bash -c "source /opt/desc/py38/etc/profile.d/conda.sh && conda activate base && python -c 'import astropy'"
           docker run --rm ${{ env.TEST_TAG }} /bin/bash -c "source /opt/desc/py39/etc/profile.d/conda.sh && conda activate base && python -c 'import astropy'"
-          docker tag ${{ env.TEST_TAG }} lsstdesc/desc-python:ci-${{env.DATE_TAG}}
           docker-squash -t lsstdesc/desc-python:ci-${{env.DATE_TAG}} ${{ env.TEST_TAG }}
           docker push lsstdesc/desc-python:ci-${{env.DATE_TAG}}
           docker tag lsstdesc/desc-python:ci-${{env.DATE_TAG}} lsstdesc/desc-python:ci
