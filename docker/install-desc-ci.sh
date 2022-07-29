@@ -39,10 +39,10 @@ conda clean -y -a
 #python -m compileall $1
 
 # Install jupyterlab at CC
-if [[ -z "$NERSC_HOST" ]]
-then	
-  pip install jupyterlab
-fi
+#if [[ -z "$NERSC_HOST" ]]
+#then	
+#  pip install jupyterlab
+#fi
 
 conda env export --no-builds > $1/desc-python-nobuildinfo.yml
 conda env export > $1/desc-python.yml
