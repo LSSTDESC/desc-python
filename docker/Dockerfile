@@ -37,6 +37,7 @@ RUN cd /tmp/desc-python/docker && \
     bash install-desc-ci.sh /opt/desc/py39 Miniconda3-py39_4.12.0-Linux-x86_64.sh && \
     find /opt/desc -name "*.pyc" -delete && \
     (find /opt/desc -name "doc" | xargs rm -Rf) || true && \
+    (find /opt/desc -name "*.so" ! -path "*/xpa/*" | xargs strip -s -p) || true && \
     cd /tmp && \
     rm -Rf desc-python
     
