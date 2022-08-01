@@ -37,6 +37,7 @@ fi
 
 conda clean -y -a 
 #python -m compileall $1
+pip cache purge
 
 # Install jupyterlab at CC
 #if [[ -z "$NERSC_HOST" ]]
