@@ -1,15 +1,7 @@
 FROM ubuntu:20.04
 MAINTAINER Heather Kelly <heather@slac.stanford.edu>
 
-ARG PR_BRANCH=master
-
-ARG GH_SHA
 ARG DESC_PYTHON_DIR=/opt/desc
-
-#RUN pwd && ls && echo $GH_SHA
-
-ARG LSST_USER=lsst
-ARG LSST_GROUP=lsst
 
 WORKDIR $DESC_PYTHON_DIR
 
@@ -44,11 +36,6 @@ RUN cd /tmp/desc-python/docker && \
     cd /tmp && \
     rm -Rf desc-python
     
-#USER root
-
-#RUN ln -s /opt/desc/py /usr/local/py
-
-#USER lsst
     
 ENV HDF5_USE_FILE_LOCKING FALSE
 ENV PYTHONSTARTUP ''
