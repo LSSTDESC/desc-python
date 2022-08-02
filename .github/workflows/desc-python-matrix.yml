@@ -20,6 +20,7 @@ jobs:
     strategy:
       matrix:
         python-version: [py37, py38, py39]
+      fail-fast: false
       
     env:
       TEST_TAG: lsstdesc/desc-python-${{ matrix.python-version }}:ci-dev
