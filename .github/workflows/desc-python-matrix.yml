@@ -62,8 +62,8 @@ jobs:
       - name: test image before pushing
         run: |
           docker run --rm ${{ env.TEST_TAG }} /bin/bash -c "python -c 'import astropy'"
-          docker tag ${{ env.TEST_TAG }} lsstdesc/desc-python-${{ matrix-python-version }}:ci-${{env.DATE_TAG}}
-          docker push lsstdesc/desc-python-${{ matrix-python-version }}:ci-${{env.DATE_TAG}}
+          docker tag ${{ env.TEST_TAG }} lsstdesc/desc-python-${{ matrix.python-version }}:ci-${{env.DATE_TAG}}
+          docker push lsstdesc/desc-python-${{ matrix.python-version }}:ci-${{env.DATE_TAG}}
           docker tag lsstdesc/desc-python-${{ matrix.python-version }}:ci-${{env.DATE_TAG}} lsstdesc/desc-python-${{ matrix.python-version }}:ci
           docker push lsstdesc/desc-python-${{ matrix.python-version }}:ci
        
