@@ -45,6 +45,6 @@ RUN echo "source /opt/desc/$PY_VER/etc/profile.d/conda.sh" >> ~/.bashrc && \
     echo "conda activate base" >> ~/.bashrc
     
 #ENV PATH="${DESC_PYTHON_DIR}:${PATH}"
+SHELL ["/bin/bash", "--login", "-c"]
 
-
-CMD ["/bin/bash"]
+#CMD ["/bin/bash"]
