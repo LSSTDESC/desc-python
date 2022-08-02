@@ -20,7 +20,7 @@ jobs:
     build-images:
       strategy:
         matrix:
-          python-version: [3.7, 3.8, 3.9]
+          python-version: [py37, py38, py39]
       
       env:
         TEST_TAG: lsstdesc/desc-python-${{ matrix.python-version }}:ci-dev
