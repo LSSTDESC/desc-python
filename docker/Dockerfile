@@ -42,9 +42,10 @@ RUN cd /tmp/desc-python/docker && \
 ENV HDF5_USE_FILE_LOCKING FALSE
 ENV PYTHONSTARTUP ''
 
-echo "source /opt/desc/$PY_VER/etc/profile.d/conda.sh" >> ~/.bashrc && \
-echo "conda activate base" >> ~/.bashrc && \
-ENV PATH="${DESC_PYTHON_DIR}:${PATH}"
+RUN echo "source /opt/desc/$PY_VER/etc/profile.d/conda.sh" >> ~/.bashrc && \
+    echo "conda activate base" >> ~/.bashrc
+    
+#ENV PATH="${DESC_PYTHON_DIR}:${PATH}"
 
 
 CMD ["/bin/bash"]
