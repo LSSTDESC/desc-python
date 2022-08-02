@@ -23,8 +23,7 @@ RUN apt update -y && \
     cd desc-python && \
     cd conda && \ 
     bash install-mpich.sh && \
-    cd /tmp && \
-    chown -R lsst desc-python 
+    cd /tmp 
 
 #USER lsst
 
