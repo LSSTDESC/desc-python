@@ -3,6 +3,8 @@ MAINTAINER Heather Kelly <heather@slac.stanford.edu>
 
 ARG DESC_PYTHON_DIR=/opt/desc
 
+ARG PY_VER
+
 WORKDIR $DESC_PYTHON_DIR
 
 RUN apt update -y && \
@@ -14,11 +16,8 @@ RUN apt update -y && \
     wget && \
     apt-get clean  && \
     rm -rf /var/cache/apt && \
-    groupadd -g 1000 -r lsst && useradd -u 1000 --no-log-init -m -r -g lsst lsst && \
-    usermod --shell /bin/bash lsst && \
+    usermod --shell /bin/bash root && \
     mkdir -p $DESC_PYTHON_DIR && \
-    chown lsst $DESC_PYTHON_DIR && \
-    chgrp lsst $DESC_PYTHON_DIR && \
     cd /tmp && \
     git clone https://github.com/LSSTDESC/desc-python && \
     cd desc-python && \
@@ -27,14 +26,12 @@ RUN apt update -y && \
     cd /tmp && \
     chown -R lsst desc-python 
 
-USER lsst
+#USER lsst
 
 ENV PYTHONDONTWRITEBYTECODE 1
 
 RUN cd /tmp/desc-python/docker && \ 
-    bash install-desc-ci.sh /opt/desc/py37 Miniconda3-py37_4.12.0-Linux-x86_64.sh && \
-    bash install-desc-ci.sh /opt/desc/py38 Miniconda3-py38_4.12.0-Linux-x86_64.sh && \
-    bash install-desc-ci.sh /opt/desc/py39 Miniconda3-py39_4.12.0-Linux-x86_64.sh && \
+    bash install-desc-ci.sh /opt/desc/${PY_VER} Miniconda3-${PY_VER}_4.12.0-Linux-x86_64.sh && \
     find /opt/desc -name "*.pyc" -delete && \
     (find /opt/desc -name "doc" | xargs rm -Rf) || true && \
     (find /opt/desc -name "*.so" ! -path "*/xpa/*" | xargs strip -s -p) || true && \
@@ -45,9 +42,9 @@ RUN cd /tmp/desc-python/docker && \
 ENV HDF5_USE_FILE_LOCKING FALSE
 ENV PYTHONSTARTUP ''
 
-# echo "source /opt/desc/py/etc/profile.d/conda.sh" >> ~/.bashrc && \
-# echo "conda activate base" >> ~/.bashrc && \
-#ENV PATH="${DESC_PYTHON_DIR}:${PATH}"
+echo "source /opt/desc/${PY_VER}/etc/profile.d/conda.sh" >> ~/.bashrc && \
+echo "conda activate base" >> ~/.bashrc && \
+ENV PATH="${DESC_PYTHON_DIR}:${PATH}"
 
 
 CMD ["/bin/bash"]
