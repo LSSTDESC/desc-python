@@ -19,11 +19,12 @@ jobs:
     
     strategy:
       matrix:
+        os-version: [ubuntu-18.04, ubuntu-20.04, ubuntu-22.04]
         python-version: [py37, py38, py39]
       fail-fast: false
       
     env:
-      TEST_TAG: lsstdesc/desc-python-${{ matrix.python-version }}:ci-dev
+      TEST_TAG: lsstdesc/desc-python-${{ matrix.os-version }}-${{ matrix.python-version }}:ci-dev
     
     steps:
       
@@ -54,6 +55,7 @@ jobs:
           context: ./docker
           build-args: |
             GH_SHA=${{ github.sha }}
+            OS_VER=${{ matrix.os-version }}
             PY_VER=${{ matrix.python-version }}
           push: true
           tags: ${{ env.TEST_TAG }}
@@ -63,9 +65,9 @@ jobs:
       - name: test image before pushing
         run: |
           docker run --rm ${{ env.TEST_TAG }} /bin/bash -c "python -c 'import astropy'"
-          docker tag ${{ env.TEST_TAG }} lsstdesc/desc-python-${{ matrix.python-version }}:ci-${{env.DATE_TAG}}
-          docker push lsstdesc/desc-python-${{ matrix.python-version }}:ci-${{env.DATE_TAG}}
-          docker tag lsstdesc/desc-python-${{ matrix.python-version }}:ci-${{env.DATE_TAG}} lsstdesc/desc-python-${{ matrix.python-version }}:ci
-          docker push lsstdesc/desc-python-${{ matrix.python-version }}:ci
+          docker tag ${{ env.TEST_TAG }} lsstdesc/desc-python-${{ matrix.os-version }}-${{ matrix.python-version }}:ci-${{env.DATE_TAG}}
+          docker push lsstdesc/desc-python-${{ matrix.os-version}}-${{ matrix.python-version }}:ci-${{env.DATE_TAG}}
+          docker tag lsstdesc/desc-python-${{ matrix.os-version }}-${{ matrix.python-version }}:ci-${{env.DATE_TAG}} lsstdesc/desc-python-${{ matrix.os-version }}-${{ matrix.python-version }}:ci
+          docker push lsstdesc/desc-python-${{ matrix.os-version }}-${{ matrix.python-version }}:ci
        
        
