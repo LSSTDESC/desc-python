@@ -1,4 +1,5 @@
-FROM ubuntu:20.04
+ARG OS_VER=ubuntu:20.04
+FROM ${OS_VER}
 MAINTAINER Heather Kelly <heather@slac.stanford.edu>
 
 ARG DESC_PYTHON_DIR=/opt/desc
