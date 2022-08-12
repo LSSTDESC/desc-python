@@ -18,43 +18,10 @@ done
 export LSST_INST_DIR=/global/common/software/lsst/common/miniconda
 export LSST_PYTHON_VER=dev
 
-isloaded="$(module list |& grep python)"
-if [[ "$isloaded" ]];
-then
-  module unload python
-fi
-
-isloaded="$(module list |& grep PrgEnv-intel)"
-if [[ "$isloaded" ]];
-then
-  module swap PrgEnv-intel PrgEnv-gnu
-else
-  module load PrgEnv-gnu
-fi
-
-#isloaded="$(module list |& grep craype-network-aries)"
-#if [[ "$isloaded" ]];
-#then
-#  module unload craype-network-aries
-#fi
-
-isloaded="$(module list |& grep cray-libsci)"
-if [[ "$isloaded" ]];
-then
-  module unload cray-libsci
-fi
-
-#isloaded="$(module list |& grep craype)"
-#if [[ "$isloaded" ]];
-#then
-#  module unload craype
-#fi
-
-isloaded="$(module list |& grep cray-mpich)"
-if [[ "$isloaded" ]];
-then
-  module unload cray-mpich
-fi
+module unload python
+module swap PrgEnv-intel PrgEnv-gnu
+module unload cray-libsci
+module unload cray-mpich
 
 
 if [ "$NERSC_HOST" == "cori" ]
