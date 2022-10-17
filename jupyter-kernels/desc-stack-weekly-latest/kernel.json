@@ -2,7 +2,7 @@
   "argv": [
     "shifter",
     "--image=lsstdesc/stack-jupyter:weekly-latest",
-    "/global/common/software/lsst/common/miniconda/kernels/stack-prod.sh",
+    "/global/common/software/lsst/common/miniconda/kernels/stack-weekly.sh",
     "-f",
     "{connection_file}"
   ],
