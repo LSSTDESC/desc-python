@@ -18,6 +18,7 @@ extinction
 fast3tree
 fast-pt
 fastparquet
+firecrown
 fitsio
 flake8
 galsim
