@@ -18,7 +18,7 @@ jobs:
     steps:
       
       - name: Docker login
-        uses: docker/login-action@v1
+        uses: docker/login-action@v2
         with:
           username: heather999
           password: '${{ secrets.DOCKERHUB_ACCESSTOK }}'      
@@ -36,7 +36,7 @@ jobs:
         
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: pull old build
         run: |
@@ -46,7 +46,7 @@ jobs:
         
       - name: Build 
         id: docker_build
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         with:
           context: .
           build-args: |
