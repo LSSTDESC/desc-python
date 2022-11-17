@@ -65,6 +65,7 @@ seaborn
 selenium
 snappy
 sphinx
+sqlalchemy
 starlink-ast
 tabulate
 treecorr
