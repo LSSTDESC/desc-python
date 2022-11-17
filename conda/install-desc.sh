@@ -15,9 +15,15 @@ fi
 
 unset PYTHONPATH
 
-curl -LO https://repo.anaconda.com/miniconda/Miniconda3-py38_4.9.2-Linux-x86_64.sh
+#curl -LO https://repo.anaconda.com/miniconda/Miniconda3-py38_4.9.2-Linux-x86_64.sh
+#bash ./Miniconda3-py38_4.9.2-Linux-x86_64.sh -b -p $1
 
-bash ./Miniconda3-py38_4.9.2-Linux-x86_64.sh -b -p $1
+# Try Mambaforge latest
+url="https://github.com/conda-forge/miniforge/releases/latest/download"
+url="$url/Mambaforge-Linux-x86_64.sh"
+curl -LO "$url"
+
+bash ./Mambaforge-Linux-x86_64.sh -b -p $1
 which python
 #export PATH=$1/bin:$PATH
 echo $1
