@@ -31,7 +31,7 @@ source $1/etc/profile.d/conda.sh
 conda activate base
 #conda create --name desc -y
 #conda activate desc
-conda install -c conda-forge -y "mamba>=0.22.1"
+#conda install -c conda-forge -y "mamba>=0.22.1"
 mamba install -c conda-forge -y mpich=3.4.*=external_*
 which python
 which conda
