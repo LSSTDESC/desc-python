@@ -1,55 +1,68 @@
-FROM centos:7
+FROM ubuntu:22.04
 MAINTAINER Heather Kelly <heather@slac.stanford.edu>
 
-RUN yum update -y && \
-    yum install -y bash \
-    bison \
-    blas \
-    bzip2 \
-    bzip2-devel \
-    cmake \
-    curl \
-    flex \
-    fontconfig \
-    freetype-devel \
-    gawk \
-    gcc-c++ \
-    gcc-gfortran \
-    gettext \
+ARG DESC_PYTHON_DIR=/opt/desc
+
+RUN apt update -y && \
+    apt install -y curl \
+    build-essential \
+    gfortran \
     git \
-    glib2-devel \
-    java-1.8.0-openjdk \
-    libcurl-devel \
-    libuuid-devel \
-    libXext \
-    libXrender \
-    libXt-devel \
-    make \
-    mesa-libGL \
-    ncurses-devel \
-    openssl-devel \
-    patch  \
-    perl \
-    perl-ExtUtils-MakeMaker \
-    readline-devel \
-    sed \
-    tar \
-    time \
-    which \
-    zlib-devel 
-    
-    
-RUN yum clean -y all && \
-    rm -rf /var/cache/yum && \
+    patch \
+    wget && \
+    apt-get clean  && \
+    rm -rf /var/cache/apt && \
     groupadd -g 1000 -r lsst && useradd -u 1000 --no-log-init -m -r -g lsst lsst && \
+    usermod --shell /bin/bash lsst && \
     cd /tmp && \
     git clone https://github.com/LSSTDESC/desc-python && \
-    cd desc-python/conda && \
-    bash install-desc-latest.sh /opt/desc/py desc-python-env.yml NERSC && \
-    ln -s /opt/desc/py /opt/desc/py3.8 && \
-    ln -s /opt/desc/py /usr/local/py && \
+    cd desc-python && \
+    cd conda && \ 
+    bash install-mpich.sh && \
+    cd /tmp && \
+    chown -R lsst desc-python && \ 
+    mkdir -p $DESC_PYTHON_DIR && \
+    chown lsst $DESC_PYTHON_DIR && \
+    chgrp lsst $DESC_PYTHON_DIR
+
+ARG LSST_USER=lsst
+ARG LSST_GROUP=lsst
+
+
+WORKDIR $DESC_PYTHON_DIR
+   
+USER lsst
+
+ENV PYTHONDONTWRITEBYTECODE 1
+
+RUN cd /tmp/desc-python/conda && \ 
+    bash install-desc-python.sh /opt/desc/py conda-pack.txt pip-pack.txt NERSC && \
+    find /$DESC_PYTHON_DIR -name "*.pyc" -delete && \
+    (find $DESC_PYTHON_DIR -name "doc" | xargs rm -Rf) || true && \
+    (find $DESC_PYTHON_DIR -name "*.so" ! -path "*/xpa/*" | xargs strip -s -p) || true && \
     cd /tmp && \
     rm -Rf desc-python
     
+USER root
+
+RUN ln -s /opt/desc/py /usr/local/py
+
+USER lsst
+    
 ENV HDF5_USE_FILE_LOCKING FALSE
 ENV PYTHONSTARTUP ''
+
+
+RUN echo "source /opt/desc/py/etc/profile.d/conda.sh" >> ~/.bashrc && \
+    echo "conda activate base" >> ~/.bashrc
+    
+ENV PATH="${DESC_PYTHON_DIR}/${PY_VER}/bin:${PATH}"
+SHELL ["/bin/bash", "--login", "-c"]
+
+
+# echo "source /opt/desc/py/etc/profile.d/conda.sh" >> ~/.bashrc && \
+# echo "conda activate base" >> ~/.bashrc && \
+#ENV PATH="${DESC_PYTHON_DIR}:${PATH}"
+
+
+#CMD ["/bin/bash"]
