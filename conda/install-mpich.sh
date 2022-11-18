@@ -9,7 +9,7 @@ tar xvzf $mpich_prefix.tar.gz
 cd $mpich_prefix                                                        
 unset F90
 unset F90FLAGS
-./configure                                                           
+./configure -with-device=ch4:ofi                                                          
 make -j 4                                                               
 make install                                                           
 make clean                                                        
