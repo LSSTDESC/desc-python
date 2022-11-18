@@ -54,8 +54,8 @@ jobs:
       - name: test image before pushing
         run: |
           docker run --rm ${{ env.TEST_TAG }} /bin/bash -c "source /opt/desc/py/etc/profile.d/conda.sh && conda activate base && python -c 'import astropy'"
-          docker tag ${{ env.TEST_TAG }} lsstdesc/desc-python:latest-{{env.DATE_TAG}}
-          docker push lsstdesc/desc-python:latest-${{env.DATE_TAG}}
+          docker tag ${{ env.TEST_TAG }} lsstdesc/desc-python:latest-${{ env.DATE_TAG }}
+          docker push lsstdesc/desc-python:latest-${{ env.DATE_TAG }}
           docker tag ${{ env.TEST_TAG }} lsstdesc/desc-python:latest
           docker push lsstdesc/desc-python:latest
        
