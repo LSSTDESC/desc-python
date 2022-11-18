@@ -30,6 +30,7 @@ healpy
 healsparse
 holoviews
 ipympl
+jax
 jupyter
 lsstdesc-coord
 lsstdesc-gcr-catalogs
@@ -62,6 +63,7 @@ seaborn
 selenium
 snappy
 sphinx
+sqlalchemy
 starlink-ast
 tabulate
 TreeCorr
