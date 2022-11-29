@@ -16,7 +16,7 @@ installFlag=$1
 
 commonWeeklyBuildDir=/global/common/software/lsst/gitlab/desc-python-int
 commonDevBuildDir=/global/common/software/lsst/gitlab/desc-python-dev
-commonProdBuildDir=/global/common/software/lsst/gitlab/desc-python
+commonProdBuildDir=/global/common/software/lsst/gitlab/desc-python-prod
 
 if [ "$CI_COMMIT_REF_NAME" = "dev" ];  # dev
 then
