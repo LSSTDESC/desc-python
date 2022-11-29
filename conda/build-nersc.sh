@@ -61,8 +61,8 @@ mamba install -c conda-forge -y mpich=3.4.*=external_*
 
 cd $curBuildDir
 
-mamba install -c conda-forge -y --file ./packlist.txt
-pip install --no-cache-dir -r ./piplist.txt
+mamba install -c conda-forge -y --file ./conda-pack.txt
+pip install --no-cache-dir -r ./pip-pack.txt
 
 conda clean -y -a 
 
