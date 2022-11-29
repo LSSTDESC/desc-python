@@ -56,7 +56,7 @@ main-build:
       - $CI_COMMIT_TAG
   tags: [cori]
   script:
-    - bash conda/build-nersc.sh
+    - bash conda/build-nersc.sh 1
 
 main-test:
   stage: test
@@ -67,7 +67,7 @@ main-test:
       - $CI_COMMIT_TAG
   tags: [cori]
   script: 
-    -  bash conda/test-nersc.sh
+    -  bash conda/test-nersc.sh 1
     
 main-deploy:
   stage: deploy
