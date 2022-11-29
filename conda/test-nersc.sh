@@ -12,6 +12,9 @@ export LD_LIBRARY_PATH=$CRAY_MPICH_BASEDIR/mpich-gnu-abi/8.2/lib:$LD_LIBRARY_PAT
 
 unset PYTHONPATH
 
+# Set to 1 to install into the common sofware area
+installFlag=$1
+
 commonDevBuildDir=/global/common/software/lsst/gitlab/desc-python-dev
 commonProdBuildDir=/global/common/software/lsst/gitlab/desc-python-prod
 
