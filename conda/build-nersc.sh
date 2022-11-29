@@ -37,9 +37,9 @@ fi
 mkdir -p $curBuildDir
 cp conda/conda-pack.txt $curBuildDir
 cp conda/pip-pack.txt $curBuildDir
-cp conda/setup-desc-python.sh $curBuildDir
+#cp conda/setup-desc-python.sh $curBuildDir
 cp conda/sitecustomize.py $curBuildDir
-sed -i 's|$1|'$curBuildDir'|g' $curBuildDir/setup-desc-python.sh
+#sed -i 's|$1|'$curBuildDir'|g' $curBuildDir/setup-desc-python.sh
 cd $curBuildDir
 
 
