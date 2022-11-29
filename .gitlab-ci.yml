@@ -45,7 +45,42 @@ dev-deploy:
 #  script: 
 #    - bash ci/test-descqa-nersc.bash 1
     
+
+
+main-build:
+  stage: build
+  only: 
+    - main
+  except: 
+    variables:
+      - $CI_COMMIT_TAG
+  tags: [cori]
+  script:
+    - bash conda/build-nersc.sh
+
+main-test:
+  stage: test
+  only:
+    - main
+  except: 
+    variables:
+      - $CI_COMMIT_TAG
+  tags: [cori]
+  script: 
+    -  bash conda/test-nersc.sh
     
+main-deploy:
+  stage: deploy
+  only:
+    - main
+  except: 
+    variables:
+      - $CI_COMMIT_TAG
+  tags: [cori]
+  script:
+    - bash conda/set-symlinks.sh prod
+
+
 #main-test:
 #  stage: test
 #  only:
