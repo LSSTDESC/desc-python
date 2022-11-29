@@ -35,7 +35,7 @@ then
     echo "Prod Build: " $curBuildDir
 fi
 
-source $curBuildDir/etc/profile.d/conda.sh
+source $curBuildDir/py/etc/profile.d/conda.sh
 conda activate base
 
 python -c 'import astropy'
