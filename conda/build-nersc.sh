@@ -66,7 +66,7 @@ pip install --no-cache-dir -r ./pip-pack.txt
 
 conda clean -y -a 
 
-conda config --set env_prompt "(lsst-scipipe-$1)" --system
+conda config --set env_prompt "(desc-py)" --system
 
 conda env export --no-builds > $curBuildDir/desc-python-nersc-$CI_PIPELINE_ID-nobuildinfo.yml
 conda env export > $curBuildDir/desc-python-nersc-$CI_PIPELINE_ID.yml
