@@ -23,5 +23,5 @@ fi
 
 cd $curBuildDir/../
 unlink $linkName
-ln -s $curBuildDir $linkName
+ln -s $curBuildDir/py $linkName
 
