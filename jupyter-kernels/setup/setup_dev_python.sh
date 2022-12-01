@@ -18,54 +18,20 @@ done
 export LSST_INST_DIR=/global/common/software/lsst/common/miniconda
 export LSST_PYTHON_VER=dev
 
-isloaded="$(module list |& grep python)"
-if [[ "$isloaded" ]];
-then
-  module unload python
-fi
-
-isloaded="$(module list |& grep PrgEnv-intel)"
-if [[ "$isloaded" ]];
-then
-  module swap PrgEnv-intel PrgEnv-gnu
-else
-  module load PrgEnv-gnu
-fi
-
-#isloaded="$(module list |& grep craype-network-aries)"
-#if [[ "$isloaded" ]];
-#then
-#  module unload craype-network-aries
-#fi
-
-isloaded="$(module list |& grep cray-libsci)"
-if [[ "$isloaded" ]];
-then
-  module unload cray-libsci
-fi
-
-#isloaded="$(module list |& grep craype)"
-#if [[ "$isloaded" ]];
-#then
-#  module unload craype
-#fi
-
-isloaded="$(module list |& grep cray-mpich)"
-if [[ "$isloaded" ]];
-then
-  module unload cray-mpich
-fi
-
-
 if [ "$NERSC_HOST" == "cori" ]
 then
+  module unload python
+  module swap PrgEnv-intel PrgEnv-gnu
+  module unload cray-libsci
+  module unload cray-mpich
   module load cray-mpich-abi/7.7.19
+  export LD_LIBRARY_PATH=$CRAY_MPICH_BASEDIR/mpich-gnu-abi/8.2/lib:$LD_LIBRARY_PATH
 else
+  module load PrgEnv-gnu
+  module load cpu
   module load cray-mpich-abi/8.1.15
 fi
 
-
-export LD_LIBRARY_PATH=$CRAY_MPICH_BASEDIR/mpich-gnu-abi/8.2/lib:$LD_LIBRARY_PATH
 
 unset PYTHONHOME
 unset PYTHONPATH
