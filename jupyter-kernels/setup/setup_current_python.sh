@@ -16,7 +16,7 @@ do
 done
 
 export LSST_INST_DIR=/global/common/software/lsst/common/miniconda
-export LSST_PYTHON_VER=dev
+export LSST_PYTHON_VER=current
 
 module unload python
 module swap PrgEnv-intel PrgEnv-gnu
