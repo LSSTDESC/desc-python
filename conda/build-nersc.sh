@@ -54,7 +54,7 @@ bash ./Mambaforge-Linux-x86_64.sh -b -p $curBuildDir/py
 source $curBuildDir/py/etc/profile.d/conda.sh
 conda activate base
 
-mamba install -c conda-forge -y mpich=3.4.*=external_*
+mamba install -c conda-forge -y mpich=4.0.3=external_*  mpich=3.4.*=external_*
 
 #export LD_LIBRARY_PATH=/opt/cray/pe/mpt/7.7.19/gni/mpich-gnu-abi/8.2/lib:$LD_LIBRARY_PATH
 
