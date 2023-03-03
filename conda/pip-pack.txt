@@ -1,6 +1,6 @@
 ceci
 fits2hdf
-git+https://github.com/Parsl/parsl.git@desc
+parsl
 https://bitbucket.org/yymao/helpers/get/v0.3.2.tar.gz
 https://github.com/LSSTDESC/descqa/archive/v2.0.0-0.7.0.tar.gz
 https://github.com/yymao/FoFCatalogMatching/archive/v0.1.0.tar.gz
