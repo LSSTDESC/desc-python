@@ -5,6 +5,7 @@ camb
 cmake
 compilers
 corner
+cudatoolkit
 dask
 dask-mpi
 dask-jobqueue
