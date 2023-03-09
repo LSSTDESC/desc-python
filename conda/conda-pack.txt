@@ -5,7 +5,7 @@ camb
 cmake
 compilers
 corner
-cudatoolkit==11.7.1
+cudatoolkit==11.7
 dask
 dask-mpi
 dask-jobqueue
