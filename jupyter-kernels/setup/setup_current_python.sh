@@ -30,7 +30,7 @@ then
 else
   module load PrgEnv-gnu
   module load cpu
-  module load cray-mpich-abi/8.1.15
+  module load cray-mpich-abi/8.1.22
 fi
 
 
