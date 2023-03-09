@@ -28,8 +28,8 @@ then
   export LD_LIBRARY_PATH=$CRAY_MPICH_BASEDIR/mpich-gnu-abi/8.2/lib:$LD_LIBRARY_PATH
 else
   module load PrgEnv-gnu
-  module load cpu
-  module load cray-mpich-abi/8.1.15
+#  module load cpu
+  module load cray-mpich-abi/8.1.22
 fi
 
 
