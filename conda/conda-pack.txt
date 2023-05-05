@@ -3,6 +3,7 @@ astropy
 bokeh
 camb
 cmake
+cmasher
 compilers
 corner
 dask
@@ -41,6 +42,7 @@ namaster
 ndcctools
 nose
 numba
+numdifftools
 numpy
 pandas
 pip  
