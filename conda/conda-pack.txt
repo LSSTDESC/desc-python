@@ -46,6 +46,7 @@ numba
 numpy
 pandas
 parallel_statistics
+parsl
 pip  
 pot
 psycopg2
