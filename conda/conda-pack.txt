@@ -45,6 +45,7 @@ nose
 numba
 numpy
 pandas
+parallel_statistics
 pip  
 pot
 psycopg2
