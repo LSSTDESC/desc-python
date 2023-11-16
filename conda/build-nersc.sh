@@ -5,9 +5,7 @@ module swap PrgEnv-intel PrgEnv-gnu
 module unload craype-network-aries
 module unload cray-libsci
 module unload craype
-module load cray-mpich-abi/7.7.19
-
-export LD_LIBRARY_PATH=$CRAY_MPICH_BASEDIR/mpich-gnu-abi/8.2/lib:$LD_LIBRARY_PATH
+module load cray-mpich-abi/8.1.25
 
 unset PYTHONPATH
 
@@ -17,6 +15,10 @@ installFlag=$1
 commonWeeklyBuildDir=/global/common/software/lsst/gitlab/desc-python-int
 commonDevBuildDir=/global/common/software/lsst/gitlab/desc-python-dev
 commonProdBuildDir=/global/common/software/lsst/gitlab/desc-python-prod
+
+export BUILD_ID_DATE=`echo "$(date "+%F-%M-%S")"`
+export CI_COMMIT_REF_NAME=prod
+export CI_PIPELINE_ID=$BUILD_ID_DATE
 
 if [ "$CI_COMMIT_REF_NAME" = "dev" ];  # dev
 then
@@ -56,8 +58,6 @@ conda activate base
 
 mamba install -c conda-forge -y mpich=4.0.3=external_* 
 
-#export LD_LIBRARY_PATH=/opt/cray/pe/mpt/7.7.19/gni/mpich-gnu-abi/8.2/lib:$LD_LIBRARY_PATH
-
 
 cd $curBuildDir
 
@@ -66,7 +66,7 @@ pip install --no-cache-dir -r ./pip-pack.txt
 
 conda clean -y -a 
 
-conda config --set env_prompt "(desc-py)" --system
+conda config --set env_prompt "(desc-py)" --env
 
 conda env export --no-builds > $curBuildDir/desc-python-nersc-$CI_PIPELINE_ID-nobuildinfo.yml
 conda env export > $curBuildDir/desc-python-nersc-$CI_PIPELINE_ID.yml

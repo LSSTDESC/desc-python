@@ -45,6 +45,7 @@ numba
 numdifftools
 numpy
 pandas
+parsl
 pip  
 pot
 psycopg2
