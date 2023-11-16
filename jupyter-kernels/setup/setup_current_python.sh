@@ -19,19 +19,10 @@ export LSST_INST_DIR=/global/common/software/lsst/common/miniconda
 export LSST_PYTHON_VER=current
 
 
-if [ "$NERSC_HOST" == "cori" ]
-then
-  module unload python
-  module swap PrgEnv-intel PrgEnv-gnu
-  module unload cray-libsci
-  module unload cray-mpich
-  module load cray-mpich-abi/7.7.19
-  export LD_LIBRARY_PATH=$CRAY_MPICH_BASEDIR/mpich-gnu-abi/8.2/lib:$LD_LIBRARY_PATH
-else
-  module load PrgEnv-gnu
-  module load cpu
-  module load cray-mpich-abi/8.1.22
-fi
+module load PrgEnv-gnu
+module load cpu
+module load cray-mpich-abi
+
 
 
 unset PYTHONHOME
