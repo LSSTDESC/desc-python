@@ -36,6 +36,7 @@ jax
 jaxlib
 jupyter
 lsstdesc-coord
+lsstdesc-diffsky
 lsstdesc-gcr-catalogs
 markupsafe
 matplotlib
