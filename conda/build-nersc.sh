@@ -5,7 +5,7 @@ module swap PrgEnv-intel PrgEnv-gnu
 module unload craype-network-aries
 module unload cray-libsci
 module unload craype
-module load cray-mpich-abi/7.7.19
+module load cray-mpich-abi/8.1.25
 
 export LD_LIBRARY_PATH=$CRAY_MPICH_BASEDIR/mpich-gnu-abi/8.2/lib:$LD_LIBRARY_PATH
 
