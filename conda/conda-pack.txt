@@ -3,6 +3,7 @@ astropy
 bokeh
 camb
 cmake
+cmasher
 compilers
 corner
 dask
