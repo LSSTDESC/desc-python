@@ -16,26 +16,13 @@ fi
 # Set up environment if running at NERSC
 if [ "$NERSC_HOST" ]
 then
-  if [ "$NERSC_HOST" == "cori" ]
-  then
-    module unload python
-    module swap PrgEnv-intel PrgEnv-gnu
-    module unload cray-libsci
-    module unload cray-mpich
-    module load cray-mpich-abi/7.7.19
-    export LD_LIBRARY_PATH=$CRAY_MPICH_BASEDIR/mpich-gnu-abi/8.2/lib:$LD_LIBRARY_PATH
-  else
-    module unload cray-libsci
-    module load cray-mpich-abi/8.1.15
-  fi
+  module unload cray-libsci
+  module load cray-mpich-abi/8.1.28
   module list
 fi
 
 
 unset PYTHONPATH
-
-#curl -LO https://repo.anaconda.com/miniconda/Miniconda3-py38_4.9.2-Linux-x86_64.sh
-#bash ./Miniconda3-py38_4.9.2-Linux-x86_64.sh -b -p $1
 
 # Try Mambaforge latest
 url="https://github.com/conda-forge/miniforge/releases/latest/download"
@@ -44,10 +31,9 @@ curl -LO "$url"
 
 bash ./Mambaforge-Linux-x86_64.sh -b -p $1
 which python
-source $1/etc/profile.d/conda.sh
-conda activate base
+source $1/bin/activate
 #conda install -c conda-forge -y mamba
-mamba install -c conda-forge -y mpich=3.4.*=external_*
+mamba install -c conda-forge -y mpich=4.0.3=external_*
 which python
 which conda
 
