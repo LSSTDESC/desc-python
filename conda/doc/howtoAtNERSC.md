@@ -6,10 +6,10 @@
       * `setfacl -d -m"group::rx" <PathToYourInstallDirectory>`
 
 To set up a new desc-python:
-`bash ./install-desc-python.sh $CSCRATCH/test-install`
+`bash ./install-desc-python.sh $PSCRATCH/test-install`
 
 If reinstalling desc-python using an input yaml file
-`bash ./install-desc-python.sh $CSCRATCH/test-install desc-python-env-nersc-install-nobuildinfo.yml`
+`bash ./install-desc-python.sh $PSCRATCH/test-install desc-python-env-nersc-install-nobuildinfo.yml`
 
 To export a full list of versions without build info:
 `conda env export --no-builds > desc-python-env-nersc-install-nobuildinfo.yml`
