@@ -2,14 +2,20 @@
 
 module unload python
 module swap PrgEnv-intel PrgEnv-gnu
-module unload craype-network-aries
 module unload cray-libsci
-module unload craype
 module load cray-mpich-abi/8.1.28
 
-export LD_LIBRARY_PATH=$CRAY_MPICH_BASEDIR/mpich-gnu-abi/8.2/lib:$LD_LIBRARY_PATH
+#export LD_LIBRARY_PATH=$CRAY_MPICH_BASEDIR/mpich-gnu-abi/8.2/lib:$LD_LIBRARY_PATH
 
 unset PYTHONPATH
+
+setup_conda() {
+    source $curBuildDir/py/etc/profile.d/conda.sh
+}
+
+config_cosmosis() {
+   source ${CONDA_PREFIX}/bin/cosmosis-configure
+}
 
 # Set to 1 to install into the common sofware area
 installFlag=$1
@@ -49,23 +55,33 @@ cd $curBuildDir
 
 # Build Steps
 
+export PYTHONNOUSERSITE=1
+export CONDA_CACHE_DIR=$curBuildDir/conda/pkgs
+
 # Try Mambaforge latest
 url="https://github.com/conda-forge/miniforge/releases/latest/download"
 url="$url/Mambaforge-Linux-x86_64.sh"
 curl -LO "$url"
 
 bash ./Mambaforge-Linux-x86_64.sh -b -p $curBuildDir/py
-source $curBuildDir/py/etc/profile.d/conda.sh
+setup_conda
 conda activate base
 
-mamba install -c conda-forge -y mpich=4.0.3=external_* 
-
-#export LD_LIBRARY_PATH=/opt/cray/pe/mpt/7.7.19/gni/mpich-gnu-abi/8.2/lib:$LD_LIBRARY_PATH
+mamba install -c conda-forge -y mpich=4.1.2=external_* 
 
 
 cd $curBuildDir
 
+python -m pip cache purge
+
 mamba install -c conda-forge -y --file ./conda-pack.txt
+
+#install cosmosis for firecrown
+#export CSL_DIR=${PWD}/cosmosis-standard-library
+#conda env config vars set CSL_DIR=${PWD}/cosmosis-standard-library
+#config_cosmosis
+#cosmosis-build-standard-library 
+
 pip install --no-cache-dir -r ./pip-pack.txt
 
 conda clean -y -a 
