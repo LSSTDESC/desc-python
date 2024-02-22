@@ -6,7 +6,7 @@
       * `setfacl -d -m"group::rx" <PathToYourInstallDirectory>`
 * Run `bash ./install-desc-python.sh <path to installation> <name of yaml file>`
 
-Example:  `bash ./install-desc-python.sh $CSCRATCH/test-install desc-python-env-nersc-install-nobuildinfo.yml`
+Example:  `bash ./install-desc-python.sh $SCRATCH/test-install desc-python-env-nersc-install-nobuildinfo.yml`
 
 ## Environment Set Up After Installation
 
