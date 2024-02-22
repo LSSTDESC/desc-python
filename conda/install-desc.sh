@@ -13,10 +13,14 @@ then
 	exit 1
 fi
 
-unset PYTHONPATH
+DESC_PYTHON_INSTALL_DIR=$1
 
-#curl -LO https://repo.anaconda.com/miniconda/Miniconda3-py38_4.9.2-Linux-x86_64.sh
-#bash ./Miniconda3-py38_4.9.2-Linux-x86_64.sh -b -p $1
+setup_conda() {
+  source $DESC_PYTHON_INSTALL_DIR/etc/profile.d/conda.sh
+  conda activate base
+}
+
+unset PYTHONPATH
 
 # Try Mambaforge latest
 url="https://github.com/conda-forge/miniforge/releases/latest/download"
@@ -26,13 +30,14 @@ curl -LO "$url"
 bash ./Mambaforge-Linux-x86_64.sh -b -p $1
 which python
 #export PATH=$1/bin:$PATH
-echo $1
-source $1/etc/profile.d/conda.sh
-conda activate base
+echo $DESC_PYTHON_INSTALL_DIR
+#source $1/etc/profile.d/conda.sh
+#conda activate base
+setup_conda
 #conda create --name desc -y
 #conda activate desc
 #conda install -c conda-forge -y "mamba>=0.22.1"
-mamba install -c conda-forge -y mpich=3.4.*=external_*
+mamba install -c conda-forge -y mpich=4.1.2.*=external_*
 which python
 which conda
 #mamba install -c conda-forge -y --file $2
