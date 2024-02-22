@@ -6,11 +6,14 @@
 ## To Install using an input YAML file
 ## bash install-desc-python.sh <pathToCondaInstall> ./desc-python-env-nersc-install-nobuildinfo.yml
 
+
 if [ -z "$1" ]
 then	
 	echo "Please provide a full path install directory"
 	exit 1
 fi
+
+DESC_PYTHON_INSTALL_DIR=$1
 
 
 # Set up environment if running at NERSC
@@ -21,8 +24,15 @@ then
   module list
 fi
 
+setup_conda() {
+    source $DESC_PYTHON_INSTALL_DIR/etc/profile.d/conda.sh
+    conda activate base
+}
 
 unset PYTHONPATH
+
+export PYTHONNOUSERSITE=1
+export CONDA_CACHE_DIR=$1/pkgs
 
 # Try Mambaforge latest
 url="https://github.com/conda-forge/miniforge/releases/latest/download"
@@ -31,11 +41,15 @@ curl -LO "$url"
 
 bash ./Mambaforge-Linux-x86_64.sh -b -p $1
 which python
-source $1/bin/activate
+#source $1/bin/activate
+setup_conda
 #conda install -c conda-forge -y mamba
-mamba install -c conda-forge -y mpich=4.0.3=external_*
+mamba install -c conda-forge -y mpich=4.1.2=external_*
 which python
 which conda
+
+
+python -m pip cache purge
 
 if [[ -z "$2" ]]
 then
