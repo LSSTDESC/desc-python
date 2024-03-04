@@ -9,6 +9,8 @@ tar xvzf $mpich_prefix.tar.gz
 cd $mpich_prefix                                                        
 unset F90
 unset F90FLAGS
+export FFLAGS=-fallow-argument-mismatch
+export FCFLAGS=-fallow-argument-mismatch
 ./configure -with-device=ch4:ofi                                                          
 make -j 4                                                               
 make install                                                           
