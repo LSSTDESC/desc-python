@@ -682,11 +682,11 @@ dependencies:
   - zstandard=0.22.0
   - zstd=1.5.5
   - pip:
-      - catalogmatcher==0.1.dev0
+      - https://github.com/LSSTDESC/CatalogMatcher/archive/master.tar.gz
       - ceci==1.17
-      - descqa==2.8.0
+      - https://github.com/LSSTDESC/descqa/archive/v2.8.0.tar.gz
       - fits2hdf==1.1.1
-      - fofcatalogmatching==0.1.0
-      - helpers==0.3.2
-      - stile==0.1
+      - https://github.com/yymao/FoFCatalogMatching/archive/v0.1.0.tar.gz
+      - https://bitbucket.org/yymao/helpers/get/v0.3.2.tar.gz
+      - https://github.com/msimet/Stile/archive/v0.1.tar.gz
 prefix: /global/common/software/lsst/gitlab/desc-python-prod/2024-03-04-26-36/py
