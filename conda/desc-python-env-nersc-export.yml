@@ -57,7 +57,6 @@ dependencies:
   - brunsli=0.1=h9c3ff4c_0
   - bzip2=1.0.8=hd590300_5
   - c-ares=1.27.0=hd590300_0
-  - c-blosc2=2.13.2=hb4ffafa_0
   - c-compiler=1.7.0=hd590300_0
   - ca-certificates=2024.2.2=hbcca054_0
   - cached-property=1.5.2=hd8ed1ab_1
