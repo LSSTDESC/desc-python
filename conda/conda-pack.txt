@@ -41,6 +41,7 @@ lsstdesc-diffsky
 lsstdesc-gcr-catalogs
 markupsafe
 matplotlib
+mpi4py
 namaster
 ndcctools
 nose
