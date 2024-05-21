@@ -68,6 +68,7 @@ scipy
 seaborn
 selenium
 snappy
+somoclu
 sphinx
 sqlalchemy
 starlink-ast
