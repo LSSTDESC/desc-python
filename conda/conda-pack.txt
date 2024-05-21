@@ -47,6 +47,7 @@ ndcctools
 nose
 numba
 numpy
+numpydoc
 pandas
 parallel_statistics
 parsl
