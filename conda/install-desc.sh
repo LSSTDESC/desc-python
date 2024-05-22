@@ -46,10 +46,12 @@ pip install --no-cache-dir -r $3
 #mamba env update -n desc --file $2 
 #mamba env create -n desc -f $2
 cd $1
-wget https://github.com/LSSTDESC/rail/archive/refs/tags/v1.0.0.tar.gz 
-tar xzf v1.0.0.tar.gz 
-rm v1.0.0.tar.gz 
-cd rail-1.0.0 
+#wget https://github.com/LSSTDESC/rail/archive/refs/tags/v1.0.0.tar.gz 
+#tar xzf v1.0.0.tar.gz 
+#rm v1.0.0.tar.gz 
+git clone https://github.com/LSSTDESC/rail
+cd rail 
+git checkout v1.0.0
 pip install . 
 rail install --package-file rail_packages.yml 
 
