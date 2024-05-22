@@ -43,13 +43,6 @@ RUN cd /tmp/desc-python/conda && \
     find /$DESC_PYTHON_DIR -name "*.pyc" -delete && \
     (find $DESC_PYTHON_DIR -name "doc" | xargs rm -Rf) || true && \
     (find $DESC_PYTHON_DIR -name "*.so" ! -path "*/xpa/*" | xargs strip -s -p) || true && \
-    cd /opt/desc && \
-    wget https://github.com/LSSTDESC/rail/archive/refs/tags/v1.0.0.tar.gz && \
-    tar xzf v1.0.0.tar.gz && \
-    rm v1.0.0.tar.gz && \
-    cd rail-1.0.0 && \
-    pip install . && \
-    rail install --package-file rail_packages.yml && \
     cd /tmp && \
     rm -Rf desc-python 
     
