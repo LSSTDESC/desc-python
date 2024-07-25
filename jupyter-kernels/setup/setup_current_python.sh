@@ -22,6 +22,7 @@ export LSST_PYTHON_VER=current
 module load PrgEnv-gnu
 module load cpu
 module load cray-mpich-abi
+module load texlive
 
 
 
