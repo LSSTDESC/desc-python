@@ -75,6 +75,7 @@ sphinx
 sqlalchemy
 starlink-ast
 tabulate
+texlive-core
 treecorr
 vim
 yaml
