@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "/global/common/software/lsst/common/miniconda/kernels/desc-forecasts-dev.sh",
+    "-f",
+    "{connection_file}"
+  ],
+  "display_name": "desc-forecasts-dev",
+  "language": "python"
+}
+
