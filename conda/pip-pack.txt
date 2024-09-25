@@ -1,5 +1,6 @@
 ceci
 fits2hdf
+lsstdesc-dataregistry
 https://bitbucket.org/yymao/helpers/get/v0.3.2.tar.gz
 https://github.com/LSSTDESC/descqa/archive/v2.8.0.tar.gz
 https://github.com/yymao/FoFCatalogMatching/archive/v0.1.0.tar.gz
