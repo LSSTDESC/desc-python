@@ -37,7 +37,7 @@ setup_conda
 #conda create --name desc -y
 #conda activate desc
 #conda install -c conda-forge -y "mamba>=0.22.1"
-mamba install -c conda-forge -y mpich=4.1.2.*=external_*
+mamba install -c conda-forge -y mpich=4.2.2.*=external_*
 which python
 which conda
 #mamba install -c conda-forge -y --file $2
