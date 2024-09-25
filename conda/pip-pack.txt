@@ -1,6 +1,6 @@
 ceci
 fits2hdf
-https://github.com/LSSTDESC/dataregistry
+git+https://github.com/LSSTDESC/dataregistry.git
 # lsstdesc-dataregistry
 https://bitbucket.org/yymao/helpers/get/v0.3.2.tar.gz
 https://github.com/LSSTDESC/descqa/archive/v2.8.0.tar.gz
