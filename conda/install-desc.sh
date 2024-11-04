@@ -55,6 +55,13 @@ git checkout v1.0.1
 pip install . 
 rail install --package-file rail_packages.yml 
 
+cd $1
+# Add LSSTDESC/Delight
+git clone https://github.com/LSSTDESC/Delight.git
+cd Delight
+pip install .
+cd $1
+
 conda clean -y -a 
 
 # Install jupyterlab at CC
