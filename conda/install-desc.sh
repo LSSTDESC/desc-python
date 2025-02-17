@@ -25,10 +25,9 @@ unset PYTHONPATH
 # Try Miniforge latest
 url="https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
 #url="$url/Miniforge-Linux-x86_64.sh"
-curl -LO Miniforge3.sh "$url"
+curl -LO "$url"
 
-#bash ./Mambaforge-Linux-x86_64.sh -b -p $1
-bash ./Miniforge3.sh -b -p $1
+bash ./Miniforge-Linux-x86_64.sh -b -p $1
 which python
 #export PATH=$1/bin:$PATH
 echo $DESC_PYTHON_INSTALL_DIR
