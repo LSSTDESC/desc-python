@@ -34,15 +34,20 @@ echo $DESC_PYTHON_INSTALL_DIR
 #source $1/etc/profile.d/conda.sh
 #conda activate base
 setup_conda
-#conda create --name desc -y
-#conda activate desc
-#conda install -c conda-forge -y "mamba>=0.22.1"
+export CONDA_PKGS_DIRS=$DESC_PYTHON_INSTALL_DIR/pkgs
 mamba install -c conda-forge -y mpich=4.2.2.*=external_*
 which python
 which conda
-#mamba install -c conda-forge -y --file $2
 mamba install -c conda-forge -y --file $2
+
+# Install jupyterlab at CC
+if [[ -z $4 ]]
+then	
+  mamba install -c conda-forge -y jupyterlab
+fi
+
 pip install --no-cache-dir -r $3 
+
 #mamba env update -n desc --file $2 
 #mamba env create -n desc -f $2
 cd $1
@@ -51,7 +56,7 @@ cd $1
 #rm v1.0.0.tar.gz 
 git clone https://github.com/LSSTDESC/rail
 cd rail 
-git checkout v1.0.1
+git checkout v1.1.1
 pip install . 
 rail install --package-file rail_packages.yml 
 
@@ -65,10 +70,10 @@ cd $1
 conda clean -y -a 
 
 # Install jupyterlab at CC
-if [[ -z $4 ]]
-then	
-  pip install jupyterlab
-fi
+#if [[ -z $4 ]]
+#then	
+#  pip install jupyterlab
+#fi
 
 
 
