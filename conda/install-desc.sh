@@ -46,7 +46,9 @@ then
   mamba install -c conda-forge -y jupyterlab
 fi
 
-pip install --no-cache-dir -r $3 
+pip download -d $DESC_PYTHON_INSTALL_DIR/pip-cache -r $3
+pip install --no-index --find-links $DESC_PYTHON_INSTALL_DIR/pip-cache -r $3
+#pip install --no-cache-dir -r $3 
 
 #mamba env update -n desc --file $2 
 #mamba env create -n desc -f $2
