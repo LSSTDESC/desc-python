@@ -47,8 +47,8 @@ then
 fi
 
 pip download -d $DESC_PYTHON_INSTALL_DIR/pip-cache -r $3
-pip install --no-index --find-links $DESC_PYTHON_INSTALL_DIR/pip-cache -r $3
-#pip install --no-cache-dir -r $3 
+# pip install --no-index --find-links $DESC_PYTHON_INSTALL_DIR/pip-cache -r $3  HMK doesn't work due to ceci
+pip install --no-cache-dir -r $3 
 
 #mamba env update -n desc --file $2 
 #mamba env create -n desc -f $2
@@ -71,6 +71,14 @@ cd $1
 
 conda env export --no-builds > $DESC_PYTHON_INSTALL_DIR/desc-python-bleed-nobuildinfo.yml
 conda env export > $DESC_PYTHON_INSTALL_DIR/desc-python-bleed.yml
+conda list --explicit > $DESC_PYTHON_INSTALL_DIR/desc-python-bleed-explicit.wget
+awk -F '/' '/^http/ {print "/opt/desc/py/pkgs/"$NF; next} {print} ' desc-python-bleed-explicit.wget > desc-python-bleed-local.yaml
+
+# HMK then we can recreate the environment elsewhere
+# conda create -n my_env --file desc-python-bleed-local.yaml --offline
+# pip install --no-index --find-links $DESC_PYTHON_INSTALL_DIR/pip-cache -r $3  (remove ceci from requirements file)
+# pip install ceci
+# install RAIL and Delight from the source code cloned above
 
 # conda clean -y -a # HMK Shouldn't clean if I'm trying to use the cache to rebuild the environment on another machine 
 
