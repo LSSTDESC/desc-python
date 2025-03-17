@@ -72,13 +72,7 @@ cd $1
 conda env export --no-builds > $DESC_PYTHON_INSTALL_DIR/desc-python-bleed-nobuildinfo.yml
 conda env export > $DESC_PYTHON_INSTALL_DIR/desc-python-bleed.yml
 
-conda clean -y -a 
-
-# Install jupyterlab at CC
-#if [[ -z $4 ]]
-#then	
-#  pip install jupyterlab
-#fi
+# conda clean -y -a # HMK Shouldn't clean if I'm trying to use the cache to rebuild the environment on another machine 
 
 
 
