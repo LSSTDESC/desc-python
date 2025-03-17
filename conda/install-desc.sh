@@ -69,6 +69,9 @@ cd Delight
 pip install .
 cd $1
 
+conda env export --no-builds > $DESC_PYTHON_INSTALL_DIR/desc-python-bleed-nobuildinfo.yml
+conda env export > $DESC_PYTHON_INSTALL_DIR/desc-python-bleed.yml
+
 conda clean -y -a 
 
 # Install jupyterlab at CC
