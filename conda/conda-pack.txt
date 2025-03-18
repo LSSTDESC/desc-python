@@ -42,6 +42,7 @@ lsstdesc-gcr-catalogs
 markupsafe
 matplotlib
 mpi4py
+mpich=4.2.2=external_*
 namaster
 ndcctools
 nose
