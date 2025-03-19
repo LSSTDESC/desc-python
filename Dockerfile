@@ -16,13 +16,13 @@ RUN apt update -y && \
     rm -rf /var/cache/apt && \
     groupadd -g 1000 -r lsst && useradd -u 1000 --no-log-init -m -r -g lsst lsst && \
     usermod --shell /bin/bash lsst && \
-    cd /tmp && \
+    cd /opt && mkdir tmp && \
     git clone https://github.com/LSSTDESC/desc-python && \
     cd desc-python && \
     git checkout $PR_BRANCH && \
     cd conda && \ 
     bash install-mpich.sh && \
-    cd /tmp && \
+    cd /opt/tmp && \
     chown -R lsst desc-python && \ 
     mkdir -p $DESC_PYTHON_DIR && \
     chown lsst $DESC_PYTHON_DIR && \
@@ -38,12 +38,12 @@ USER lsst
 
 ENV PYTHONDONTWRITEBYTECODE 1
 
-RUN cd /tmp/desc-python/conda && \ 
+RUN cd /opt/tmp/desc-python/conda && \ 
     bash install-desc.sh /opt/desc/py conda-pack.txt pip-pack.txt NERSC && \
     find /$DESC_PYTHON_DIR -name "*.pyc" -delete && \
     (find $DESC_PYTHON_DIR -name "doc" | xargs rm -Rf) || true && \
     (find $DESC_PYTHON_DIR -name "*.so" ! -path "*/xpa/*" | xargs strip -s -p) || true 
-#    cd /tmp && \
+#    cd /opt/tmp && \
 #    rm -Rf desc-python 
     
 USER root
