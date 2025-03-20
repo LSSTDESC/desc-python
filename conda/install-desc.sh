@@ -58,7 +58,7 @@ cd $1
 #rm v1.0.0.tar.gz 
 git clone https://github.com/LSSTDESC/rail
 cd rail 
-git checkout v1.1.1
+git checkout v1.1.2
 pip install . 
 rail install --package-file rail_packages.yml 
 
