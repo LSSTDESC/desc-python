@@ -84,7 +84,7 @@ conda list --explicit > $DESC_PYTHON_INSTALL_DIR/desc-python-bleed-explicit.wget
 cd $DESC_PYTHON_INSTALL_DIR
 mkdir pkgs2
 cd pkgs2
-wget -i ../desc-python-bleed-explicit.yaml
+wget -i ../desc-python-bleed-explicit.wget
 cd $DESC_PYTHON_INSTALL_DIR
 awk -F '/' '/^http/ {print "/opt/desc/py/pkgs2/"$NF; next} {print} ' desc-python-bleed-explicit.wget > desc-python-bleed-local.yaml
 
