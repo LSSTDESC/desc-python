@@ -41,12 +41,12 @@ export CONDA_PKGS_DIRS=$DESC_PYTHON_INSTALL_DIR/pkgs
 #mamba install -c conda-forge -y mpich=4.2.2.*=external_*
 which python
 which conda
-echo "before download"
-conda create -c conda-forge --name download_env --file $2 --download-only
-#mamba install -c conda-forge -y --file $2
-echo "after download"
-conda create --name desc --use-local --file $2
-conda activate desc
+echo "before install"
+#conda create -c conda-forge --name download_env --file $2 --download-only
+mamba install -c conda-forge -y --file $2
+#echo "after download"
+#conda create --name desc --use-local --file $2
+#conda activate desc
 
 echo "going to pip install"
 # Install jupyterlab at CC
@@ -61,7 +61,7 @@ pip install --no-cache-dir -r $3
 
 #mamba env update -n desc --file $2 
 #mamba env create -n desc -f $2
-cd $1
+cd $DESC_PYTHON_INSTALL_DIR
 #wget https://github.com/LSSTDESC/rail/archive/refs/tags/v1.0.0.tar.gz 
 #tar xzf v1.0.0.tar.gz 
 #rm v1.0.0.tar.gz 
@@ -71,17 +71,23 @@ git checkout v1.1.2
 pip install . 
 rail install --package-file rail_packages.yml 
 
-cd $1
+cd $DESC_PYTHON_INSTALL_DIR
 # Add LSSTDESC/Delight
 git clone https://github.com/LSSTDESC/Delight.git
 cd Delight
 pip install .
-cd $1
+cd $DESC_PYTHON_INSTALL_DIR
 
 conda env export --no-builds > $DESC_PYTHON_INSTALL_DIR/desc-python-bleed-nobuildinfo.yml
 conda env export > $DESC_PYTHON_INSTALL_DIR/desc-python-bleed.yml
 conda list --explicit > $DESC_PYTHON_INSTALL_DIR/desc-python-bleed-explicit.wget
-awk -F '/' '/^http/ {print "/opt/desc/py/pkgs/"$NF; next} {print} ' desc-python-bleed-explicit.wget > desc-python-bleed-local.yaml
+cd $DESC_PYTHON_INSTALL_DIR
+mkdir pkgs2
+cd pkgs2
+wget -i ../desc-python-bleed-explicit.yaml
+cd $DESC_PYTHON_INSTALL_DIR
+awk -F '/' '/^http/ {print "/opt/desc/py/pkgs2/"$NF; next} {print} ' desc-python-bleed-explicit.wget > desc-python-bleed-local.yaml
+
 
 # HMK then we can recreate the environment elsewhere
 # conda create -n my_env --file desc-python-bleed-local.yaml --offline
