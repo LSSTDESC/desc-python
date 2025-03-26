@@ -38,7 +38,9 @@ export CONDA_PKGS_DIRS=$DESC_PYTHON_INSTALL_DIR/pkgs
 mamba install -c conda-forge -y mpich=4.2.2.*=external_*
 which python
 which conda
-mamba install -c conda-forge -y --file $2
+conda create -c conda-forge --name download_env --file $2 --download-only
+#mamba install -c conda-forge -y --file $2
+conda create --name desc --use-local --file $2
 
 # Install jupyterlab at CC
 if [[ -z $4 ]]
