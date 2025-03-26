@@ -37,8 +37,8 @@ echo $DESC_PYTHON_INSTALL_DIR
 #conda activate base
 setup_conda
 export CONDA_PKGS_DIRS=$DESC_PYTHON_INSTALL_DIR/pkgs
-echo "installing mpich external"
-mamba install -c conda-forge -y mpich=4.2.2.*=external_*
+#echo "installing mpich external"
+#mamba install -c conda-forge -y mpich=4.2.2.*=external_*
 which python
 which conda
 echo "before download"
