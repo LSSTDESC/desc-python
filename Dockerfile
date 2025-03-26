@@ -41,8 +41,9 @@ ENV PYTHONDONTWRITEBYTECODE 1
 RUN cd /opt/tmp/desc-python/conda && \ 
     bash install-desc.sh /opt/desc/py conda-pack.txt pip-pack.txt NERSC && \
     find /$DESC_PYTHON_DIR -name "*.pyc" -delete && \
-    (find $DESC_PYTHON_DIR -name "doc" | xargs rm -Rf) || true && \
-    (find $DESC_PYTHON_DIR -name "*.so" ! -path "*/xpa/*" | xargs strip -s -p) || true 
+    (find $DESC_PYTHON_DIR -name "doc" | xargs rm -Rf) || true
+ # skip stripping for now   (find $DESC_PYTHON_DIR -name "*.so" ! -path "*/xpa/*" | xargs strip -s -p) || true 
+    
 #    cd /opt/tmp && \
 #    rm -Rf desc-python 
     
