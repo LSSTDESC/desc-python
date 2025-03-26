@@ -27,6 +27,8 @@ url="https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge
 #url="$url/Miniforge-Linux-x86_64.sh"
 curl -LO "$url"
 
+echo "fresh install from miniforge"
+
 bash ./Miniforge3-Linux-x86_64.sh -b -p $1
 which python
 #export PATH=$1/bin:$PATH
@@ -35,13 +37,18 @@ echo $DESC_PYTHON_INSTALL_DIR
 #conda activate base
 setup_conda
 export CONDA_PKGS_DIRS=$DESC_PYTHON_INSTALL_DIR/pkgs
+echo "installing mpich external"
 mamba install -c conda-forge -y mpich=4.2.2.*=external_*
 which python
 which conda
+echo "before download"
 conda create -c conda-forge --name download_env --file $2 --download-only
 #mamba install -c conda-forge -y --file $2
+echo "after download"
 conda create --name desc --use-local --file $2
+conda activate desc
 
+echo "going to pip install"
 # Install jupyterlab at CC
 if [[ -z $4 ]]
 then	
