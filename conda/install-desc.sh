@@ -81,6 +81,7 @@ cd $DESC_PYTHON_INSTALL_DIR
 conda env export --no-builds > $DESC_PYTHON_INSTALL_DIR/desc-python-bleed-nobuildinfo.yml
 conda env export > $DESC_PYTHON_INSTALL_DIR/desc-python-bleed.yml
 conda list --explicit > $DESC_PYTHON_INSTALL_DIR/desc-python-bleed-explicit.wget
+conda clean -y -a
 cd $DESC_PYTHON_INSTALL_DIR
 mkdir pkgs2
 cd pkgs2
