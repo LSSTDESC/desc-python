@@ -81,6 +81,6 @@ jobs:
           docker push lsstdesc/desc-python:bleed-${{env.DATE_TAG}}
           docker tag ${{ env.TEST_TAG }} lsstdesc/desc-python:bleed
           docker push lsstdesc/desc-python:bleed
-          docker push ghcr.io/LSSTDESC/desc-python:bleed
+          docker push ghcr.io/lsstdesc/desc-python:bleed
        
        
