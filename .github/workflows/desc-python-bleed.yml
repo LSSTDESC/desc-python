@@ -40,7 +40,13 @@ jobs:
         uses: docker/login-action@v3
         with:
           username: heather999
-          password: '${{ secrets.DOCKERHUB_ACCESSTOK }}'      
+          password: '${{ secrets.DOCKERHUB_ACCESSTOK }}'   
+      - name: GHCR login
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: heather999
+          password: ${{ secrets.GHCR_TOKEN }}
       
       - name: checkout desc-python
         uses: actions/checkout@v4
