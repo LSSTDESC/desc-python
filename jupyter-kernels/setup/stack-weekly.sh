@@ -4,6 +4,8 @@ source /opt/lsst/software/stack/loadLSST.bash ""
 setup lsst_distrib
 [ -d "$LSST_HOME/obs_lsst" ] && setup -r $LSST_HOME/obs_lsst
 [ -d "$LSST_HOME/supreme" ] && setup -r $LSST_HOME/supreme -j
+[ -d "/opt/lsst/software/stack/meas_pz" ] && setup -r /opt/lsst/software/stack/meas_pz -j
+
 export OMP_NUM_THREADS=1
 
 unset PYTHONSTARTUP
