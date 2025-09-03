@@ -11,6 +11,7 @@ dask-jobqueue
 dask-mpi
 dask-sql
 datashader 
+dust_extinction
 dustmaps
 eigen
 emacs
