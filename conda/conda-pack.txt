@@ -15,7 +15,6 @@ dustmaps
 eigen
 emacs
 emcee
-extinction
 fast3tree
 fast-pt
 fastparquet
