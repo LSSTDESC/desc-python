@@ -47,7 +47,7 @@ namaster
 ndcctools
 nose
 numba
-numpy<2
+numpy
 numpydoc
 pandas
 parallel_statistics
