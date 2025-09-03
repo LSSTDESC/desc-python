@@ -67,7 +67,7 @@ cd $DESC_PYTHON_INSTALL_DIR
 #rm v1.0.0.tar.gz 
 git clone https://github.com/LSSTDESC/rail
 cd rail 
-git checkout v1.2.7
+git checkout v1.2.3
 pip install . 
 rail install --package-file rail_packages.yml 
 
