@@ -1,0 +1,38 @@
+name: Prod Lock file
+
+    on:
+     workflow_dispatch:
+
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+
+        steps:
+        - uses: actions/checkout@v5
+
+        - name: Setup Miniconda
+          uses: conda-incubator/setup-miniconda@v3
+          with:
+            miniconda-version: 'latest'
+
+        - name: Create lock file
+          run: |
+            cd $GITHUB_WORKSPACE
+            conda install -c conda-forge conda-lock
+            echo "DATE_TAG=$(date "+%F")" >> $GITHUB_ENV
+            conda-lock lock -c conda-forge -f desc-python/conda/lock/environment.yml -f desc-python/conda/lock/pyproject.toml --lockfile desc-py-lock-${{env.DATE_TAG}}.yml
+            cd desc-python
+            git checkout lock-prod
+            cp ../desc-py-lock-${{env.DATE_TAG}}.yml .
+        - name: Commit and push changes
+          uses: devops-infra/action-commit-push@v0.11
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            commit_prefix: "[AUTO]"
+            commit_message: "New lock"
+            force: false
+            force_with_lease: false
+            target_branch: lock-prod
+            # git add desc-py-lock-${{env.DATE_TAG}}.yml
+           # git commit -m"New lock file"
+           # git push
