@@ -7,14 +7,14 @@ cmasher
 compilers
 corner
 dask
-dask-mpi
 dask-jobqueue
+dask-mpi
 dask-sql
 datashader
+dust_extinction
 dustmaps
 eigen
 emcee
-extinction
 fast-pt
 fast3tree
 fastparquet
@@ -26,7 +26,6 @@ gcr
 google-cloud-bigquery  
 graphviz
 gsl   
-#==2.7=he838d99_0
 h5py=*=mpi*
 hdf5=*=mpi*
 healpy
@@ -42,7 +41,7 @@ lsstdesc-gcr-catalogs
 markupsafe
 matplotlib
 mpi4py
-mpich=4.1.2=external_*
+mpich=4.2.2=external_*
 namaster
 ndcctools
 nose
@@ -50,6 +49,7 @@ numba
 numdifftools
 numpy
 pandas
+parallel_statistics
 parsl
 pip  
 pot
@@ -70,6 +70,7 @@ scipy
 seaborn
 selenium
 snappy
+somoclu
 sphinx
 sqlalchemy
 starlink-ast
