@@ -13,11 +13,12 @@ jobs:
         uses: conda-incubator/setup-miniconda@v3
         with:
           miniconda-version: 'latest'
+          activate-environment: env_lock
 
       - name: Create lock file
         run: |
           cd $GITHUB_WORKSPACE
-          conda install -c conda-forge -y conda-lock
+          conda install -c conda-forge -y conda-lock -n env_lock
           echo "DATE_TAG=$(date "+%F")" >> $GITHUB_ENV
           conda-lock lock -c conda-forge -f desc-python/conda/lock/environment.yml -f desc-python/conda/lock/pyproject.toml --lockfile desc-py-lock-${{env.DATE_TAG}}.yml
           cd desc-python
