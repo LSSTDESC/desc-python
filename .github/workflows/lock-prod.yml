@@ -14,14 +14,14 @@ jobs:
         with:
           miniconda-version: 'latest'
           python-version: 3.12
+          auto-activate-base: true
+          activate-environment: ""
 
       - name: Create lock file
         run: |
           cd $GITHUB_WORKSPACE
-          conda install -c conda-forge -y condax 
-          condax ensure-path
+          conda install -c conda-forge -y conda-lock
           echo "DATE_TAG=$(date "+%F")" >> $GITHUB_ENV
-          condax install -c conda-forge -y conda-lock
           conda-lock lock -c conda-forge -f desc-python/conda/lock/environment.yml -f desc-python/conda/lock/pyproject.toml --lockfile desc-py-lock-${{env.DATE_TAG}}.yml
           cd desc-python
           git checkout lock-prod
