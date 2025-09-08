@@ -23,6 +23,8 @@ jobs:
           cd $GITHUB_WORKSPACE
           conda install -c conda-forge -y -n lock-env conda-lock
           echo "DATE_TAG=$(date "+%F")" >> $GITHUB_ENV
+          echo $PWD
+          ls .
           conda-lock lock -c conda-forge -f desc-python/conda/lock/environment.yml -f desc-python/conda/lock/pyproject.toml --lockfile desc-py-lock-${{env.DATE_TAG}}.yml
           cd desc-python
           git checkout lock-prod
