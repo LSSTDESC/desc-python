@@ -1,6 +1,7 @@
 name: base
 channels:
   - conda-forge
+  - nvidia
 dependencies:
   - python=3.12
   - conda[version='>=25.3.0']
