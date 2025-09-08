@@ -16,12 +16,15 @@ jobs:
           python-version: 3.12
           activate-environment: lock-env
 
+      - name: Initialize Conda
+        run: conda init bash
+        shell: bash
+  
       - name: Create lock file
         run: |
           cd $GITHUB_WORKSPACE
           conda install -c conda-forge -y -n lock-env conda-lock
           echo "DATE_TAG=$(date "+%F")" >> $GITHUB_ENV
-          conda init
           conda activate lock-env
           conda-lock lock -c conda-forge -f desc-python/conda/lock/environment.yml -f desc-python/conda/lock/pyproject.toml --lockfile desc-py-lock-${{env.DATE_TAG}}.yml
           cd desc-python
