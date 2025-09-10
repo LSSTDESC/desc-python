@@ -18,18 +18,20 @@ jobs:
           python-version: "3.12"
           channels: conda-forge
           activate-environment: lock-env
-  
+
+      - name: set up env
+        run: |
+          echo "DATE_TAG=$(date "+%F")" >> $GITHUB_ENV
+
+        
       - name: Create lock file
         shell: bash -el {0}
         run: |
           cd $GITHUB_WORKSPACE
           conda install -c conda-forge -y -n lock-env conda-lock
-          echo "DATE_TAG=$(date "+%F")" >> $GITHUB_ENV
-          echo $PWD
-          ls .
-          conda-lock lock -c conda-forge -f ./conda/lock/environment.yml -f ./conda/lock/pyproject.toml -p linux-64 --lockfile ../desc-py-lock-${{ env.DATE_TAG }}.yml
+          conda-lock lock -c conda-forge -f ./conda/lock/environment.yml -f ./conda/lock/pyproject.toml -p linux-64 --lockfile ../desc-py-lock-${{env.DATE_TAG}}.yml
           git checkout lock-prod
-          cp ../desc-py-lock-${{ env.DATE_TAG }}.yml .
+          cp ../desc-py-lock-${{env.DATE_TAG}}.yml .
           
       - name: Commit and push changes
         uses: devops-infra/action-commit-push@v0.11
