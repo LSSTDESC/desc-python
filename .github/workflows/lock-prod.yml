@@ -1,5 +1,7 @@
 name: Prod Lock file
 on:
+ schedule:
+    - cron: '15 23 * * 2'
  workflow_dispatch:
 
 jobs:
