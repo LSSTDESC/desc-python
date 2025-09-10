@@ -2,6 +2,9 @@ name: Prod Lock file
 on:
  schedule:
     - cron: '15 23 * * 2'
+ push:
+   branches:
+     - bleed
  workflow_dispatch:
 
 jobs:
@@ -24,6 +27,7 @@ jobs:
       - name: set up env
         run: |
           echo "DATE_TAG=$(date "+%F")" >> $GITHUB_ENV
+          echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
 
         
       - name: Create lock file
@@ -31,9 +35,9 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           conda install -c conda-forge -y -n lock-env conda-lock
-          conda-lock lock -c conda-forge -f ./conda/lock/environment.yml -f ./conda/lock/pyproject.toml -p linux-64 --lockfile ../desc-py-lock-${{env.DATE_TAG}}.yml
+          conda-lock lock -c conda-forge -f ./conda/lock/environment.yml -f ./conda/lock/pyproject.toml -p linux-64 --lockfile ../desc-py-lock-${{env.BRANCH_NAME}}-${{env.DATE_TAG}}.yml
           git checkout lock-prod
-          cp ../desc-py-lock-${{env.DATE_TAG}}.yml .
+          cp ../desc-py-lock-${{env.BRANCH_NAME}}-${{env.DATE_TAG}}.yml .
           
       - name: Commit and push changes
         uses: devops-infra/action-commit-push@v0.11
@@ -43,7 +47,4 @@ jobs:
           commit_message: "New lock"
           force: false
           force_with_lease: false
-          target_branch: lock-prod
-            # git add desc-py-lock-${{env.DATE_TAG}}.yml
-           # git commit -m"New lock file"
-           # git push
+          target_branch: lock-${{env.BRANCH_NAME}}
