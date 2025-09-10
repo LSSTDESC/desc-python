@@ -1,4 +1,4 @@
-name: Prod Lock file
+name: Create Lock file
 on:
  schedule:
     - cron: '15 23 * * 2'
