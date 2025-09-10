@@ -89,4 +89,5 @@ dependencies:
     - ceci
     - fits2hdf
     - lsstdesc-dataregistry
+    - nvidia-nccl-cu12==2.27.7
     - pz-rail[algos]>=1.2.3
