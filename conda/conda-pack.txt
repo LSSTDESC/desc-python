@@ -29,7 +29,6 @@ gcr
 google-cloud-bigquery  
 graphviz
 gsl
-gwcosmo
 h5py=*=mpi*
 hdf5=*=mpi*
 healpy

@@ -1,5 +1,6 @@
 ceci
 fits2hdf
+gwcosmo
 ligo
 lsstdesc-dataregistry
 https://bitbucket.org/yymao/helpers/get/v0.3.2.tar.gz
