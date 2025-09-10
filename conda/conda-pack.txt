@@ -1,5 +1,7 @@
 astroplan
 astropy
+bilby
+bilby_pipe
 bokeh
 camb
 cmake
@@ -27,6 +29,7 @@ gcr
 google-cloud-bigquery  
 graphviz
 gsl
+gwcosmo
 h5py=*=mpi*
 hdf5=*=mpi*
 healpy
