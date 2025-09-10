@@ -20,7 +20,6 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-nvidia-nccl-cu12 = "2.27.7"  # Use a version available on conda/nvidia channel
 descqa = {url = "https://github.com/LSSTDESC/descqa/archive/v2.8.0.tar.gz"}
 delight = {git = "git+https://github.com/LSSTDESC/Delight.git", rev = "master"}
 helpers = {url = "https://bitbucket.org/yymao/helpers/get/v0.3.2.tar.gz"}
