@@ -27,9 +27,9 @@ jobs:
           echo "DATE_TAG=$(date "+%F")" >> $GITHUB_ENV
           echo $PWD
           ls .
-          conda-lock lock -c conda-forge -f ./conda/lock/environment.yml -f ./conda/lock/pyproject.toml -p linux-64 --lockfile ../desc-py-lock-${{env.DATE_TAG}}.yml
+          conda-lock lock -c conda-forge -f ./conda/lock/environment.yml -f ./conda/lock/pyproject.toml -p linux-64 --lockfile ../desc-py-lock-$DATE_TAG.yml
           git checkout lock-prod
-          cp ../desc-py-lock-${{env.DATE_TAG}}.yml .
+          cp ../desc-py-lock-$DATE_TAG.yml .
           
       - name: Commit and push changes
         uses: devops-infra/action-commit-push@v0.11
