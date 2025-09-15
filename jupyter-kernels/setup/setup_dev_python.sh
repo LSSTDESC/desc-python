@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Avoid passing parameters from this script to cosmosis
+wrapcosmosis() {
+    source cosmosis-configure
+}
+
+
 function log () {
     if [[ $_V -eq 1 ]]; then
         echo "$@"
@@ -18,19 +24,10 @@ done
 export LSST_INST_DIR=/global/common/software/lsst/common/miniconda
 export LSST_PYTHON_VER=dev
 
-if [ "$NERSC_HOST" == "cori" ]
-then
-  module unload python
-  module swap PrgEnv-intel PrgEnv-gnu
-  module unload cray-libsci
-  module unload cray-mpich
-  module load cray-mpich-abi/7.7.19
-  export LD_LIBRARY_PATH=$CRAY_MPICH_BASEDIR/mpich-gnu-abi/8.2/lib:$LD_LIBRARY_PATH
-else
-  module load PrgEnv-gnu
-#  module load cpu
-  module load cray-mpich-abi/8.1.22
-fi
+module unload python
+module load PrgEnv-gnu
+module unload cray-libsci
+module load cray-mpich-abi
 
 
 unset PYTHONHOME
@@ -39,11 +36,27 @@ export PYTHONNOUSERSITE=' '
 
 export DESC_GCR_SITE='nersc'
 
-source $LSST_INST_DIR/$LSST_PYTHON_VER/etc/profile.d/conda.sh
-conda activate base
+#source $LSST_INST_DIR/$LSST_PYTHON_VER/etc/profile.d/conda.sh
+#conda activate base
+
+source $LSST_INST_DIR/$LSST_PYTHON_VER/bin/activate
+conda activate desc
+
+export FIRECROWN_DIR=$CONDA_PREFIX/firecrown
+#
+# Fixes missing support in the Perlmutter libfabric:
+# https://docs.nersc.gov/development/languages/python/using-python-perlmutter/#missing-support-for-matched-proberecv
+export MPI4PY_RC_RECV_MPROBE=0
+
+# Tries to prevent cosmosis from launching any subprocesses, since that is
+# not allowed on Perlmutter.
+export COSMOSIS_NO_SUBPROCESS=1
+
 if [ -n "$DESCUSERENV" ]; then
    conda activate $DESCUSERENV
 fi
+
+wrapcosmosis
 
 if [ -n "$DESCPYTHONPATH" ]; then
     export PYTHONPATH=$PYTHONPATH:"$DESCPYTHONPATH"

@@ -5,8 +5,6 @@ module swap PrgEnv-intel PrgEnv-gnu
 module unload cray-libsci
 module load cray-mpich-abi/8.1.30
 
-#export LD_LIBRARY_PATH=$CRAY_MPICH_BASEDIR/mpich-gnu-abi/8.2/lib:$LD_LIBRARY_PATH
-
 unset PYTHONPATH
 
 setup_conda() {
@@ -32,8 +30,7 @@ if [ "$CI_COMMIT_REF_NAME" = "dev" ];  # dev
 then
     curBuildDir=$commonDevBuildDir/$CI_PIPELINE_ID
     echo "Dev Install Build: " $curBuildDir
-elif [[ "$installFlag" ]];  # Install Prod
-then
+else  # Install Prod
     if [[ -z "$CI_COMMIT_TAG" ]];
     then
         prodBuildDir=$CI_PIPELINE_ID
@@ -45,29 +42,31 @@ then
 fi
 
 mkdir -p $curBuildDir
-cp conda/conda-pack.txt $curBuildDir
-cp conda/pip-pack.txt $curBuildDir
+#cp conda/conda-pack.txt $curBuildDir
+#cp conda/pip-pack.txt $curBuildDir
 #cp conda/setup-desc-python.sh $curBuildDir
 cp conda/sitecustomize.py $curBuildDir
-#sed -i 's|$1|'$curBuildDir'|g' $curBuildDir/setup-desc-python.sh
+cp conda/desc-py-lock-main-2025-09-10.yml $curBuildDir
+#cp conda/lock/environment.yml $curBuildDir
+#cp conda/lock/pyproject.toml $curBuildDir
 cd $curBuildDir
 
 
 # Build Steps
-
 export PYTHONNOUSERSITE=1
 export CONDA_PKGS_DIRS=$curBuildDir/pkgs
 
 url="https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
 curl -LO "$url"
 
-bash ./Miniforge-Linux-x86_64.sh -b -p $curBuildDir/py
+bash ./Miniforge3-Linux-x86_64.sh -b -p $curBuildDir/py
 setup_conda
 conda activate base
 
 python -m pip cache purge
+pip config set global.no-cache-dir true
 
-conda-lock install -n desc my-lock.yml
+conda-lock install --mamba -n desc desc-py-lock-main-2025-09-10.yml
 
 conda activate desc
 
@@ -78,19 +77,15 @@ cosmosis-build-standard-library main
 cd $curBuildDir
 
 
-#install cosmosis for firecrown
-#export CSL_DIR=${PWD}/cosmosis-standard-library
-#conda env config vars set CSL_DIR=${PWD}/cosmosis-standard-library
-#config_cosmosis
-#cosmosis-build-standard-library 
-
 conda clean -y -a 
+
+python -m compileall $curBuildDir
 
 conda config --set env_prompt "(desc-py)" --env
 
 conda env export --no-builds > $curBuildDir/desc-python-nersc-$CI_PIPELINE_ID-nobuildinfo.yml
 conda env export > $curBuildDir/desc-python-nersc-$CI_PIPELINE_ID.yml
-
+#
 
 # Set permissions
 setfacl -R -m group::rx $curBuildDir
