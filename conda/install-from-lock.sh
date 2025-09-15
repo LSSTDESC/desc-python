@@ -46,7 +46,7 @@ mkdir -p $curBuildDir
 #cp conda/pip-pack.txt $curBuildDir
 #cp conda/setup-desc-python.sh $curBuildDir
 cp conda/sitecustomize.py $curBuildDir
-cp conda/desc-py-lock-main-2025-09-10.yml $curBuildDir
+cp conda/desc-py-lock.yml $curBuildDir
 #cp conda/lock/environment.yml $curBuildDir
 #cp conda/lock/pyproject.toml $curBuildDir
 cd $curBuildDir
