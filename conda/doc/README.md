@@ -1,9 +1,7 @@
 
-During the installation process we have two lists of packages one for conda-forge (conda/condalist.txt) and another for pip (conda/piplist.txt)
+We are now using [conda-lock](https://github.com/conda/conda-lock)
 
-There are yaml files which describe what is installed at NERSC: 
+A GitHub Action periodically runs to generate lock files that will ultimately be used for installation at NERSC and elsewhere. 
 
-`desc-python-env-nersc-install-nobuildinfo.yml` Contains the exact versions without explicit build info of each package installed at NERSC. Use this to replicate what is currently installed at NERSC at other sites.
-
-`desc-python-env-nersc-export.yml` Current full listing of what is installed at NERSC in desc-python which includes build info.
+The GitHub Action references two files that define the set of packages in the build conda/lock/environment.yml and conda/lock/pyproject.toml
 
