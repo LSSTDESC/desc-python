@@ -1,0 +1,22 @@
+name: release
+on:
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    name: Tag release
+    steps:
+      - name: Generate a token
+        id: generate_token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.ENV_RELEASE_APP_ID }}
+          private-key: ${{ secrets.ENV_RELEASE_APP_KEY }}
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ steps.generate_token.outputs.token }}
+      - run: |
+          git config --global user.email "env-release-bot"
+          git config --global user.name "env-release-bot"
+          .github/workflows/release.sh
