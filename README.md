@@ -18,9 +18,8 @@ See: https://confluence.slac.stanford.edu/display/LSSTDESC/Using+Jupyter+at+NERS
 - desc-python-old: Previous production release of desc-python
 
 ## List of Packages Included in the desc-python Environment
-[conda packages](https://github.com/LSSTDESC/desc-python/blob/main/conda/conda-pack.txt) 
+see [here](https://github.com/LSSTDESC/desc-python/blob/main/conda/lock/environment.yml) and [here]([https://github.com/LSSTDESC/desc-python/blob/main/conda/conda-pack.txt](https://github.com/LSSTDESC/desc-python/blob/main/conda/lock/pyproject.toml) 
 
-[pip installed packages](https://github.com/LSSTDESC/desc-python/blob/main/conda/pip-pack.txt)
 
 ## How to Add Packages to desc-python?
 
@@ -28,7 +27,7 @@ See: https://confluence.slac.stanford.edu/display/LSSTDESC/Using+Jupyter+at+NERS
 2. Add new package names to the `desc-python/conda/conda-pack.txt` (for conda-forge) or `desc-pythonv/conda/pip-pack.txt` (for PyPI)
     * If this package is not installable from conda-forge or pip, please [open an issue](https://github.com/LSSTDESC/desc-python/issues) on this repository.
 3. Commit and push your changes to the bleed branch
-4. Once changes are pushed to the bleed branch an automated builds will be triggered:
+4. Once changes are pushed to the bleed branch an automated build will be triggered:
     * Docker builds are handled by GitHub actions and will be triggered immediately. The builds can be followed by viewing the [Actions](https://github.com/LSSTDESC/desc-python/actions) page.
         * A successful build will produce a new image available on [Dockerhub](https://hub.docker.com/r/lsstdesc/desc-python/tags): `lsstdesc/desc-python:bleed`
  5. If there are data files or set up commands needed for the new package, then please [open an issue](https://github.com/LSSTDESC/desc-python/issues) on this repository.
