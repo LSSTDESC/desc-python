@@ -18,7 +18,7 @@ See: https://confluence.slac.stanford.edu/display/LSSTDESC/Using+Jupyter+at+NERS
 - desc-python-old: Previous production release of desc-python
 
 ## List of Packages Included in the desc-python Environment
-see [here](https://github.com/LSSTDESC/desc-python/blob/main/conda/lock/environment.yml) and [here]([https://github.com/LSSTDESC/desc-python/blob/main/conda/conda-pack.txt](https://github.com/LSSTDESC/desc-python/blob/main/conda/lock/pyproject.toml) 
+see [here](https://github.com/LSSTDESC/desc-python/blob/main/conda/lock/environment.yml) and [here](https://github.com/LSSTDESC/desc-python/blob/main/conda/lock/pyproject.toml) 
 
 
 ## How to Add Packages to desc-python?
