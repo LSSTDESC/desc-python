@@ -10,10 +10,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    
     steps:
+      - uses: actions/create-github-app-token@v2
+        id: app-token
+        with:
+          # required
+          app-id: ${{ secrets.ENV_RELEASE_APP_ID }}
+          private-key: ${{ secrets.ENV_RELEASE_APP_KEY }}
       - uses: actions/checkout@v5
         with:
+          token: ${{ steps.app-token.outputs.token }}
           fetch-depth: 0
 
       - name: Setup Miniconda
@@ -40,7 +47,7 @@ jobs:
       - name: Commit and push changes
         uses: devops-infra/action-commit-push@v0.11
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ steps.app-token.outputs.token }}
           commit_prefix: "[AUTO]"
           commit_message: "New lock"
           force: false
