@@ -1,7 +1,7 @@
 name: Create Lock file
 on:
  schedule:
-    - cron: '15 23 * * 2'
+    - cron: '0 0 1 * *'
  push:
    branches:
      - bleed
