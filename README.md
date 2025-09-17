@@ -2,7 +2,7 @@
 Collection of DESC python environments and jupyter kernels
 
 ## Setup for use on the Command line
-NERSC: ```source/global/common/software/lsst/common/miniconda/setup_current_python.sh```
+NERSC: ```source /global/common/software/lsst/common/miniconda/setup_current_python.sh```
 
 CC: ```source /pbs/throng/lsst/software/desc/common/miniconda/setup_current_python.sh```
 
