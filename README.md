@@ -20,6 +20,7 @@ See: https://confluence.slac.stanford.edu/display/LSSTDESC/Using+Jupyter+at+NERS
 ## List of Packages Included in the desc-python Environment
 see [here](https://github.com/LSSTDESC/desc-python/blob/main/conda/lock/environment.yml) and [here](https://github.com/LSSTDESC/desc-python/blob/main/conda/lock/pyproject.toml) 
 
+[Current versions of all packages](https://github.com/LSSTDESC/desc-python/blob/main/conda/export/desc-python-nersc-2025-09-11-49-44.yml)
 
 ## How to Add Packages to desc-python?
 
