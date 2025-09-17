@@ -38,6 +38,8 @@ ipympl
 jax
 jaxlib
 jupyter
+ligo.em-bright
+ligo.skymaps
 lsstdesc-coord
 lsstdesc-diffsky
 lsstdesc-gcr-catalogs
