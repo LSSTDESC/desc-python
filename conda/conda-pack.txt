@@ -39,7 +39,7 @@ jax
 jaxlib
 jupyter
 ligo.em-bright
-ligo.skymaps
+ligo.skymap
 lsstdesc-coord
 lsstdesc-diffsky
 lsstdesc-gcr-catalogs
