@@ -1,9 +1,30 @@
 #!/bin/bash
 
-module unload python
-module swap PrgEnv-intel PrgEnv-gnu
-module unload cray-libsci
-module load cray-mpich-abi/8.1.30
+set -o pipefail
+set -e
+
+if [ -z "$1" ]
+then
+  echo "Please provide an installation directory"
+  exit 1
+fi
+
+if [ -z "$2" ]
+then
+  export CONDA_LOCK_INSTALL_DIR=/pbs/throng/lsst/users/hkelly/installation/bin
+else
+  export CONDA_LOCK_INSTALL_DIR=$2
+fi
+
+if [ "$NERSC_HOST" ]
+then
+  module unload python
+  module swap PrgEnv-intel PrgEnv-gnu
+  module unload cray-libsci
+  module load cray-mpich-abi/8.1.30
+else
+  export PATH=$CONDA_LOCK_INSTALL_DIR:$PATH
+fi
 
 unset PYTHONPATH
 
@@ -15,40 +36,28 @@ config_cosmosis() {
    source ${CONDA_PREFIX}/bin/cosmosis-configure
 }
 
-# Set to 1 to install into the common sofware area
-installFlag=$1
-
-commonWeeklyBuildDir=/global/common/software/lsst/gitlab/desc-python-int
-commonDevBuildDir=/global/common/software/lsst/gitlab/desc-python-dev
-commonProdBuildDir=/global/common/software/lsst/gitlab/desc-python-prod
-
 export BUILD_ID_DATE=`echo "$(date "+%F-%M-%S")"`
-export CI_COMMIT_REF_NAME=prod
-export CI_PIPELINE_ID=$BUILD_ID_DATE
 
-if [ "$CI_COMMIT_REF_NAME" = "dev" ];  # dev
-then
-    curBuildDir=$commonDevBuildDir/$CI_PIPELINE_ID
-    echo "Dev Install Build: " $curBuildDir
-else  # Install Prod
-    if [[ -z "$CI_COMMIT_TAG" ]];
-    then
-        prodBuildDir=$CI_PIPELINE_ID
-    else
-        prodBuildDir=$CI_COMMIT_TAG
-    fi
-    curBuildDir=$commonProdBuildDir/$prodBuildDir
-    echo "Prod Build: " $curBuildDir
-fi
+curBuildDir=$1/$BUILD_ID_DATE
+echo "Install Directory: " $curBuildDir
 
 mkdir -p $curBuildDir
-#cp conda/conda-pack.txt $curBuildDir
-#cp conda/pip-pack.txt $curBuildDir
-#cp conda/setup-desc-python.sh $curBuildDir
-cp conda/sitecustomize.py $curBuildDir
+# Set permissions
+chgrp lsst $curBuildDir
+chmod g+rx $curBuildDir
+if [ "$NERSC_HOST" ]
+then
+  setfacl -R -m user:desc:rwx $curBuildDir
+  setfacl -R -d -m user:desc:rwx $curBuildDir
+fi
+
+if [ "$NERSC_HOST" ]
+then
+  cp conda/sitecustomize.py $curBuildDir
+fi
+
 cp conda/desc-py-lock.yml $curBuildDir
-#cp conda/lock/environment.yml $curBuildDir
-#cp conda/lock/pyproject.toml $curBuildDir
+cp conda/pip.config $curBuildDir
 cd $curBuildDir
 
 
@@ -63,12 +72,23 @@ bash ./Miniforge3-Linux-x86_64.sh -b -p $curBuildDir/py
 setup_conda
 conda activate base
 
-python -m pip cache purge
-pip config set global.no-cache-dir true
+#python -m pip cache purge
+#ret=`pip config get global.no-cache-dir; echo $?`
+#if [ret -eq 1]
+#if [`pip config get global.no-cache-dir; echo $?` -eq 1]
+export PIP_CONFIG_FILE=$curBuildDir/pip.config
+#if pip config get global.no-cache-dir >/dev/null 2>&1; then
+#  DESC_PIPCACHEUNSET=1
+#else
+#  current_cache_flag=`pip config get global.no-cache-dir`
+#fi
 
-conda-lock install --mamba -n desc desc-py-lock-main-2025-09-10.yml
+#pip config set global.no-cache-dir true
+pip config -v list
 
-conda activate desc
+conda-lock install --mamba -n desc-python desc-py-lock.yml
+
+conda activate desc-python
 
 conda env config vars set CSL_DIR=${CONDA_PREFIX}/cosmosis-standard-library
 cd ${CONDA_PREFIX}
@@ -81,18 +101,16 @@ conda clean -y -a
 
 python -m compileall $curBuildDir
 
-conda config --set env_prompt "(desc-py)" --env
+#conda config --set env_prompt "(desc-py)" --env
 
 conda env export --no-builds > $curBuildDir/desc-python-nersc-$CI_PIPELINE_ID-nobuildinfo.yml
 conda env export > $curBuildDir/desc-python-nersc-$CI_PIPELINE_ID.yml
-#
 
-# Set permissions
-setfacl -R -m group::rx $curBuildDir
-setfacl -R -d -m group::rx $curBuildDir
-
-setfacl -R -m user:desc:rwx $curBuildDir
-setfacl -R -d -m user:desc:rwx $curBuildDir
-
-
+# Reset pip caching to whatever it was before
+#if [ DESC_PIPCACHEUNSET ] 
+#then
+#  pip config unset global.no-cache-dir
+#else
+#  pip config set global.no-cache-dir $current_cache_flag
+#fi
 
