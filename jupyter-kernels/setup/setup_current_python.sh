@@ -36,7 +36,6 @@ then
   export DESC_GCR_SITE='nersc'
 else  # assuming CC-IN2P3
   export DESC_INST_DIR=/pbs/throng/lsst/software/desc/common/miniconda
-  export DESC_INST_DIR=/pbs/throng/lsst/users/hkelly/instal-test3
   export PATH=$PATH:/pbs/throng/lsst/software/desc/bin
 fi
 
