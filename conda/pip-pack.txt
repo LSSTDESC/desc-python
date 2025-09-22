@@ -1,3 +1,4 @@
+bilby_pipe
 ceci
 fits2hdf
 gwcosmo
