@@ -1,6 +1,7 @@
 astroplan
 astropy
 bilby
+bilby_pipe
 bokeh
 camb
 cmake
