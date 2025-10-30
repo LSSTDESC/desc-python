@@ -62,14 +62,13 @@ pip install --no-cache-dir -r $3
 #mamba env update -n desc --file $2 
 #mamba env create -n desc -f $2
 cd $DESC_PYTHON_INSTALL_DIR
-#wget https://github.com/LSSTDESC/rail/archive/refs/tags/v1.0.0.tar.gz 
-#tar xzf v1.0.0.tar.gz 
-#rm v1.0.0.tar.gz 
-git clone https://github.com/LSSTDESC/rail
-cd rail 
-git checkout v1.2.3
-pip install . 
-rail install --package-file rail_packages.yml 
+
+# trying to use pip install instead
+#git clone https://github.com/LSSTDESC/rail
+#cd rail 
+#git checkout v1.2.3
+#pip install . 
+#rail install --package-file rail_packages.yml 
 
 cd $DESC_PYTHON_INSTALL_DIR
 # Add LSSTDESC/Delight
