@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "/global/common/software/lsst/common/miniconda/kernels/desc-cosmology-dev.sh",
+    "-f",
+    "{connection_file}"
+  ],
+  "display_name": "desc-cosmology-dev",
+  "language": "python"
+}
+
