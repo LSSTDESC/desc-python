@@ -41,7 +41,7 @@ export DESC_GCR_SITE='nersc'
 #conda activate base
 
 source $LSST_INST_DIR/$LSST_PYTHON_VER/bin/activate
-conda activate desc
+conda activate desc-python
 
 if [ -n "$DESCUSERENV" ]; then
    conda activate $DESCUSERENV
