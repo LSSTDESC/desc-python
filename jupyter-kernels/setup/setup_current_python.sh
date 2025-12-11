@@ -45,7 +45,7 @@ export PYTHONNOUSERSITE=' '
 
 
 source $DESC_INST_DIR/$DESC_PYTHON_VER/bin/activate
-conda activate desc
+conda activate desc-python
 
 if [ -n "$DESCUSERENV" ]; then
    conda activate $DESCUSERENV
