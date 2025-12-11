@@ -46,7 +46,7 @@ markupsafe
 matplotlib
 mpi4py
 mpich=4.2.2=external_*
-namaster
+namaster>2.5
 ndcctools
 nose
 numba
