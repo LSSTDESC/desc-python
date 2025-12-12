@@ -1,7 +1,7 @@
 astroplan
 astropy
 bilby
-bilby_pipe
+bilby_pipe==1.7.0
 bokeh
 camb
 cmake
