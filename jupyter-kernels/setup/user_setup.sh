@@ -29,6 +29,8 @@ jupyter kernelspec install $INST_DIR/kernels/desc-td-env --user
 jupyter kernelspec install $INST_DIR/kernels/desc-forecasts --user
 jupyter kernelspec install $INST_DIR/kernels/desc-td-env-dev --user
 jupyter kernelspec install $INST_DIR/kernels/desc-forecasts-dev --user
+jupyter kernelspec install $INST_DIR/kernels/desc-cosmology-dev --user
+jupyter kernelspec install $INST_DIR/kernels/desc-cosmology --user
 #echo "Your JupyterLab URL is: "
 #echo "https://jupyter.nersc.gov/user/$USER/cori-shared-node-cpu/lab/tree/$HOME"
 echo "DESC Kernels Now Available"

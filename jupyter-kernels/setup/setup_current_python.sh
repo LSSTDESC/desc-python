@@ -87,7 +87,7 @@ if [ -n "$DESCPYTHONUSERBASE" ]; then
     echo "using DESCPYTHONUSERBASE: $DESCPYTHONUSERBASE"
 fi
 
-export FIRECROWN_DIR=$CONDA_PREFIX/firecrown
+export FIRECROWN_DIR=$CONDA_PREFIX/lib/python3.12/site-packages
 
 OUTPUTPY="$(which python)"
 echo Now using "${OUTPUTPY}"
