@@ -19,7 +19,7 @@ fi
 if [ "$NERSC_HOST" ]
 then
   module unload python
-  module swap PrgEnv-intel PrgEnv-gnu
+  #module swap PrgEnv-intel PrgEnv-gnu
   module unload cray-libsci
   module load cray-mpich-abi/8.1.30
 else
@@ -96,12 +96,23 @@ config_cosmosis
 cosmosis-build-standard-library main
 cd $curBuildDir
 
+echo "Set up cosmosis"
+
+echo "Cleaning"
+
 
 conda clean -y -a 
 
-python -m compileall $curBuildDir
-
 #conda config --set env_prompt "(desc-py)" --env
+
+cd $curBuildDir
+echo "Setting up copy of firecrown"
+firecrown_ver=$(conda list firecrown | grep firecrown|tr -s " " | cut -d " " -f 2)
+echo $firecrown_ver
+curl -LO https://github.com/LSSTDESC/firecrown/archive/refs/tags/v$firecrown_ver.tar.gz
+tar xvzf v$firecrown_ver.tar.gz
+# Set up a common directory name without version info to set FIRECROWN_DIR more easily
+ln -s firecrown-$firecrown_ver firecrown
 
 conda env export --no-builds > $curBuildDir/desc-python-nersc-$CI_PIPELINE_ID-nobuildinfo.yml
 conda env export > $curBuildDir/desc-python-nersc-$CI_PIPELINE_ID.yml
@@ -114,3 +125,5 @@ conda env export > $curBuildDir/desc-python-nersc-$CI_PIPELINE_ID.yml
 #  pip config set global.no-cache-dir $current_cache_flag
 #fi
 
+python -m compileall $curBuildDir/py/envs/desc-python
+echo "Done compiling"

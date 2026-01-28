@@ -41,7 +41,7 @@ export DESC_GCR_SITE='nersc'
 #conda activate base
 
 source $LSST_INST_DIR/$LSST_PYTHON_VER/bin/activate
-conda activate desc
+conda activate desc-python
 
 if [ -n "$DESCUSERENV" ]; then
    conda activate $DESCUSERENV
@@ -81,7 +81,7 @@ if [ -n "$DESCPYTHONUSERBASE" ]; then
     echo "using DESCPYTHONUSERBASE: $DESCPYTHONUSERBASE"
 fi
 
-export FIRECROWN_DIR=$CONDA_PREFIX/firecrown
+export FIRECROWN_DIR=$LSST_INST_DIR/$LSST_PYTHON_VER/../firecrown
 
 OUTPUTPY="$(which python)"
 echo Now using "${OUTPUTPY}"
