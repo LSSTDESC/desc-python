@@ -1,5 +1,6 @@
 name: base
 channels:
+  - conda-forge/label/mpi-external
   - conda-forge
 dependencies:
   - python=3.12
@@ -48,7 +49,7 @@ dependencies:
   - markupsafe
   - matplotlib
   - mpi4py
-  - mpich===4.2.2[build=external_*]
+  - mpich
   - namaster
   - ndcctools
   - nose
