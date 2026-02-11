@@ -43,7 +43,7 @@ which python
 which conda
 echo "before install"
 #conda create -c conda-forge --name download_env --file $2 --download-only
-mamba install -c conda-forge -y --file $2
+mamba install -c conda-forge/label/mpi-external -c conda-forge -y --file $2
 #echo "after download"
 #conda create --name desc --use-local --file $2
 #conda activate desc
