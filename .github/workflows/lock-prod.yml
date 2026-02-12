@@ -42,7 +42,7 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           conda install -c conda-forge -y -n lock-env conda-lock
-          conda-lock lock -c conda-forge -f ./conda/lock/environment.yml -f ./conda/lock/pyproject.toml -p linux-64 --lockfile ./conda/lock/auto/desc-py-lock-${{env.BRANCH_NAME}}-${{env.DATE_TAG}}.yml
+          conda-lock lock -c conda-forge/label/mpi-external -c conda-forge -f ./conda/lock/environment.yml -f ./conda/lock/pyproject.toml -p linux-64 --lockfile ./conda/lock/auto/desc-py-lock-${{env.BRANCH_NAME}}-${{env.DATE_TAG}}.yml
           
       - name: Commit and push changes
         uses: devops-infra/action-commit-push@v0.11
