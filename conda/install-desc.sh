@@ -7,6 +7,8 @@
 ## To Run at other sites
 ## bash install-dev.sh <pathToExistingCondaInstall> ./desc-python-env-nersc-install-nobuildinfo.yml
 
+set -eo pipefail
+
 if [ -z "$1" ]
 then	
 	echo "Please provide a full path install directory"
