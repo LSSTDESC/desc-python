@@ -7,7 +7,7 @@
 ## To Run at other sites
 ## bash install-dev.sh <pathToExistingCondaInstall> ./desc-python-env-nersc-install-nobuildinfo.yml
 
-set -eo pipefail
+#set -eo pipefail handle error in github actions
 
 if [ -z "$1" ]
 then	
