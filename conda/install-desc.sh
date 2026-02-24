@@ -28,7 +28,7 @@ unset PYTHONPATH
 #url="https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
 # stay on 3.12 for now
 url="https://github.com/conda-forge/miniforge/releases/download/25.11.0-1/Miniforge3-25.11.0-1-Linux-x86_64.sh" 
-#url="$url/Miniforge-Linux-x86_64.sh"
+#url="$url/Miniforge3-25.11.0-1-Linux-x86_64.sh"
 curl -LO "$url"
 
 echo "fresh install from miniforge"
