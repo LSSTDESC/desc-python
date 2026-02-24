@@ -33,7 +33,7 @@ curl -LO "$url"
 
 echo "fresh install from miniforge"
 
-bash ./Miniforge3-Linux-x86_64.sh -b -p $1
+bash ./Miniforge3-25.11.0-1-Linux-x86_64.sh -b -p $1
 which python
 #export PATH=$1/bin:$PATH
 echo $DESC_PYTHON_INSTALL_DIR
