@@ -67,19 +67,13 @@ pip install --no-cache-dir -r $3
 #mamba env create -n desc -f $2
 cd $DESC_PYTHON_INSTALL_DIR
 
-# trying to use pip install instead
-#git clone https://github.com/LSSTDESC/rail
-#cd rail 
-#git checkout v1.2.3
-#pip install . 
-#rail install --package-file rail_packages.yml 
-
-cd $DESC_PYTHON_INSTALL_DIR
+# No Rail for now, so no Delight
+#cd $DESC_PYTHON_INSTALL_DIR
 # Add LSSTDESC/Delight
-git clone https://github.com/LSSTDESC/Delight.git
-cd Delight
-pip install .
-cd $DESC_PYTHON_INSTALL_DIR
+#git clone https://github.com/LSSTDESC/Delight.git
+#cd Delight
+#pip install .
+#cd $DESC_PYTHON_INSTALL_DIR
 
 conda env export --no-builds > $DESC_PYTHON_INSTALL_DIR/desc-python-bleed-nobuildinfo.yml
 conda env export > $DESC_PYTHON_INSTALL_DIR/desc-python-bleed.yml
