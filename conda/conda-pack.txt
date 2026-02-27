@@ -40,7 +40,6 @@ jaxlib
 jupyter
 ligo.skymap
 lsstdesc-coord
-lsstdesc-diffsky
 lsstdesc-gcr-catalogs
 markupsafe
 matplotlib
