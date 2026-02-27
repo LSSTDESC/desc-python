@@ -1,7 +1,9 @@
 ceci
+diffsky
 fits2hdf
 FoFCatalogMatching
 lsstdesc-dataregistry
+opencosmo
 #pz-rail[algos]>=1.2.3
 yymao-helpers
 https://github.com/LSSTDESC/descqa/archive/v2.8.0.tar.gz
