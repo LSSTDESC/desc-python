@@ -44,7 +44,6 @@ dependencies:
   - jaxlib
   - jupyter
   - lsstdesc-coord
-  - lsstdesc-diffsky
   - lsstdesc-gcr-catalogs
   - markupsafe
   - matplotlib
@@ -79,7 +78,7 @@ dependencies:
   - seaborn
   - selenium
   - snappy
-  - somoclu
+#  - somoclu
   - sphinx
   - sqlalchemy
   - starlink-ast
@@ -88,7 +87,9 @@ dependencies:
   - yaml
   - pip:
     - ceci
+    - diffsky
     - fits2hdf
     - lsstdesc-dataregistry
+    - opencosmo
     - nvidia-nccl-cu12==2.27.7
-    - pz-rail[algos]>=1.2.3
+   # - pz-rail[algos]>=1.2.3
