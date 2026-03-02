@@ -12,7 +12,6 @@ platforms = [
 [tool.poetry]
 packages = [
     { include = "descqa" },
-    { include = "delight" },
     { include = "helpers" },
     { include = "fofcatalogmatching" },
     { include = "catalogmatcher" },
@@ -21,7 +20,6 @@ packages = [
 
 [tool.poetry.dependencies]
 descqa = {url = "https://github.com/LSSTDESC/descqa/archive/v2.8.0.tar.gz"}
-delight = {git = "git+https://github.com/LSSTDESC/Delight.git", rev = "master"}
 helpers = {url = "https://bitbucket.org/yymao/helpers/get/v0.3.2.tar.gz"}
 fofcatalogmatching = {url = "https://github.com/yymao/FoFCatalogMatching/archive/v0.1.0.tar.gz"}
 catalogmatcher = {url = "https://github.com/LSSTDESC/CatalogMatcher/archive/master.tar.gz"}
