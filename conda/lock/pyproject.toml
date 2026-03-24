@@ -23,7 +23,7 @@ descqa = {url = "https://github.com/LSSTDESC/descqa/archive/v2.8.0.tar.gz"}
 helpers = {url = "https://bitbucket.org/yymao/helpers/get/v0.3.2.tar.gz"}
 fofcatalogmatching = {url = "https://github.com/yymao/FoFCatalogMatching/archive/v0.1.0.tar.gz"}
 catalogmatcher = {url = "https://github.com/LSSTDESC/CatalogMatcher/archive/master.tar.gz"}
-stile = {url = "https://github.com/msimet/Stile/archive/v0.1.tar.gz"}
+stile = {url = "https://github.com/msimet/Stile/archive/refs/tags/v0.1.tar.gz"}
 
 [build-system]
 requires = ["poetry>=0.12"]
