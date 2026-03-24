@@ -5,20 +5,25 @@ ARG DESC_PYTHON_DIR=/opt/desc
 ENV PYTHONDONTWRITEBYTECODE=1
 ADD conda/desc-py-bleed-lock.yml /locks/conda-linux-64.lock
 
-RUN conda install -y -c conda-forge condax && \
-    condax install -c conda-forge conda-lock && \ 
-    ~/.local/bin/conda-lock install --mamba -n desc-python-bleed /locks/conda-linux-64.lock && \
-    find /$DESC_PYTHON_DIR -name "*.pyc" -delete && \
-    (find $DESC_PYTHON_DIR -name "doc" | xargs rm -Rf) || true
 
+RUN conda install -y -c conda-forge condax && \
+    condax install -c conda-forge conda-lock && \
+    mkdir $DESC_PYTHON_DIR && \
+    ~/.local/bin/conda-lock install --mamba -p $DESC_PYTHON_DIR -n desc-python-bleed /locks/conda-linux-64.lock && \
+    find /$DESC_PYTHON_DIR -name "*.pyc" -delete && \
+    (find $DESC_PYTHON_DIR -name "doc" | xargs rm -Rf) || true 
+    
 FROM ubuntu:22.04
 MAINTAINER Heather Kelly <heather@slac.stanford.edu>
 
 ARG DESC_PYTHON_DIR=/opt/desc
+RUN mkdir $DESC_PYTHON_DIR && \
+    groupadd -g 1000 -r lsst && useradd -u 1000 --no-log-init -m -r -g lsst lsst && \
+    usermod --shell /bin/bash lsst && \
+    chown lsst $DESC_PYTHON_DIR && \
+    chgrp lsst $DESC_PYTHON_DIR
 
 COPY --from=conda $DESC_PYTHON_DIR $DESC_PYTHON_DIR
-
-#ARG PR_BRANCH=bleed
 
 RUN apt update -y && \
     apt install -y curl \
@@ -31,6 +36,8 @@ RUN apt update -y && \
     rm -rf /var/cache/apt && \
     groupadd -g 1000 -r lsst && useradd -u 1000 --no-log-init -m -r -g lsst lsst && \
     usermod --shell /bin/bash lsst && \
+    chown -R lsst $DESC_PYTHON_DIR && \
+    chgrp -R lsst $DESC_PYTHON_DIR && \
     cd conda && \
     bash install-mpich.sh 
 
@@ -55,8 +62,8 @@ ENV PYTHONDONTWRITEBYTECODE=1
 
 #USER lsst
     
-ENV HDF5_USE_FILE_LOCKING FALSE
-ENV PYTHONSTARTUP ''
+ENV HDF5_USE_FILE_LOCKING=FALSE
+ENV PYTHONSTARTUP=''
 
 
 RUN echo "source /opt/desc/py/etc/profile.d/conda.sh" >> ~/.bashrc && \
