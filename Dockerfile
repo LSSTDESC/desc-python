@@ -28,7 +28,7 @@ RUN apt update -y && \
     rm -rf /var/cache/apt && \
     groupadd -g 1000 -r lsst && useradd -u 1000 --no-log-init -m -r -g lsst lsst && \
     usermod --shell /bin/bash lsst && \
-    cd conda
+    cd conda && \
     bash install-mpich.sh 
 
 ARG LSST_USER=lsst
