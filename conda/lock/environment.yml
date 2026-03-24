@@ -31,7 +31,7 @@ dependencies:
   - flake8
   - galsim
   - gcr
-  - globus_sdk
+  - globus-sdk
   - google-cloud-bigquery
   - graphviz
   - gsl
