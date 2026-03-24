@@ -2,9 +2,12 @@
 FROM continuumio/miniconda3:latest as conda
 
 ARG DESC_PYTHON_DIR=/opt/desc
-ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONDONTWRITEBYTECODE=1
 ADD conda/desc-py-bleed-lock.yml /locks/conda-linux-64.lock
-RUN conda create -p $DESC_PYTHON_DIR --copy --file /locks/conda-linux-64.lock && \
+
+RUN conda install -y -c conda-forge condax && \
+    condax install -c conda-lock && \ 
+    ~/.local/bin/conda-lock install --mamba -n desc-python-bleed /locks/conda-linux-64.lock && \
     find /$DESC_PYTHON_DIR -name "*.pyc" -delete && \
     (find $DESC_PYTHON_DIR -name "doc" | xargs rm -Rf) || true
 
@@ -39,7 +42,7 @@ ARG LSST_GROUP=lsst
    
 USER lsst
 
-ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONDONTWRITEBYTECODE=1
 
 #RUN cd /opt/tmp/desc-python/conda && \ 
 #    bash install-desc.sh /opt/desc/py conda-pack.txt pip-pack.txt NERSC && \
