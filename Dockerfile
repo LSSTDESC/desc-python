@@ -6,7 +6,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ADD conda/desc-py-bleed-lock.yml /locks/conda-linux-64.lock
 
 RUN conda install -y -c conda-forge condax && \
-    condax install -c conda-lock && \ 
+    condax install -c conda-forge conda-lock && \ 
     ~/.local/bin/conda-lock install --mamba -n desc-python-bleed /locks/conda-linux-64.lock && \
     find /$DESC_PYTHON_DIR -name "*.pyc" -delete && \
     (find $DESC_PYTHON_DIR -name "doc" | xargs rm -Rf) || true
