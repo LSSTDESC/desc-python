@@ -16,8 +16,6 @@ RUN conda install -y -c conda-forge condax && \
     
 FROM ubuntu:22.04
 MAINTAINER Heather Kelly <heather@slac.stanford.edu>
-#ARG GITHUB_WORKSPACE
-#RUN echo "Workspace is $GITHUB_WORKSPACE"
 
 ARG DESC_PYTHON_DIR=/opt/desc
 RUN mkdir $DESC_PYTHON_DIR && \
@@ -38,7 +36,7 @@ RUN apt update -y && \
     rm -rf /var/cache/apt && \
     chown -R lsst $DESC_PYTHON_DIR && \
     chgrp -R lsst $DESC_PYTHON_DIR && \
-    ls -la && \
+    ls -la $DESC_PYTHON_DIR && \
     cd /locks && \
     bash install-mpich.sh 
 
