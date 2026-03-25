@@ -90,7 +90,6 @@ jobs:
       - name: checkout desc-python
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
           ref: bleed
      
       - name : Get date 
