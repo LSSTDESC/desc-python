@@ -62,8 +62,9 @@ ENV HDF5_USE_FILE_LOCKING=FALSE
 ENV PYTHONSTARTUP=''
 
 
-RUN echo "source /opt/desc/py/etc/profile.d/conda.sh" >> ~/.bashrc && \
-    echo "conda activate base" >> ~/.bashrc
+#RUN echo "source /opt/desc/py/etc/profile.d/conda.sh" >> ~/.bashrc && \
+#    echo "conda activate base" >> ~/.bashrc
+RUN echo "source /opt/desc/bin/activate" >> ~/.bashrc
     
 ENV PATH="${DESC_PYTHON_DIR}/${PY_VER}/bin:${PATH}"
 SHELL ["/bin/bash", "--login", "-c"]
