@@ -9,13 +9,14 @@ ADD conda/desc-py-bleed-lock.yml /locks/conda-linux-64.lock
 RUN conda install -y -c conda-forge condax && \
     condax install -c conda-forge conda-lock && \
     mkdir $DESC_PYTHON_DIR && \
-    ~/.local/bin/conda-lock install --mamba -p $DESC_PYTHON_DIR -n desc-python-bleed /locks/conda-linux-64.lock && \
+    ~/.local/bin/conda-lock install --mamba -p $DESC_PYTHON_DIR /locks/conda-linux-64.lock && \
     find /$DESC_PYTHON_DIR -name "*.pyc" -delete && \
     (find $DESC_PYTHON_DIR -name "doc" | xargs rm -Rf) || true 
     
 FROM ubuntu:22.04
 MAINTAINER Heather Kelly <heather@slac.stanford.edu>
 ARG GITHUB_WORKSPACE
+RUN echo "Workspace is $GITHUB_WORKSPACE"
 ARG DESC_PYTHON_DIR=/opt/desc
 RUN mkdir $DESC_PYTHON_DIR && \
     groupadd -g 1000 -r lsst && useradd -u 1000 --no-log-init -m -r -g lsst lsst && \
@@ -39,9 +40,6 @@ RUN apt update -y && \
 
 ARG LSST_USER=lsst
 ARG LSST_GROUP=lsst
-
-
-#WORKDIR $DESC_PYTHON_DIR
    
 USER lsst
 
