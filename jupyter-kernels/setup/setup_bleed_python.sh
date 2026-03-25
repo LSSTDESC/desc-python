@@ -14,8 +14,15 @@ export PYTHONNOUSERSITE=' '
 
 export DESC_GCR_SITE='nersc'
 
-source $DESC_INST_DIR/$DESC_PYTHON_VER/etc/profile.d/conda.sh
-conda activate base
+wrap_setup() {
+    source $DESC_INST_DIR/$DESC_PYTHON_VER/bin/activate
+}
+
+#source $DESC_INST_DIR/$DESC_PYTHON_VER/etc/profile.d/conda.sh
+#conda activate base
+
+wrap_setup
+
 if [ -n "$DESCUSERENV" ]; then
    conda activate $DESCUSERENV
 fi
