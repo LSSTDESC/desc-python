@@ -4,6 +4,7 @@ FROM continuumio/miniconda3:latest as conda
 ARG DESC_PYTHON_DIR=/opt/desc
 ENV PYTHONDONTWRITEBYTECODE=1
 ADD conda/desc-py-bleed-lock.yml /locks/conda-linux-64.lock
+ADD conda/install-mpich.sh /locks/install-mpich.sh
 
 
 RUN conda install -y -c conda-forge condax && \
@@ -24,6 +25,7 @@ RUN mkdir $DESC_PYTHON_DIR && \
     usermod --shell /bin/bash lsst
     
 COPY --from=conda $DESC_PYTHON_DIR $DESC_PYTHON_DIR
+COPY --from=conda /locks /locks
 
 RUN apt update -y && \
     apt install -y curl \
@@ -37,7 +39,7 @@ RUN apt update -y && \
     chown -R lsst $DESC_PYTHON_DIR && \
     chgrp -R lsst $DESC_PYTHON_DIR && \
     ls -la && \
-    cd conda && \
+    cd /locks && \
     bash install-mpich.sh 
 
 ARG LSST_USER=lsst
