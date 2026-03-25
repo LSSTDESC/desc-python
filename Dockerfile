@@ -19,10 +19,8 @@ MAINTAINER Heather Kelly <heather@slac.stanford.edu>
 ARG DESC_PYTHON_DIR=/opt/desc
 RUN mkdir $DESC_PYTHON_DIR && \
     groupadd -g 1000 -r lsst && useradd -u 1000 --no-log-init -m -r -g lsst lsst && \
-    usermod --shell /bin/bash lsst && \
-    chown lsst $DESC_PYTHON_DIR && \
-    chgrp lsst $DESC_PYTHON_DIR
-
+    usermod --shell /bin/bash lsst
+    
 COPY --from=conda $DESC_PYTHON_DIR $DESC_PYTHON_DIR
 
 RUN apt update -y && \
@@ -34,8 +32,6 @@ RUN apt update -y && \
     wget && \
     apt-get clean  && \
     rm -rf /var/cache/apt && \
-    groupadd -g 1000 -r lsst && useradd -u 1000 --no-log-init -m -r -g lsst lsst && \
-    usermod --shell /bin/bash lsst && \
     chown -R lsst $DESC_PYTHON_DIR && \
     chgrp -R lsst $DESC_PYTHON_DIR && \
     cd conda && \
