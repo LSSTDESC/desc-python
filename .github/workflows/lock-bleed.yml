@@ -1,0 +1,58 @@
+name: Create Bleed Lock file
+on:
+ schedule:
+    - cron: '0 0 * * 3,6'
+ push:
+   branches:
+     - bleed
+ workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/create-github-app-token@v2
+        id: app-token
+        with:
+          # required
+          app-id: ${{ secrets.ENV_RELEASE_APP_ID }}
+          private-key: ${{ secrets.ENV_RELEASE_APP_KEY }}
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          fetch-depth: 0
+          ref: bleed
+
+      - name: Setup Miniconda
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          miniconda-version: "latest"
+          python-version: "3.12"
+          channels: conda-forge
+          activate-environment: lock-env
+
+      - name: set up env
+        run: |
+          echo "DATE_TAG=$(date "+%F")" >> $GITHUB_ENV
+          echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+
+        
+      - name: Create lock file
+        shell: bash -el {0}
+        run: |
+          cd $GITHUB_WORKSPACE
+          conda install -c conda-forge -y -n lock-env conda-lock
+          conda-lock lock -c conda-forge/label/mpi-external -c conda-forge -f ./conda/lock/environment.yml -f ./conda/lock/pyproject.toml -p linux-64 --lockfile ./conda/lock/auto/desc-py-bleed-lock-${{env.BRANCH_NAME}}-${{env.DATE_TAG}}.yml
+          cd conda
+          unlink ./desc-py-bleed-lock.yml
+          ln -s ./lock/auto/desc-py-bleed-lock-${{env.BRANCH_NAME}}-${{env.DATE_TAG}}.yml desc-py-bleed-lock.yml
+          
+      - name: Commit and push changes
+        uses: devops-infra/action-commit-push@v1.1.0
+        with:
+          github_token: ${{ steps.app-token.outputs.token }}
+          commit_prefix: "[AUTO]"
+          commit_message: "New bleed lock"
+          force: false
+          force_with_lease: false
