@@ -124,6 +124,7 @@ jobs:
           context: .
           build-args: |
             GH_SHA=${{ github.sha }}
+            GITHUB_WORKSPACE=${{ env.GITHUB_WORKSPACE }}
           push: true
           tags: ${{ env.TEST_TAG }}
 
