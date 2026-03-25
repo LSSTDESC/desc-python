@@ -1,7 +1,6 @@
 #!/bin/bash
 
 export DESC_INST_DIR=/opt/desc
-export DESC_PYTHON_VER=py
 
 export OMP_NUM_THREADS=1
 
@@ -15,7 +14,7 @@ export PYTHONNOUSERSITE=' '
 export DESC_GCR_SITE='nersc'
 
 wrap_setup() {
-    source $DESC_INST_DIR/$DESC_PYTHON_VER/bin/activate
+    source $DESC_INST_DIR/bin/activate
 }
 
 #source $DESC_INST_DIR/$DESC_PYTHON_VER/etc/profile.d/conda.sh
