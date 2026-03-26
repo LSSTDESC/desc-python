@@ -30,7 +30,7 @@ then
   module unload python
   module load PrgEnv-gnu
   module unload cray-libsci
-  module load cray-mpich-abi
+  module load cray-mpich-abi/8.1.30
   module load texlive
 
   export DESC_GCR_SITE='nersc'
