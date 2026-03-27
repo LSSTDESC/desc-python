@@ -22,14 +22,3 @@ see [here](https://github.com/LSSTDESC/desc-python/blob/main/conda/lock/environm
 
 [Current versions of all packages](https://github.com/LSSTDESC/desc-python/blob/main/conda/export/desc-python-nersc-2025-09-11-49-44.yml)
 
-## How to Add Packages to desc-python?
-
-1. Clone this repo and checkout the "bleed" branch
-2. Add new package names to the `desc-python/conda/conda-pack.txt` (for conda-forge) or `desc-pythonv/conda/pip-pack.txt` (for PyPI)
-    * If this package is not installable from conda-forge or pip, please [open an issue](https://github.com/LSSTDESC/desc-python/issues) on this repository.
-3. Commit and push your changes to the bleed branch
-4. Once changes are pushed to the bleed branch an automated build will be triggered:
-    * Docker builds are handled by GitHub actions and will be triggered immediately. The builds can be followed by viewing the [Actions](https://github.com/LSSTDESC/desc-python/actions) page.
-        * A successful build will produce a new image available on [Dockerhub](https://hub.docker.com/r/lsstdesc/desc-python/tags): `lsstdesc/desc-python:bleed`
- 5. If there are data files or set up commands needed for the new package, then please [open an issue](https://github.com/LSSTDESC/desc-python/issues) on this repository.
-
