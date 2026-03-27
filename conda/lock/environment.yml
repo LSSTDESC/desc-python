@@ -2,6 +2,9 @@ name: base
 channels:
   - conda-forge/label/mpi-external
   - conda-forge
+platforms:
+  - linux-64
+  - osx-64
 dependencies:
   - conda[version='>=25.3.0']
   - mamba[version='>=2.1.1']
