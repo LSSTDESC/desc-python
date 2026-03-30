@@ -3665,18 +3665,18 @@ package:
   category: main
   optional: false
 - name: grpcio-status
-  version: 1.78.0
+  version: 1.78.1
   manager: conda
   platform: osx-64
   dependencies:
     googleapis-common-protos: '>=1.5.5'
-    grpcio: '>=1.78.0'
+    grpcio: '>=1.78.1'
     protobuf: '>=6.31.1,<7.0.0'
-    python: '>=3.10'
-  url: https://conda.anaconda.org/conda-forge/noarch/grpcio-status-1.78.0-pyhd8ed1ab_0.conda
+    python: ''
+  url: https://conda.anaconda.org/conda-forge/noarch/grpcio-status-1.78.1-pyhcf101f3_0.conda
   hash:
-    md5: 1239612d9082a423a1bde874a7ca130f
-    sha256: cab0cf75422ce7b3b21ad977e68035b093812070ea03ea4da84b460fdf19f376
+    md5: 829271a8ea9d8024e99e43939ebb114f
+    sha256: 89a893163e8273ee307273e78f3e8b1e5d00b73d0631b65c7ffbec8a2385118d
   category: main
   optional: false
 - name: gsl
@@ -3821,20 +3821,26 @@ package:
   category: main
   optional: false
 - name: hdf5plugin
-  version: 5.1.0
+  version: 6.0.0
   manager: conda
   platform: osx-64
   dependencies:
-    __osx: '>=10.13'
+    __osx: '>=11.0'
+    blosc: '>=1.21.6,<2.0a0'
+    bzip2: '>=1.0.8,<2.0a0'
+    c-blosc2: '>=2.23.1,<2.24.0a0'
     h5py: '>=3.0.0'
     hdf5: '>=1.14.6,<1.14.7.0a0'
-    libcxx: '>=18'
+    libcxx: '>=19'
+    libzlib: '>=1.3.2,<2.0a0'
+    lz4-c: '>=1.10.0,<1.11.0a0'
     python: '>=3.12,<3.13.0a0'
     python_abi: 3.12.*
-  url: https://conda.anaconda.org/conda-forge/osx-64/hdf5plugin-5.1.0-py312he3a9e4c_1.conda
+    zstd: '>=1.5.7,<1.6.0a0'
+  url: https://conda.anaconda.org/conda-forge/osx-64/hdf5plugin-6.0.0-py312h667c79f_5.conda
   hash:
-    md5: a53070e8a2e6c4a4c80000f199faaeab
-    sha256: 4f7f9df5e398543a603b3de43adbdeafe4e06126af4b7a7ac1d75deeb348626b
+    md5: 9f642d7da4e28ebcbe007022c37fef43
+    sha256: 3f4d83a764ab3f865887700bb5c7d8aa28d33509a8d700908ac22339ea7d939b
   category: main
   optional: false
 - name: healpy
@@ -7245,24 +7251,26 @@ package:
   category: main
   optional: false
 - name: opencosmo
-  version: 0.9.6
+  version: 1.2.4
   manager: conda
   platform: osx-64
   dependencies:
-    astropy-base: '>=7.0.1,<8.0.0'
+    astropy-base: '>=7.2.0,<8.0.0'
     click: '>=8.2.1,<9.0.0'
-    deprecated: ''
-    h5py: ''
-    hdf5plugin: '>=5.0.0,<6.0.0'
-    healpy: ''
-    networkx: '>=3.5,<4.0'
-    numpy: '>=1.26'
-    pydantic: ''
+    deprecated: '>=1.2.48,<2.0'
+    h5py: '>=3.12.1,<4.0.0'
+    hdf5plugin: '>=5.0.0,!=5.1.0'
+    healpy: '>=1.19.0,<2.0'
+    healsparse: '>=1.11.1,<2.0'
+    numba: '>=0.64.0,<1.0'
+    numpy: '>=2.0,<2.5'
+    pydantic: '>=2.10.6,<3.0.0'
     python: '>=3.11'
-  url: https://conda.anaconda.org/conda-forge/noarch/opencosmo-0.9.6-pyhd8ed1ab_1.conda
+    rustworkx: '>=0.17.1'
+  url: https://conda.anaconda.org/conda-forge/noarch/opencosmo-1.2.4-pyhd8ed1ab_1.conda
   hash:
-    md5: b27b6baa221d55b872bff0ecbce5db2e
-    sha256: 3111a6898a4ae62f61648a97d070cdb044a5befe5f3ac56fceb32852f890519d
+    md5: 02856ec41b1ee3025e9dfbf818cd9da9
+    sha256: 2ccb04464979f948a2a4d52cdc0023cd6c378e76f5a46f9d30f3f18413592f43
   category: main
   optional: false
 - name: openjpeg
@@ -9156,6 +9164,22 @@ package:
     sha256: ccb99c8888c647e6baf102a610fad5beae7e2f0709c6aa0f756fcb525c290a5b
   category: main
   optional: false
+- name: rustworkx
+  version: 0.17.1
+  manager: conda
+  platform: osx-64
+  dependencies:
+    __osx: '>=10.13'
+    _python_abi3_support: 1.*
+    cpython: '>=3.10'
+    numpy: '>=1.16.0,<3'
+    python: ''
+  url: https://conda.anaconda.org/conda-forge/osx-64/rustworkx-0.17.1-py310hee12c11_3.conda
+  hash:
+    md5: e7b95e0475e5e7e7ea34bef30b525bea
+    sha256: 88c9d2ae9209bcf95fb2fdaf2e60296251d0dc92a726ee28692fa863be6be8b5
+  category: main
+  optional: false
 - name: s3fs
   version: 2026.3.0
   manager: conda
@@ -10741,7 +10765,7 @@ package:
   category: main
   optional: false
 - name: catalogmatcher
-  version: 0.1.dev0
+  version: 0.0.0
   manager: pip
   platform: osx-64
   dependencies: {}
@@ -10790,13 +10814,10 @@ package:
   category: main
   optional: false
 - name: descqa
-  version: 2.8.0
+  version: 0.0.0
   manager: pip
   platform: osx-64
-  dependencies:
-    future: '*'
-    jinja2: '*'
-    pyyaml: '*'
+  dependencies: {}
   url: https://github.com/LSSTDESC/descqa/archive/v2.8.0.tar.gz
   hash: {}
   source:
@@ -10844,13 +10865,10 @@ package:
   category: main
   optional: false
 - name: fofcatalogmatching
-  version: 0.1.0
+  version: 0.0.0
   manager: pip
   platform: osx-64
-  dependencies:
-    astropy: '>1.0.0'
-    fast3tree: '>=0.3.1'
-    numpy: '>1.3.0'
+  dependencies: {}
   url: https://github.com/yymao/FoFCatalogMatching/archive/v0.1.0.tar.gz
   hash: {}
   source:
@@ -10896,17 +10914,10 @@ package:
   category: main
   optional: false
 - name: helpers
-  version: 0.3.2
+  version: 0.0.0
   manager: pip
   platform: osx-64
-  dependencies:
-    astropy: '*'
-    fast3tree: '*'
-    future: '*'
-    numpy: '*'
-    pandas: '*'
-    requests: '*'
-    scipy: '*'
+  dependencies: {}
   url: https://bitbucket.org/yymao/helpers/get/v0.3.2.tar.gz
   hash: {}
   source:
@@ -11335,14 +11346,10 @@ package:
   category: main
   optional: false
 - name: stile
-  version: '0.1'
+  version: 0.0.0
   manager: pip
   platform: osx-64
-  dependencies:
-    astropy: '*'
-    matplotlib: '*'
-    numpy: '*'
-    treecorr: '*'
+  dependencies: {}
   url: https://github.com/msimet/Stile/archive/refs/tags/v0.1.tar.gz
   hash: {}
   source:
