@@ -44,7 +44,7 @@ jobs:
           cd $GITHUB_WORKSPACE
           conda install -c conda-forge -y -n lock-env conda-lock
           conda-lock lock -c conda-forge/label/mpi-external -c conda-forge -f ./conda/lock/environment.yml -f ./conda/lock/pyproject.toml -p linux-64 --lockfile ./conda/lock/auto/desc-py-bleed-lock-linux-64-${{env.BRANCH_NAME}}-${{env.DATE_TAG}}.yml
-          conda-lock lock -c conda-forge/label/mpi-external -c conda-forge -f ./conda/lock/environment.yml -f ./conda/lock/pyproject.toml -p ox-64 --lockfile ./conda/lock/auto/desc-py-bleed-lock-ox-64-${{env.BRANCH_NAME}}-${{env.DATE_TAG}}.yml
+          conda-lock lock -c conda-forge/label/mpi-external -c conda-forge -f ./conda/lock/environment.yml -f ./conda/lock/pyproject.toml -p osx-64 --lockfile ./conda/lock/auto/desc-py-bleed-lock-ox-64-${{env.BRANCH_NAME}}-${{env.DATE_TAG}}.yml
           cd conda
           unlink ./desc-py-bleed-lock.yml
           ln -s ./lock/auto/desc-py-bleed-lock-linux-64-${{env.DATE_TAG}}.yml desc-py-bleed-lock.yml
