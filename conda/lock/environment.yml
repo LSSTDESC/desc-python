@@ -13,6 +13,7 @@ dependencies:
   - astropy
   - bokeh
   - camb
+  - clmm
   - cmake
   - cmasher
   - compilers
@@ -22,6 +23,8 @@ dependencies:
   - dask-mpi
   - dask-sql
   - datashader
+  - diffsky
+  - dm-tree
   - dust_extinction
   - dustmaps
   - eigen
@@ -47,24 +50,29 @@ dependencies:
   - jax
   - jaxlib
   - jupyter
+  - lsstdesc-ceci
   - lsstdesc-coord
   - lsstdesc-gcr-catalogs
   - markupsafe
   - matplotlib
+  - mockmpi
   - mpi4py
   - mpich
   - namaster
+  - nbconvert
   - ndcctools
   - nose
   - numba
   - numdifftools
   - numpy
   - numpydoc
+  - opencosmo
   - pandas
   - parallel_statistics
   - parsl
   - pip
   - pot
+  - psutil
   - psycopg2
   - pyarrow
   - pybind11
@@ -74,6 +82,7 @@ dependencies:
   - pytest
   - python-snappy
   - pyvo
+  - qp-prob
   - redmapper
   - sacc
   - scikit-image
@@ -86,14 +95,17 @@ dependencies:
   - sphinx
   - sqlalchemy
   - starlink-ast
+  - tables-io-full
   - tabulate
+  - threadpoolctl
+  - tjpcov
   - treecorr
   - yaml
   - pip:
     - ceci
-    - diffsky
     - fits2hdf
+    - glass
+    - git+https://github.com/beckermr/hybrideb@a3198ea5bc8175542b058e5c1289d910f05fd99d
+    - git+https://github.com/jlvdb/hyperbolic@b88b107a291fa16c2006cf971ce610248d58e94c
     - lsstdesc-dataregistry
-    - opencosmo
-    - nvidia-nccl-cu12==2.27.7
     - pz-rail[algos]>=1.2.3
