@@ -63,7 +63,8 @@ dependencies:
   - nose
   - numba
   - numdifftools
-  - numpy
+  # For TXPipe
+  - numpy=2.3.5 
   - numpydoc
   - opencosmo
   - pandas
