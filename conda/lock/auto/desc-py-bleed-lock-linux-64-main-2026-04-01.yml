@@ -13,7 +13,7 @@
 version: 1
 metadata:
   content_hash:
-    linux-64: 0f5fc025567d561b1139b6ef84b43dbddd281eb4fbb188ea1ebab4aa9493677c
+    linux-64: d22efa5dfe9d43d69866d2b29a57c56f547d84cb8e1faf70e778bacf3c2410a4
   channels:
   - url: conda-forge/label/mpi-external
     used_env_vars: []
@@ -110,7 +110,7 @@ package:
   category: main
   optional: false
 - name: aiohttp
-  version: 3.13.4
+  version: 3.13.5
   manager: conda
   platform: linux-64
   dependencies:
@@ -125,10 +125,10 @@ package:
     python: '>=3.12,<3.13.0a0'
     python_abi: 3.12.*
     yarl: '>=1.17.0,<2.0'
-  url: https://conda.anaconda.org/conda-forge/linux-64/aiohttp-3.13.4-py312h5d8c7f2_0.conda
+  url: https://conda.anaconda.org/conda-forge/linux-64/aiohttp-3.13.5-py312h5d8c7f2_0.conda
   hash:
-    md5: f8a69ceb1aae0a03da61cc4677c17cd9
-    sha256: 7711be6af1e764270a4578c95b98a470880605d88ca2f83d3e69594e13730c4e
+    md5: 68edaee7692efb8bbef5e95375090189
+    sha256: 52f4d07b10fe4a1ded570b0708594d2d9075223e1dd94d0c5988eb71f724a5f2
   category: main
   optional: false
 - name: aioitertools
@@ -8157,7 +8157,7 @@ package:
   category: main
   optional: false
 - name: numpy
-  version: 2.4.3
+  version: 2.3.5
   manager: conda
   platform: linux-64
   dependencies:
@@ -8169,10 +8169,10 @@ package:
     libstdcxx: '>=14'
     python: ''
     python_abi: 3.12.*
-  url: https://conda.anaconda.org/conda-forge/linux-64/numpy-2.4.3-py312h33ff503_0.conda
+  url: https://conda.anaconda.org/conda-forge/linux-64/numpy-2.3.5-py312h33ff503_1.conda
   hash:
-    md5: 5930ee8a175a242b4f001b1e9e72024f
-    sha256: 1aab7ba963affa572956b1bd8d239df52a9c7bc799c560f98bc658ab70224e10
+    md5: 03baecffb72fa96fe234fd505908065f
+    sha256: 76ad6a6f4761084b074a587fe1512956891f04b5250cec0fd39aca0f39ad122b
   category: main
   optional: false
 - name: numpydoc
@@ -9154,16 +9154,16 @@ package:
   category: main
   optional: false
 - name: pybind11
-  version: 3.0.2
+  version: 3.0.3
   manager: conda
   platform: linux-64
   dependencies:
-    pybind11-global: ==3.0.2
+    pybind11-global: ==3.0.3
     python: ''
-  url: https://conda.anaconda.org/conda-forge/noarch/pybind11-3.0.2-pyh7a1b43c_0.conda
+  url: https://conda.anaconda.org/conda-forge/noarch/pybind11-3.0.3-pyhfe8187e_0.conda
   hash:
-    md5: 44dff15b5d850481807888197b254b46
-    sha256: c2d16e61270efeea13102836e0f1d3f758fb093207fbda561290fa1951c6051f
+    md5: e0f4549ccb507d4af8ed5c5345210673
+    sha256: 71a9524f44d6ac6304feae71e2bbe8d8ce0816f0be7a0271c15681ad1040965d
   category: main
   optional: false
 - name: pybind11-abi
@@ -9178,16 +9178,16 @@ package:
   category: main
   optional: false
 - name: pybind11-global
-  version: 3.0.2
+  version: 3.0.3
   manager: conda
   platform: linux-64
   dependencies:
     __unix: ''
     python: ''
-  url: https://conda.anaconda.org/conda-forge/noarch/pybind11-global-3.0.2-pyhc7ab6ef_0.conda
+  url: https://conda.anaconda.org/conda-forge/noarch/pybind11-global-3.0.3-pyh648e204_0.conda
   hash:
-    md5: 0c2d37c332453bd66b254bc71311fa30
-    sha256: b97f25f7856b96ae187c17801d2536ff86a968da12f579bbc318f2367e365a02
+    md5: 7fdc3e18c14b862ae5f064c1ea8e2636
+    sha256: 97a0fbd2a81d95e90d714e5c628fe860b29a3caad53abcfb90add1965ad85bef
   category: main
   optional: false
 - name: pybobyqa
@@ -12530,7 +12530,7 @@ package:
   category: main
   optional: false
 - name: catalogmatcher
-  version: 0.1.dev0
+  version: 0.0.0
   manager: pip
   platform: linux-64
   dependencies: {}
@@ -12556,13 +12556,10 @@ package:
   category: main
   optional: false
 - name: descqa
-  version: 2.8.0
+  version: 0.0.0
   manager: pip
   platform: linux-64
-  dependencies:
-    future: '*'
-    jinja2: '*'
-    pyyaml: '*'
+  dependencies: {}
   url: https://github.com/LSSTDESC/descqa/archive/v2.8.0.tar.gz
   hash: {}
   source:
@@ -12610,13 +12607,10 @@ package:
   category: main
   optional: false
 - name: fofcatalogmatching
-  version: 0.1.0
+  version: 0.0.0
   manager: pip
   platform: linux-64
-  dependencies:
-    astropy: '>1.0.0'
-    fast3tree: '>=0.3.1'
-    numpy: '>1.3.0'
+  dependencies: {}
   url: https://github.com/yymao/FoFCatalogMatching/archive/v0.1.0.tar.gz
   hash: {}
   source:
@@ -12662,17 +12656,10 @@ package:
   category: main
   optional: false
 - name: helpers
-  version: 0.3.2
+  version: 0.0.0
   manager: pip
   platform: linux-64
-  dependencies:
-    astropy: '*'
-    fast3tree: '*'
-    future: '*'
-    numpy: '*'
-    pandas: '*'
-    requests: '*'
-    scipy: '*'
+  dependencies: {}
   url: https://bitbucket.org/yymao/helpers/get/v0.3.2.tar.gz
   hash: {}
   source:
@@ -13101,14 +13088,10 @@ package:
   category: main
   optional: false
 - name: stile
-  version: '0.1'
+  version: 0.0.0
   manager: pip
   platform: linux-64
-  dependencies:
-    astropy: '*'
-    matplotlib: '*'
-    numpy: '*'
-    treecorr: '*'
+  dependencies: {}
   url: https://github.com/msimet/Stile/archive/refs/tags/v0.1.tar.gz
   hash: {}
   source:
