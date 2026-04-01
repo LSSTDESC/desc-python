@@ -52,6 +52,7 @@ dependencies:
   - jax
   - jaxlib
   - jupyter
+  - ligo.skymap
   - lsstdesc-ceci
   - lsstdesc-coord
   - lsstdesc-gcr-catalogs
