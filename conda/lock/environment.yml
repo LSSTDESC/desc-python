@@ -34,7 +34,7 @@ dependencies:
   - fast-pt
   - fastparquet
   - firecrown
-  - fitsio=1.2.6
+  - fitsio
   - flake8
   - galsim
   - gcr
