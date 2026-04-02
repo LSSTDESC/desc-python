@@ -10,6 +10,8 @@ dependencies:
   - mamba[version='>=2.1.1']
   - astroplan
   - astropy
+  - bilby
+  - bilby_pipe
   - bokeh
   - camb
   - clmm
@@ -49,6 +51,7 @@ dependencies:
   - jax
   - jaxlib
   - jupyter
+  - ligo.skymap
   - lsstdesc-ceci
   - lsstdesc-coord
   - lsstdesc-gcr-catalogs
@@ -104,9 +107,11 @@ dependencies:
   - yaml
   - pip:
     - ceci
+    - derivkit
     - fits2hdf
     - glass
     - git+https://github.com/beckermr/hybrideb@a3198ea5bc8175542b058e5c1289d910f05fd99d
     - git+https://github.com/jlvdb/hyperbolic@b88b107a291fa16c2006cf971ce610248d58e94c
     - lsstdesc-dataregistry
+    - pybinny
     - pz-rail[algos]>=1.2.3
