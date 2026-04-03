@@ -64,6 +64,7 @@ dependencies:
   - namaster
   - nbconvert
   - ndcctools
+  - ngmix
   - nose
   - numba
   - numdifftools
