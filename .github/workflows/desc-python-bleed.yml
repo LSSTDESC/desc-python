@@ -1,9 +1,9 @@
 name: desc-python bleed-branch
 
 on: 
-  push:
-    branches:
-      - bleed
+#  push:
+#    branches:
+#      - bleed
   workflow_dispatch:
     
 env:
