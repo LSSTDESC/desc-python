@@ -47,7 +47,7 @@ jobs:
           conda-lock lock -c conda-forge/label/mpi-external -c conda-forge -f ./conda/lock/environment.yml -f ./conda/lock/pyproject.toml -p osx-64 --lockfile ./conda/lock/auto/desc-py-bleed-lock-ox-64-${{env.BRANCH_NAME}}-${{env.DATE_TAG}}.yml
           cd conda
           unlink ./desc-py-bleed-lock.yml
-          ln -s ./lock/auto/desc-py-bleed-lock-linux-64-${{env.DATE_TAG}}.yml desc-py-bleed-lock.yml
+          ln -s ./lock/auto/desc-py-bleed-lock-linux-64-main-${{env.DATE_TAG}}.yml desc-py-bleed-lock.yml
           
       - name: Commit and push changes
         uses: devops-infra/action-commit-push@v1.1.0
