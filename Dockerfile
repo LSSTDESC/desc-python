@@ -3,6 +3,8 @@ FROM continuumio/miniconda3:latest as conda
 
 ARG DESC_PYTHON_DIR=/opt/desc
 ENV PYTHONDONTWRITEBYTECODE=1
+RUN echo $PWD && \
+    ls .
 ADD conda/desc-py-bleed-lock.yml /locks/conda-linux-64.lock
 ADD conda/install-mpich.sh /locks/install-mpich.sh
 
