@@ -7436,7 +7436,7 @@ package:
   category: main
   optional: false
 - name: lsstdesc-gcr-catalogs
-  version: 1.10.1
+  version: 1.10.3
   manager: conda
   platform: linux-64
   dependencies:
@@ -7448,14 +7448,14 @@ package:
     pandas: ''
     pyarrow: ''
     pytables: ''
-    python: '>=3.9'
+    python: '>=3.10'
     python-blosc2: ''
     pyyaml: ''
     requests: ''
-  url: https://conda.anaconda.org/conda-forge/noarch/lsstdesc-gcr-catalogs-1.10.1-pyhd8ed1ab_0.conda
+  url: https://conda.anaconda.org/conda-forge/noarch/lsstdesc-gcr-catalogs-1.10.3-pyhd8ed1ab_0.conda
   hash:
-    md5: 5e5ba07cc317dcd1b250ca5613bcadc1
-    sha256: ca1084ab01700ca6e747494568cd603037b0a1a7fb3bb2eb68481b526af76cb3
+    md5: ca15b6d83472c11dbe62c71d7580d2a1
+    sha256: 9bb57162b51ff02f55bf8976cf40eb43ab139d71bb6e1519e4036c90d7056649
   category: main
   optional: false
 - name: lsstdesc.coord
@@ -8557,7 +8557,7 @@ package:
   category: main
   optional: false
 - name: opencosmo
-  version: 1.2.4
+  version: 1.2.6
   manager: conda
   platform: linux-64
   dependencies:
@@ -8571,12 +8571,12 @@ package:
     numba: '>=0.64.0,<1.0'
     numpy: '>=2.0,<2.5'
     pydantic: '>=2.10.6,<3.0.0'
-    python: '>=3.11'
+    python: '>=3.12'
     rustworkx: '>=0.17.1'
-  url: https://conda.anaconda.org/conda-forge/noarch/opencosmo-1.2.4-pyhd8ed1ab_1.conda
+  url: https://conda.anaconda.org/conda-forge/noarch/opencosmo-1.2.6-pyhd8ed1ab_0.conda
   hash:
-    md5: 02856ec41b1ee3025e9dfbf818cd9da9
-    sha256: 2ccb04464979f948a2a4d52cdc0023cd6c378e76f5a46f9d30f3f18413592f43
+    md5: b823596ff55dd452e40a12c1f8a92964
+    sha256: c29f021e2c1813da208451b55ee7840a61a5a6f13c5658c7645e7ce0f70b5296
   category: main
   optional: false
 - name: openjpeg
@@ -9960,10 +9960,10 @@ package:
     python: ''
     python_abi: 3.12.*
     qt6-main: '>=6.11.0,<6.12.0a0'
-  url: https://conda.anaconda.org/conda-forge/linux-64/pyside6-6.11.0-py312h50ac2ff_1.conda
+  url: https://conda.anaconda.org/conda-forge/linux-64/pyside6-6.11.0-py312h50ac2ff_2.conda
   hash:
-    md5: 643b435a9f493c59c0d99f507ccead25
-    sha256: 84acc0313f8961bda7e7f4ed1c5440a447cea225edef7045082c0b6ed3e6a032
+    md5: 013718f42467861794fd1844a93978be
+    sha256: 768c4934fff390f7a8c7cc780dec576af7876e308bc24de406bdf81281f19daa
   category: main
   optional: false
 - name: pysocks
@@ -10659,31 +10659,31 @@ package:
   category: main
   optional: false
 - name: reproc
-  version: 14.2.5.post0
+  version: 14.2.7.post0
   manager: conda
   platform: linux-64
   dependencies:
     __glibc: '>=2.17,<3.0.a0'
-    libgcc: '>=13'
-  url: https://conda.anaconda.org/conda-forge/linux-64/reproc-14.2.5.post0-hb9d3cd8_0.conda
+    libgcc: '>=14'
+  url: https://conda.anaconda.org/conda-forge/linux-64/reproc-14.2.7.post0-hb03c661_0.conda
   hash:
-    md5: 69fbc0a9e42eb5fe6733d2d60d818822
-    sha256: a1973f41a6b956f1305f9aaefdf14b2f35a8c9615cfe5f143f1784ed9aa6bf47
+    md5: c29ecc627d4d8e2416b6cc67e2a85987
+    sha256: ee62a35f1e63791a7d62bfde35920feb225b7a42cbd0675db1d23791314a3c09
   category: main
   optional: false
 - name: reproc-cpp
-  version: 14.2.5.post0
+  version: 14.2.7.post0
   manager: conda
   platform: linux-64
   dependencies:
     __glibc: '>=2.17,<3.0.a0'
-    libgcc: '>=13'
-    libstdcxx: '>=13'
-    reproc: 14.2.5.post0
-  url: https://conda.anaconda.org/conda-forge/linux-64/reproc-cpp-14.2.5.post0-h5888daf_0.conda
+    libgcc: '>=14'
+    libstdcxx: '>=14'
+    reproc: 14.2.7.post0
+  url: https://conda.anaconda.org/conda-forge/linux-64/reproc-cpp-14.2.7.post0-hecca717_0.conda
   hash:
-    md5: 828302fca535f9cfeb598d5f7c204323
-    sha256: 568485837b905b1ea7bdb6e6496d914b83db57feda57f6050d5a694977478691
+    md5: 6671b0f9402a3bfbff38bde336d141ec
+    sha256: 6856d7ff1ad8eea8b90c3047dd8d21baefd9525e39e611310567c4f0c29c7fbf
   category: main
   optional: false
 - name: reproject
@@ -13006,7 +13006,7 @@ package:
   category: main
   optional: false
 - name: catalogmatcher
-  version: 0.1.dev0
+  version: 0.0.0
   manager: pip
   platform: linux-64
   dependencies: {}
@@ -13032,13 +13032,10 @@ package:
   category: main
   optional: false
 - name: descqa
-  version: 2.8.0
+  version: 0.0.0
   manager: pip
   platform: linux-64
-  dependencies:
-    future: '*'
-    jinja2: '*'
-    pyyaml: '*'
+  dependencies: {}
   url: https://github.com/LSSTDESC/descqa/archive/v2.8.0.tar.gz
   hash: {}
   source:
@@ -13086,13 +13083,10 @@ package:
   category: main
   optional: false
 - name: fofcatalogmatching
-  version: 0.1.0
+  version: 0.0.0
   manager: pip
   platform: linux-64
-  dependencies:
-    astropy: '>1.0.0'
-    fast3tree: '>=0.3.1'
-    numpy: '>1.3.0'
+  dependencies: {}
   url: https://github.com/yymao/FoFCatalogMatching/archive/v0.1.0.tar.gz
   hash: {}
   source:
@@ -13138,17 +13132,10 @@ package:
   category: main
   optional: false
 - name: helpers
-  version: 0.3.2
+  version: 0.0.0
   manager: pip
   platform: linux-64
-  dependencies:
-    astropy: '*'
-    fast3tree: '*'
-    future: '*'
-    numpy: '*'
-    pandas: '*'
-    requests: '*'
-    scipy: '*'
+  dependencies: {}
   url: https://bitbucket.org/yymao/helpers/get/v0.3.2.tar.gz
   hash: {}
   source:
@@ -13577,14 +13564,10 @@ package:
   category: main
   optional: false
 - name: stile
-  version: '0.1'
+  version: 0.0.0
   manager: pip
   platform: linux-64
-  dependencies:
-    astropy: '*'
-    matplotlib: '*'
-    numpy: '*'
-    treecorr: '*'
+  dependencies: {}
   url: https://github.com/msimet/Stile/archive/refs/tags/v0.1.tar.gz
   hash: {}
   source:
