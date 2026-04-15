@@ -11759,7 +11759,7 @@ package:
   category: main
   optional: false
 - name: catalogmatcher
-  version: 0.1.dev0
+  version: 0.0.0
   manager: pip
   platform: osx-64
   dependencies: {}
@@ -11824,13 +11824,10 @@ package:
   category: main
   optional: false
 - name: descqa
-  version: 2.8.0
+  version: 0.0.0
   manager: pip
   platform: osx-64
-  dependencies:
-    future: '*'
-    jinja2: '*'
-    pyyaml: '*'
+  dependencies: {}
   url: https://github.com/LSSTDESC/descqa/archive/v2.8.0.tar.gz
   hash: {}
   source:
@@ -11878,13 +11875,10 @@ package:
   category: main
   optional: false
 - name: fofcatalogmatching
-  version: 0.1.0
+  version: 0.0.0
   manager: pip
   platform: osx-64
-  dependencies:
-    astropy: '>1.0.0'
-    fast3tree: '>=0.3.1'
-    numpy: '>1.3.0'
+  dependencies: {}
   url: https://github.com/yymao/FoFCatalogMatching/archive/v0.1.0.tar.gz
   hash: {}
   source:
@@ -11930,17 +11924,10 @@ package:
   category: main
   optional: false
 - name: helpers
-  version: 0.3.2
+  version: 0.0.0
   manager: pip
   platform: osx-64
-  dependencies:
-    astropy: '*'
-    fast3tree: '*'
-    future: '*'
-    numpy: '*'
-    pandas: '*'
-    requests: '*'
-    scipy: '*'
+  dependencies: {}
   url: https://bitbucket.org/yymao/helpers/get/v0.3.2.tar.gz
   hash: {}
   source:
@@ -12394,14 +12381,10 @@ package:
   category: main
   optional: false
 - name: stile
-  version: '0.1'
+  version: 0.0.0
   manager: pip
   platform: osx-64
-  dependencies:
-    astropy: '*'
-    matplotlib: '*'
-    numpy: '*'
-    treecorr: '*'
+  dependencies: {}
   url: https://github.com/msimet/Stile/archive/refs/tags/v0.1.tar.gz
   hash: {}
   source:
