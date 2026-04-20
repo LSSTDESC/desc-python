@@ -28,6 +28,7 @@ then
   export DESC_INST_DIR=/global/common/software/lsst/common/miniconda
 
   module unload python
+  module load cpu
   module load PrgEnv-gnu
   module unload cray-libsci
   module load cray-mpich-abi/8.1.30
