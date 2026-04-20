@@ -6,6 +6,7 @@ cmake
 cmasher
 compilers
 corner
+cudatoolkit==11.7
 dask
 dask-jobqueue
 dask-mpi
