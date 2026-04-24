@@ -51,7 +51,7 @@ export CPLUS_INCLUDE_PATH="$(python -c "import galsim, os; print(os.path.join(os
 python3 -m pip install --user --no-build-isolation .
 ```
 
-## Persist for Jupyter
+## NERSC Jupyter
 
 To use this new installation of BATSim in jupyter.nersc.gov, add this to `$HOME/.bashrc`:
 
