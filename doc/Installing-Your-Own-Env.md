@@ -48,14 +48,16 @@ And that's it!
 
 #### To use your my-desc-python environment
 
-Create two environment variables. `DESCUSERENV_DIR` should point to your conda installation's directory that contains `bin` and `DESCUSERENV_NAME` should be the name of your conda environment.
+Create two environment variables and add them to your NERSC `$HOME/.bashrc`. 
+
+`DESCUSERENV_DIR` should point to your conda installation's directory that contains `bin` and `DESCUSERENV_NAME` should be the name of your conda environment.
 
 ```bash
 export DESCUSERENV_DIR=$curBuildDir/py
 export DESCUSERENV_NAME=my-desc-python
 ```
 
-Now you can source setup_current_python.sh as usual, and your installation will be initialized
+Now you can source setup_current_python.sh as usual, and your installation will be initialized.  Similarly when using the `desc-python` kernel in NERSC's jupyter, you will be using your own copy of the environment.
 
 ```bash
 source /global/comon/software/lsst/common/miniconda/setup_current_python.sh
