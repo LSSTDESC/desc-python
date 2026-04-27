@@ -42,14 +42,15 @@ fi
 
 unset PYTHONHOME
 unset PYTHONPATH
-export PYTHONNOUSERSITE=' '
 
-
-source $DESC_INST_DIR/$DESC_PYTHON_VER/bin/activate
-conda activate desc-python
-
-if [ -n "$DESCUSERENV" ]; then
-   conda activate $DESCUSERENV
+if [ -n "$DESCUSERENV_DIR" ]; then
+   source $DESCUSERENV_DIR/bin/activate
+   conda activate $DESCUSERENV_NAME
+else
+   source $DESC_INST_DIR/$DESC_PYTHON_VER/bin/activate
+   conda activate desc-python
+   export PYTHONNOUSERSITE=' '
+   export PYTHONPATH=$PYTHONPATH:$DESC_INST_DIR/$DESC_PYTHON_VER
 fi
 
 # COSMOSIS Setup
@@ -73,8 +74,6 @@ if [ -n "$DESCPYTHONPATH" ]; then
     echo "Including user python path: $DESCPYTHONPATH"
 fi 
 
-export PYTHONPATH=$PYTHONPATH:$DESC_INST_DIR/$DESC_PYTHON_VER
-
 # Set this after conda environment is setup
 python_ver_major=$(python -c 'import sys; print(sys.version_info.major)')
 python_ver_minor=$(python -c 'import sys; print(sys.version_info.minor)')
@@ -88,7 +87,7 @@ if [ -n "$DESCPYTHONUSERBASE" ]; then
     echo "using DESCPYTHONUSERBASE: $DESCPYTHONUSERBASE"
 fi
 
-export FIRECROWN_DIR=$CONDA_PREFIX/lib/python3.12/site-packages
+export FIRECROWN_DIR=$CONDA_PREFIX/lib/python$DESCPYTHONVER/site-packages
 
 OUTPUTPY="$(which python)"
 echo Now using "${OUTPUTPY}"

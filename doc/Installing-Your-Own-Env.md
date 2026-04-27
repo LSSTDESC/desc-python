@@ -10,28 +10,27 @@ Using [conda-lock](https://github.com/conda/conda-lock) you can quickly and easi
 
 In this example we will install a copy of `desc-python`.
 
-git clone https://github.com/LSSTDESC/desc-python.git`
-
 To use the current production version of `desc-python`, let us assume $curBuildDir points to your desired installation directory
 
 ```bash
+git clone https://github.com/LSSTDESC/desc-python.git`
 cp desc-python/conda/sitecustomize.py $curBuildDir
 cp desc-python/conda/desc-py-lock.yml $curBuildDir
 cp desc-python/conda/pip.config $curBuildDir
 cd $curBuildDir
 
 module unload python
+module load cpu
 module unload cray-libsci
 module load cray-mpich-abi/8.1.30
 export CONDA_PKGS_DIRS=$curBuildDir/pkgs
 
-# use your own copy of Miniforge or you could use NERSC's python module
+# use your own copy of Miniforge
 url="https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
 curl -LO "$url"
 
 bash ./Miniforge3-Linux-x86_64.sh -b -p $curBuildDir/py
-source $curBuildDir/py/etc/profile.d/conda.sh
-conda activate base
+source $curBuildDir/py/bin/activate
 
 export PIP_CONFIG_FILE=$curBuildDir/pip.config
 
@@ -49,12 +48,15 @@ And that's it!
 
 #### To use your my-desc-python environment
 
+Create two environment variables. `DESCUSERENV_DIR` should point to your conda installation's directory that contains `bin` and `DESCUSERENV_NAME` should be the name of your conda environment.
+
 ```bash
-module unload python
-module unload cray-libsci
-module load cray-mpich-abi/8.1.30
-source $curBuildDir/bin/activate
-conda activate my-desc-python
+export DESCUSERENV_DIR=$curBuildDir/py
+export DESCUSERENV_NAME=my-desc-python
 ```
 
+Now you can source setup_current_python.sh as usual, and your installation will be initialized
 
+```bash
+source /global/comon/software/lsst/common/miniconda/setup_current_python.sh
+```
