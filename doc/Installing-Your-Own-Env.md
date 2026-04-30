@@ -60,5 +60,5 @@ export DESCUSERENV_NAME=my-desc-python
 Now you can source setup_current_python.sh as usual, and your installation will be initialized.  Similarly when using the `desc-python` kernel in NERSC's jupyter, you will be using your own copy of the environment.
 
 ```bash
-source /global/comon/software/lsst/common/miniconda/setup_current_python.sh
+source /global/common/software/lsst/common/miniconda/setup_current_python.sh
 ```
