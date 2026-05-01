@@ -59,7 +59,6 @@ dependencies:
   - matplotlib
   - mockmpi
   - mpi4py
-  - mpich
   - namaster
   - nbconvert
   - ndcctools

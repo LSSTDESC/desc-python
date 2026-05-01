@@ -1,0 +1,8 @@
+# mpi-hpc.yml
+channels:
+  - conda-forge/label/mpi_external
+  - conda-forge
+dependencies:
+  - mpich
+platforms:
+  - linux-64
