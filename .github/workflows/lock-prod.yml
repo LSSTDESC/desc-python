@@ -42,9 +42,10 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           conda install -c conda-forge -y -n lock-env conda-lock
-          conda-lock lock -c conda-forge/label/mpi-external -c conda-forge -f ./conda/lock/environment.yml -f ./conda/lock/pyproject.toml -p linux-64 --lockfile ./conda/lock/auto/desc-py-lock-linux-64-${{env.BRANCH_NAME}}-${{env.DATE_TAG}}.yml
-          conda-lock lock -c conda-forge/label/mpi-external -c conda-forge -f ./conda/lock/environment.yml -f ./conda/lock/pyproject.toml -p osx-64 --lockfile ./conda/lock/auto/desc-py-lock-osx-64-${{env.BRANCH_NAME}}-${{env.DATE_TAG}}.yml
-          python ./scripts/diff-lock.py ./conda/desc-py-lock.yml ./conda/lock/auto/desc-py-lock-linux-64-${{env.BRANCH_NAME}}-${{env.DATE_TAG}}.yml
+          conda-lock lock -c conda-forge/label/mpi-external -c conda-forge -f ./conda/lock/environment.yml -f ./conda/lock/mpi-hpc.yml -f ./conda/lock/pyproject.toml -p linux-64 --lockfile ./conda/lock/auto/desc-py-lock-hpc-linux-64-${{env.BRANCH_NAME}}-${{env.DATE_TAG}}.yml
+          conda-lock lock -c conda-forge -f ./conda/lock/environment.yml -f ./conda/lock/mpi-laptop.yml -f ./conda/lock/pyproject.toml -p osx-64 --lockfile ./conda/lock/auto/desc-py-lock-laptop-osx-64-${{env.BRANCH_NAME}}-${{env.DATE_TAG}}.yml
+          conda-lock lock -c conda-forge -f ./conda/lock/environment.yml -f ./conda/lock/mpi-laptop.yml -f ./conda/lock/pyproject.toml -p linux-64 --lockfile ./conda/lock/auto/desc-py-lock-laptop-linux-64-${{env.BRANCH_NAME}}-${{env.DATE_TAG}}.yml
+          python ./scripts/diff-lock.py ./conda/desc-py-lock.yml ./conda/lock/auto/desc-py-lock-hpc-linux-64-${{env.BRANCH_NAME}}-${{env.DATE_TAG}}.yml
       - name: Commit and push changes
         uses: devops-infra/action-commit-push@v0.11
         with:
