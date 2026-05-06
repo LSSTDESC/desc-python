@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "shifter",
+    "--image=lsstdesc/descwl-shear-sims:weekly-latest",
+    "/global/common/software/lsst/common/miniconda/kernels/descwl-shear-sims.sh",
+    "-f",
+    "{connection_file}"
+  ],
+  "display_name": "descwl-shear-sims",
+  "language": "python"
+}
