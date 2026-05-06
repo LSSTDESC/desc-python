@@ -3,6 +3,7 @@
 source /opt/lsst/software/stack/loadLSST.bash ""
 setup lsst_distrib
 
+
 export OMP_NUM_THREADS=1
 
 unset PYTHONSTARTUP
@@ -19,11 +20,6 @@ if [ -n "$DESCPYTHONPATH" ]; then
     echo "Wondering Why? DESCPYTHONPATH is likely set in your $HOME/.basrhc, $HOME/.bashrc.ext, or similar config script"
 fi
 
-if [ -n "$DESCSTACKUSERENV" ]; then
-   conda activate $DESCSTACKUSERENV
-   echo "Activated your DESCSTACKUSERENV: $DESCSTACKUSERENV"
-    echo "Wondering Why? DESCSTACKUSERENV is likely set in your $HOME/.basrhc, $HOME/.bashrc.ext, or similar config script"
-fi
 
 python_ver_major=$(python -c 'import sys; print(sys.version_info.major)')
 python_ver_minor=$(python -c 'import sys; print(sys.version_info.minor)')
@@ -31,13 +27,13 @@ export DESCPYTHONVER="python$python_ver_major.$python_ver_minor"
 
 #export PYTHONPATH=$PYTHONPATH:$LSST_INST_DIR/$LSST_PYTHON_VER
 
-if [ -n "$DESCSTACKUSERBASE" ]; then
-    export PYTHONUSERBASE=$DESCSTACKUSERBASE
+if [ -n "$DESCWLSHEARSIMSUSERBASE" ]; then
+    export PYTHONUSERBASE=$DESCWLSHEARSIMSUSERBASE
     unset PYTHONUSERSITE
     unset PYTHONNOUSERSITE
     export PATH=$PYTHONUSERBASE/bin:$PATH       
     export PYTHONPATH="$PYTHONUSERBASE/lib/$DESCPYTHONVER/site-packages:$PYTHONPATH"
-    echo "using DESCSTACKUSERBASE: $DESCSTACKUSERBASE"
+    echo "using DESCWLSHEARSIMSUSERBASE: $DESCWLSHEARSIMSUSERBASE"
 fi
 
 
