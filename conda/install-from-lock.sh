@@ -44,7 +44,7 @@ echo "Install Directory: " $curBuildDir
 mkdir -p $curBuildDir
 # Set permissions
 chgrp lsst $curBuildDir
-chmod g+rx $curBuildDir
+chmod g+rsx $curBuildDir
 if [ "$NERSC_HOST" ]
 then
   setfacl -R -m user:desc:rwx $curBuildDir
