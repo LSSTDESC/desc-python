@@ -91,7 +91,7 @@ export FIRECROWN_DIR=$CONDA_PREFIX/lib/$DESCPYTHONVER/site-packages
 
 export DESC_PY_EXTRA_PACKAGES=/global/common/software/lsst/gitlab/desc-python-prod/prod/extra
 export PATH=$DESC_PY_EXTRA_PACKAGES/bin:$PATH
-export PYTHONPATH=$DESC_PY_EXTRA_PACKAGES/lib/python$VERSION_LIBPYTHON/site-packages/:$PYTHONPATH
+export PYTHONPATH=$DESC_PY_EXTRA_PACKAGES/lib/$DESCPYTHONVER/site-packages/:$PYTHONPATH
 
 OUTPUTPY="$(which python)"
 echo Now using "${OUTPUTPY}"
