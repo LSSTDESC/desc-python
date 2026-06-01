@@ -58,8 +58,9 @@ fi
 
 cp conda/desc-py-lock.yml $curBuildDir
 cp conda/pip.config $curBuildDir
+mkdir $curBuildDir/extra
+cp scripts/update_package_setup.sh $curBuildDir/extra
 cd $curBuildDir
-
 
 # Build Steps
 export PYTHONNOUSERSITE=1
