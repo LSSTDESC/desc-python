@@ -1,0 +1,46 @@
+name: Test on PR Create Lock file
+on:
+ pull_request: 
+ workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/create-github-app-token@v2
+        id: app-token
+        with:
+          # required
+          app-id: ${{ secrets.ENV_RELEASE_APP_ID }}
+          private-key: ${{ secrets.ENV_RELEASE_APP_KEY }}
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          fetch-depth: 0
+
+      - name: Setup Miniconda
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          miniconda-version: "latest"
+          python-version: "3.12"
+          channels: conda-forge
+          activate-environment: lock-env
+
+      - name: set up env
+        run: |
+          echo "DATE_TAG=$(date "+%F")" >> $GITHUB_ENV
+          echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+
+        
+      - name: Create lock file
+        shell: bash -el {0}
+        run: |
+          cd $GITHUB_WORKSPACE
+          conda install -c conda-forge -y -n lock-env conda-lock
+          conda-lock lock -c conda-forge/label/mpi-external -c conda-forge -f ./conda/lock/environment.yml -f ./conda/lock/mpi-hpc.yml -f ./conda/lock/pyproject.toml -p linux-64 --lockfile ./conda/lock/auto/desc-py-lock-hpc-linux-64-${{env.BRANCH_NAME}}-${{env.DATE_TAG}}.yml
+          conda-lock lock -c conda-forge -f ./conda/lock/environment.yml -f ./conda/lock/mpi-laptop.yml -f ./conda/lock/pyproject.toml -p osx-64 --lockfile ./conda/lock/auto/desc-py-lock-laptop-osx-64-${{env.BRANCH_NAME}}-${{env.DATE_TAG}}.yml
+          conda-lock lock -c conda-forge -f ./conda/lock/environment.yml -f ./conda/lock/mpi-laptop.yml -f ./conda/lock/pyproject.toml -p linux-64 --lockfile ./conda/lock/auto/desc-py-lock-laptop-linux-64-${{env.BRANCH_NAME}}-${{env.DATE_TAG}}.yml
+          python ./scripts/diff-lock.py ./conda/desc-py-lock.yml ./conda/lock/auto/desc-py-lock-hpc-linux-64-${{env.BRANCH_NAME}}-${{env.DATE_TAG}}.yml
+          cat ./conda/lock/auto/desc-py-lock-hpc-linux-64-${{env.BRANCH_NAME}}-${{env.DATE_TAG}}.yml
+ 
