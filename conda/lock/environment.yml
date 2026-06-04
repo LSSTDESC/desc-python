@@ -85,7 +85,7 @@ dependencies:
   - pytest
   - python-snappy
   - pyvo
-  - 'pzflow <4.0'
+  - pzflow=3.4.0
   - qp-prob
   - redmapper
   - sacc
