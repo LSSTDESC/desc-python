@@ -9,7 +9,7 @@ dependencies:
   - conda[version='>=25.3.0']
   - mamba[version='>=2.1.1']
   - astroplan
-  - astropy
+  - astropy<8.0.0
   - bilby
   - bilby_pipe
   - bokeh
