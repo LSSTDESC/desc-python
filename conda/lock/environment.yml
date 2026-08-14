@@ -10,6 +10,7 @@ dependencies:
   - mamba[version='>=2.1.1']
   - astroplan
   - astropy<8.0.0
+  - astroquery
   - bilby
   - bilby_pipe
   - bokeh
