@@ -97,6 +97,7 @@ dependencies:
   - scipy
   - seaborn
   - selenium
+  - skyproj
   - snappy
   - somoclu
   - sphinx
