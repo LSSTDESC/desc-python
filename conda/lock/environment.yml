@@ -13,7 +13,7 @@ dependencies:
   - bilby
   - bilby_pipe
   - bokeh
-  - camb
+  - camb<2
   - clmm
   - cmake
   - cmasher
@@ -66,8 +66,7 @@ dependencies:
   - nose
   - numba
   - numdifftools
-  # For TXPipe
-  - numpy=2.3.5 
+  - numpy
   - numpydoc
   - opencosmo
   - pandas
@@ -91,7 +90,7 @@ dependencies:
   - sacc
   - scikit-image
   - scikit-learn
-  - scipy
+  - scipy<1.18
   - seaborn
   - selenium
   - skyproj
