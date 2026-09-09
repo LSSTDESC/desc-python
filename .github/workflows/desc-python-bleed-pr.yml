@@ -5,6 +5,12 @@ on:
     branches:
     - bleed
   workflow_dispatch:
+  issue_comment:
+    types: [created]
+
+permissions:
+  pull-requests: read
+  issues: write
 
 env:
   TEST_TAG: lsstdesc/desc-python:pr
@@ -12,8 +18,42 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
+    if: >
+      github.event_name == 'pull_request' ||
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'issue_comment' &&
+       github.event.issue.pull_request &&
+       contains(github.event.comment.body, '/run-tests') &&
+       contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association))
+
     steps:
+      - name: Get PR info (comment trigger only)
+        id: pr_info
+        if: github.event_name == 'issue_comment'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number
+            });
+            core.setOutput('ref', pr.data.head.ref);
+            core.setOutput('sha', pr.data.head.sha);
+
+      - name: React to comment (optional, acknowledges trigger)
+        if: github.event_name == 'issue_comment'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.reactions.createForIssueComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              comment_id: context.payload.comment.id,
+              content: 'rocket'
+            });
+
         # https://github.com/jlumbroso/free-disk-space/issues/14
       - name: Update Package List and Remove Dotnet
         run: |
@@ -22,11 +62,7 @@ jobs:
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
         with:
-          # this might remove tools that are actually needed,
-          # if set to "true" but frees about 6 GB
-          tool-cache: false    
-          # all of these default to true, but feel free to set to
-          # "false" if necessary for your workflow
+          tool-cache: false
           android: true
           dotnet: true
           haskell: true
@@ -35,46 +71,24 @@ jobs:
           swap-storage: true
       - name: Aggressive cleanup
         run: |
-          # Remove Java (JDKs)
           sudo rm -rf /usr/lib/jvm
-
-          # Remove .NET SDKs
           sudo rm -rf /usr/share/dotnet
-
-          # Remove Swift toolchain
           sudo rm -rf /usr/share/swift
-
-          # Remove Haskell (GHC)
           sudo rm -rf /usr/local/.ghcup
-
-          # Remove Julia
           sudo rm -rf /usr/local/julia*
-
-          # Remove Android SDKs
           sudo rm -rf /usr/local/lib/android
-
-          # Remove Chromium (optional if not using for browser tests)
           sudo rm -rf /usr/local/share/chromium
-
-          # Remove Microsoft/Edge and Google Chrome builds
           sudo rm -rf /opt/microsoft /opt/google
-
-          # Remove Azure CLI
           sudo rm -rf /opt/az
-
-          # Remove PowerShell
           sudo rm -rf /usr/local/share/powershell
-
-          # Remove CodeQL and other toolcaches
           sudo rm -rf /opt/hostedtoolcache
-
           docker system prune -af || true
           docker builder prune -af || true
           df -h
-          
+
       - uses: actions/checkout@v5
         with:
-          ref: ''
+          ref: ${{ github.event_name == 'issue_comment' && steps.pr_info.outputs.sha || '' }}
           fetch-depth: 1
 
       - name: Setup Miniconda
@@ -88,9 +102,12 @@ jobs:
       - name: set up env
         run: |
           echo "DATE_TAG=$(date "+%F")" >> $GITHUB_ENV
-          echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+          if [ "${{ github.event_name }}" = "issue_comment" ]; then
+            echo "BRANCH_NAME=${{ steps.pr_info.outputs.ref }}" >> $GITHUB_ENV
+          else
+            echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+          fi
 
-        
       - name: Set up Docker Buildx
         id: buildx
         uses: docker/setup-buildx-action@v3
@@ -102,7 +119,7 @@ jobs:
         run: |
           echo "Buildx setup failed!"
           exit 1
-        
+
       - name: Create lock file
         shell: bash -el {0}
         run: |
@@ -110,9 +127,7 @@ jobs:
           conda install -c conda-forge -y -n lock-env conda-lock
           conda-lock lock -c conda-forge/label/mpi-external -c conda-forge -f ./conda/lock/environment.yml -f ./conda/lock/pyproject.toml -p linux-64 --lockfile ./conda/lock/auto/desc-py-bleed-lock-linux-64-${{env.BRANCH_NAME}}-${{env.DATE_TAG}}.yml
 
-
-
-      - name: Build 
+      - name: Build
         id: docker_build
         uses: docker/build-push-action@v5
         with:
@@ -120,7 +135,7 @@ jobs:
           build-args: |
             GH_SHA=${{ github.sha }}
             DESC_PYTHON_LOCK=desc-py-bleed-lock-linux-64-${{ env.BRANCH_NAME }}-${{ env.DATE_TAG }}.yml
-            GITHUB_WORKSPACE=${{ env.GITHUB_WORKSPACE }}
+            GITHUB_WORKSPACE=${{ github.workspace }}
           push: false
           tags: ${{ env.TEST_TAG }}
 
