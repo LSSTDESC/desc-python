@@ -6,12 +6,15 @@ on:
     - bleed
   workflow_dispatch:
 
+env:
+  TEST_TAG: lsstdesc/desc-python:pr
+
 jobs:
   build:
-    name: Build on Ubuntu
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
+    
     steps:
-      # https://github.com/jlumbroso/free-disk-space/issues/14
+        # https://github.com/jlumbroso/free-disk-space/issues/14
       - name: Update Package List and Remove Dotnet
         run: |
           sudo apt-get update
@@ -30,25 +33,97 @@ jobs:
           large-packages: true
           docker-images: true
           swap-storage: true
-      - name: Check Disk Space
-        run: df -h && sudo apt-get clean && df -h 
-      - name: Docker login
-        run: echo '${{ secrets.DOCKERHUB_ACCESSTOK }}' | docker login --username heather999 --password-stdin
-      - name: checkout desc-stack
-        uses: actions/checkout@v2
+      - name: Aggressive cleanup
+        run: |
+          # Remove Java (JDKs)
+          sudo rm -rf /usr/lib/jvm
+
+          # Remove .NET SDKs
+          sudo rm -rf /usr/share/dotnet
+
+          # Remove Swift toolchain
+          sudo rm -rf /usr/share/swift
+
+          # Remove Haskell (GHC)
+          sudo rm -rf /usr/local/.ghcup
+
+          # Remove Julia
+          sudo rm -rf /usr/local/julia*
+
+          # Remove Android SDKs
+          sudo rm -rf /usr/local/lib/android
+
+          # Remove Chromium (optional if not using for browser tests)
+          sudo rm -rf /usr/local/share/chromium
+
+          # Remove Microsoft/Edge and Google Chrome builds
+          sudo rm -rf /opt/microsoft /opt/google
+
+          # Remove Azure CLI
+          sudo rm -rf /opt/az
+
+          # Remove PowerShell
+          sudo rm -rf /usr/local/share/powershell
+
+          # Remove CodeQL and other toolcaches
+          sudo rm -rf /opt/hostedtoolcache
+
+          docker system prune -af || true
+          docker builder prune -af || true
+          df -h
+          
+      - uses: actions/checkout@v5
         with:
           ref: ''
           fetch-depth: 1
-      - name : Docker prune
-        run: sudo docker system prune && df -h 
-      - name : Get weekly number and date 
+
+      - name: Setup Miniconda
+        uses: conda-incubator/setup-miniconda@v4
+        with:
+          miniconda-version: "latest"
+          python-version: "3.12"
+          channels: conda-forge
+          activate-environment: lock-env
+
+      - name: set up env
         run: |
           echo "DATE_TAG=$(date "+%F")" >> $GITHUB_ENV
-          echo "PR_NUM=${{github.event.number}}" >> $GITHUB_ENV
-      - name: do docker build
-        run: docker build --no-cache --build-arg PR_BRANCH=$GITHUB_HEAD_REF -t lsstdesc/desc-python:bleed-pr${{env.PR_NUM}}-${{env.DATE_TAG}} -f $GITHUB_WORKSPACE/Dockerfile . 
-      - name: test pyccl
-        run: docker run --rm lsstdesc/desc-python:bleed-pr${{env.PR_NUM}}-${{env.DATE_TAG}} /bin/bash -c "source /usr/local/py/etc/profile.d/conda.sh && conda activate desc && python -c 'import pyccl'"
-      - name: Docker push
-        run: docker push lsstdesc/desc-python:bleed-pr${{env.PR_NUM}}-${{env.DATE_TAG}}
+          echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+
+        
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v3
+        with:
+          buildkitd-flags: --debug
+
+      - name: Run on failure
+        if: failure() && steps.buildx.outcome == 'failure'
+        run: |
+          echo "Buildx setup failed!"
+          exit 1
+        
+      - name: Create lock file
+        shell: bash -el {0}
+        run: |
+          cd $GITHUB_WORKSPACE
+          conda install -c conda-forge -y -n lock-env conda-lock
+          conda-lock lock -c conda-forge/label/mpi-external -c conda-forge -f ./conda/lock/environment.yml -f ./conda/lock/pyproject.toml -p linux-64 --lockfile ./conda/lock/auto/desc-py-bleed-lock-linux-64-${{env.BRANCH_NAME}}-${{env.DATE_TAG}}.yml
+
+
+
+      - name: Build 
+        id: docker_build
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          build-args: |
+            GH_SHA=${{ github.sha }}
+            DESC_PYTHON_LOCK=desc-py-bleed-lock-linux-64-${{ env.BRANCH_NAME }}-${{ env.DATE_TAG }}.yml
+            GITHUB_WORKSPACE=${{ env.GITHUB_WORKSPACE }}
+          push: false
+          tags: ${{ env.TEST_TAG }}
+
+
+
      
