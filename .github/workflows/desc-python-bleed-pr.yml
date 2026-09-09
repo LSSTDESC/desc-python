@@ -100,14 +100,18 @@ jobs:
           channels: conda-forge
           activate-environment: lock-env
 
+
       - name: set up env
         run: |
           echo "DATE_TAG=$(date "+%F")" >> $GITHUB_ENV
           if [ "${{ github.event_name }}" = "issue_comment" ]; then
-            echo "BRANCH_NAME=${{ steps.pr_info.outputs.ref }}" >> $GITHUB_ENV
+            RAW_BRANCH="${{ steps.pr_info.outputs.ref }}"
           else
-            echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+            RAW_BRANCH="${GITHUB_REF#refs/heads/}"
           fi
+          # sanitize: replace any character that isn't alnum, dot, or dash with a dash
+          SAFE_BRANCH=$(echo "$RAW_BRANCH" | sed 's/[^a-zA-Z0-9._-]/-/g')
+          echo "BRANCH_NAME=$SAFE_BRANCH" >> $GITHUB_ENV
 
       - name: Set up Docker Buildx
         id: buildx
