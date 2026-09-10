@@ -126,23 +126,31 @@ jobs:
           exit 1
 
       - name: Create lock file
+        id: create_lock
         shell: bash -el {0}
         run: |
           cd $GITHUB_WORKSPACE
           conda install -c conda-forge -y -n lock-env conda-lock
           conda-lock lock -c conda-forge/label/mpi-external -c conda-forge -f ./conda/lock/environment.yml -f ./conda/lock/pyproject.toml -p linux-64 --lockfile ./conda/lock/auto/desc-py-bleed-lock-linux-64-${{env.BRANCH_NAME}}-${{env.DATE_TAG}}.yml
 
-      - name: Build
-        id: docker_build
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          build-args: |
-            GH_SHA=${{ github.sha }}
-            DESC_PYTHON_LOCK=desc-py-bleed-lock-linux-64-${{ env.BRANCH_NAME }}-${{ env.DATE_TAG }}.yml
-            GITHUB_WORKSPACE=${{ github.workspace }}
-          push: false
-          tags: ${{ env.TEST_TAG }}
+      - name: Report lock file failure
+        if: failure() && steps.create_lock.outcome == 'failure'
+        run: |
+          echo "### ❌ Conda-lock file creation failed" >> $GITHUB_STEP_SUMMARY
+          echo "See the 'Create lock file' step logs above for details." >> $GITHUB_STEP_SUMMARY
+          exit 1
+          
+   #   - name: Build
+   #     id: docker_build
+ #       uses: docker/build-push-action@v5
+ #       with:
+  #        context: .
+   #       build-args: |
+  #          GH_SHA=${{ github.sha }}
+  #          DESC_PYTHON_LOCK=desc-py-bleed-lock-linux-64-${{ env.BRANCH_NAME }}-${{ env.DATE_TAG }}.yml
+ #           GITHUB_WORKSPACE=${{ github.workspace }}
+  #        push: false
+ #         tags: ${{ env.TEST_TAG }}
 
 
 
