@@ -55,50 +55,7 @@ jobs:
               body: `🚀 Triggered a test run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`
             });
       
-   #   - name: React to comment (optional, acknowledges trigger)
-   #     if: github.event_name == 'issue_comment'
-  #      continue-on-error: true
- #       uses: actions/github-script@v7
- #       with:
-#          script: |
-  #          await github.rest.reactions.createForIssueComment({
-#              owner: context.repo.owner,
-   #           repo: context.repo.repo,
-    #          comment_id: context.payload.comment.id,
-  #            content: 'rocket'
-   #         });
 
-        # https://github.com/jlumbroso/free-disk-space/issues/14
-      - name: Update Package List and Remove Dotnet
-        run: |
-          sudo apt-get update
-          sudo apt-get remove -y '^dotnet-.*'
-      - name: Free Disk Space (Ubuntu)
-        uses: jlumbroso/free-disk-space@main
-        with:
-          tool-cache: false
-          android: true
-          dotnet: true
-          haskell: true
-          large-packages: true
-          docker-images: true
-          swap-storage: true
-      - name: Aggressive cleanup
-        run: |
-          sudo rm -rf /usr/lib/jvm
-          sudo rm -rf /usr/share/dotnet
-          sudo rm -rf /usr/share/swift
-          sudo rm -rf /usr/local/.ghcup
-          sudo rm -rf /usr/local/julia*
-          sudo rm -rf /usr/local/lib/android
-          sudo rm -rf /usr/local/share/chromium
-          sudo rm -rf /opt/microsoft /opt/google
-          sudo rm -rf /opt/az
-          sudo rm -rf /usr/local/share/powershell
-          sudo rm -rf /opt/hostedtoolcache
-          docker system prune -af || true
-          docker builder prune -af || true
-          df -h
 
       - uses: actions/checkout@v5
         with:
@@ -126,18 +83,6 @@ jobs:
           SAFE_BRANCH=$(echo "$RAW_BRANCH" | sed 's/[^a-zA-Z0-9._-]/-/g')
           echo "BRANCH_NAME=$SAFE_BRANCH" >> $GITHUB_ENV
 
-      - name: Set up Docker Buildx
-        id: buildx
-        uses: docker/setup-buildx-action@v3
-        with:
-          buildkitd-flags: --debug
-
-      - name: Run on failure
-        if: failure() && steps.buildx.outcome == 'failure'
-        run: |
-          echo "Buildx setup failed!"
-          exit 1
-
       - name: Create lock file
         id: create_lock
         shell: bash -el {0}
@@ -153,18 +98,5 @@ jobs:
           echo "See the 'Create lock file' step logs above for details." >> $GITHUB_STEP_SUMMARY
           exit 1
           
-   #   - name: Build
-   #     id: docker_build
- #       uses: docker/build-push-action@v5
- #       with:
-  #        context: .
-   #       build-args: |
-  #          GH_SHA=${{ github.sha }}
-  #          DESC_PYTHON_LOCK=desc-py-bleed-lock-linux-64-${{ env.BRANCH_NAME }}-${{ env.DATE_TAG }}.yml
- #           GITHUB_WORKSPACE=${{ github.workspace }}
-  #        push: false
- #         tags: ${{ env.TEST_TAG }}
-
-
 
      
