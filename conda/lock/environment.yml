@@ -91,6 +91,7 @@ dependencies:
   - pyvo
   - qp-prob
   - redmapper
+  - rustfits
   - sacc
   - scikit-image
   - scikit-learn
