@@ -119,6 +119,6 @@ dependencies:
     - git+https://github.com/beckermr/hybrideb@a3198ea5bc8175542b058e5c1289d910f05fd99d
     - git+https://github.com/jlvdb/hyperbolic@b88b107a291fa16c2006cf971ce610248d58e94c
     - lsstdesc-dataregistry
-    - nvidia-nccl-cu13 = "!=2.32.3"
+    - nvidia-nccl-cu13!=2.32.3
     - pybinny
     - pz-rail[algos]
