@@ -8,12 +8,12 @@ dependencies:
   - conda[version='>=25.3.0']
   - mamba[version='>=2.1.1']
   - astroplan
-  - astropy<8.0.0
+  - astropy<9.0.0
   - astroquery
   - bilby
   - bilby_pipe
   - bokeh
-  - camb
+  - camb<2
   - clmm
   - cmake
   - cmasher
@@ -56,6 +56,7 @@ dependencies:
   - lsdb
   - lsstdesc-ceci
   - lsstdesc-coord
+  - lsstdesc-crow
   - lsstdesc-gcr-catalogs
   - markupsafe
   - matplotlib
@@ -94,7 +95,7 @@ dependencies:
   - sacc
   - scikit-image
   - scikit-learn
-  - scipy
+  - scipy<1.18
   - seaborn
   - selenium
   - skyproj
