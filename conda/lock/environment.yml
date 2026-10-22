@@ -19,6 +19,7 @@ dependencies:
   - cmasher
   - compilers
   - corner
+  - cosmosis<3.26
   - dask
   - dask-jobqueue
   - dask-mpi
