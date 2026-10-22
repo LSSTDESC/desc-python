@@ -67,7 +67,7 @@ dependencies:
   - nose
   - numba
   - numdifftools
-  - numpy
+  - numpy<2.4
   - numpydoc
   - opencosmo
   - pandas
