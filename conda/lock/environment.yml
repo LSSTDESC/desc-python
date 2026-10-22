@@ -8,7 +8,7 @@ dependencies:
   - conda[version='>=25.3.0']
   - mamba[version='>=2.1.1']
   - astroplan
-  - astropy<9.0.0
+  - astropy<8.0.0
   - astroquery
   - bilby
   - bilby_pipe
