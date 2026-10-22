@@ -107,7 +107,7 @@ dependencies:
   - threadpoolctl
   - tjpcov
   - treecorr
-  - xgboost
+  - xgboost<3.4.2
   - yaml
   - pip:
     - ceci
