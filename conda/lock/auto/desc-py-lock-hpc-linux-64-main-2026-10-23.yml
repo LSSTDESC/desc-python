@@ -13,7 +13,7 @@
 version: 1
 metadata:
   content_hash:
-    linux-64: c100dba1194f961e88f482fb83eb5fd162706ced917b174adbf4833462c7e23b
+    linux-64: 3e10d367f24b22bca8d1b947a728c11c8ffca8dcccf7f550223b0ec31145134e
   channels:
   - url: conda-forge/label/mpi-external
     used_env_vars: []
@@ -7356,21 +7356,6 @@ package:
     sha256: f7e9292dd219a6435bbb1223da9586c3e70d66d169c5a92f08db3f2127df04e9
   category: main
   optional: false
-- name: libxgboost
-  version: 3.4.1
-  manager: conda
-  platform: linux-64
-  dependencies:
-    __glibc: '>=2.17,<3.0.a0'
-    _openmp_mutex: '>=4.5'
-    libgcc: '>=15'
-    libstdcxx: '>=15'
-  url: https://conda.anaconda.org/conda-forge/linux-64/libxgboost-3.4.1-cpu_hcb71bd3_0.conda
-  hash:
-    md5: cfc01aefb3254a90e3f212f21032654c
-    sha256: 252456a781d151bbb902e630848cc15914b0b955ba5894c99a35fbab1a54165d
-  category: main
-  optional: false
 - name: libxkbcommon
   version: 1.13.2
   manager: conda
@@ -9659,22 +9644,6 @@ package:
   hash:
     md5: 64c449315be77e70004a34b919d43c18
     sha256: e3faa2431791a589e32a53c70f76f79a22846ddccf0ee243f813ed2aaa537d99
-  category: main
-  optional: false
-- name: py-xgboost
-  version: 3.4.1
-  manager: conda
-  platform: linux-64
-  dependencies:
-    libxgboost: '*,>=3.4.1,<3.4.2.0a0'
-    numpy: ''
-    python: '>=3.12'
-    scikit-learn: ''
-    scipy: ''
-  url: https://conda.anaconda.org/conda-forge/noarch/py-xgboost-3.4.1-cpu_pyh35227d3_0.conda
-  hash:
-    md5: 2fe77fc288061159077f3ba1393d9444
-    sha256: 32bf9b83686df1df1a92abb246632d1330dfecd8dab1c2daea9ac43d9495a173
   category: main
   optional: false
 - name: py2vega
@@ -12808,19 +12777,6 @@ package:
     sha256: 1acbd62b33b6efc985f70e0b9f0013ca18fcef2df5a18edb1c81a6b63ad20dc0
   category: main
   optional: false
-- name: xgboost
-  version: 3.4.1
-  manager: conda
-  platform: linux-64
-  dependencies:
-    py-xgboost: 3.4.1
-    python: '>=3.12'
-  url: https://conda.anaconda.org/conda-forge/noarch/xgboost-3.4.1-cpu_pyhb39878e_0.conda
-  hash:
-    md5: 169bcd642ffdb251c64267103da4069d
-    sha256: 8f339930fb7773c5825d971529135ff13e7ca01d5854f9d641acfc6751f44873
-  category: main
-  optional: false
 - name: xkeyboard-config
   version: '2.48'
   manager: conda
@@ -13340,7 +13296,7 @@ package:
   category: main
   optional: false
 - name: catalogmatcher
-  version: 0.1.dev0
+  version: 0.0.0
   manager: pip
   platform: linux-64
   dependencies: {}
@@ -13405,13 +13361,10 @@ package:
   category: main
   optional: false
 - name: descqa
-  version: 2.8.0
+  version: 0.0.0
   manager: pip
   platform: linux-64
-  dependencies:
-    future: '*'
-    jinja2: '*'
-    pyyaml: '*'
+  dependencies: {}
   url: https://github.com/LSSTDESC/descqa/archive/v2.8.0.tar.gz
   hash: {}
   source:
@@ -13459,13 +13412,10 @@ package:
   category: main
   optional: false
 - name: fofcatalogmatching
-  version: 0.1.0
+  version: 0.0.0
   manager: pip
   platform: linux-64
-  dependencies:
-    astropy: '>1.0.0'
-    fast3tree: '>=0.3.1'
-    numpy: '>1.3.0'
+  dependencies: {}
   url: https://github.com/yymao/FoFCatalogMatching/archive/v0.1.0.tar.gz
   hash: {}
   source:
@@ -13511,17 +13461,10 @@ package:
   category: main
   optional: false
 - name: helpers
-  version: 0.3.2
+  version: 0.0.0
   manager: pip
   platform: linux-64
-  dependencies:
-    astropy: '*'
-    fast3tree: '*'
-    future: '*'
-    numpy: '*'
-    pandas: '*'
-    requests: '*'
-    scipy: '*'
+  dependencies: {}
   url: https://bitbucket.org/yymao/helpers/get/v0.3.2.tar.gz
   hash: {}
   source:
@@ -13978,14 +13921,10 @@ package:
   category: main
   optional: false
 - name: stile
-  version: '0.1'
+  version: 0.0.0
   manager: pip
   platform: linux-64
-  dependencies:
-    astropy: '*'
-    matplotlib: '*'
-    numpy: '*'
-    treecorr: '*'
+  dependencies: {}
   url: https://github.com/msimet/Stile/archive/refs/tags/v0.1.tar.gz
   hash: {}
   source:
@@ -14033,6 +13972,19 @@ package:
   url: https://files.pythonhosted.org/packages/9a/24/93ce54550a9dd3fd996ed477f00221f215bf6da3580397fbc138d6036e2e/wurlitzer-3.1.1-py3-none-any.whl
   hash:
     sha256: 0b2749c2cde3ef640bf314a9f94b24d929fe1ca476974719a6909dfc568c3aac
+  category: main
+  optional: false
+- name: xgboost
+  version: 3.4.1
+  manager: pip
+  platform: linux-64
+  dependencies:
+    numpy: '*'
+    nvidia-nccl-cu13: '*'
+    scipy: '*'
+  url: https://files.pythonhosted.org/packages/99/c7/bd05c5c430feb347aa040fcc8870135d70b256718deee9bc7d2ca74a77ff/xgboost-3.4.1-py3-none-manylinux_2_28_x86_64.whl
+  hash:
+    sha256: 6adf2afa396da2ae8ed30295b50b99d4712eed9a6e0ce6cfe069290e4335e51f
   category: main
   optional: false
 - name: yet-another-wizz
