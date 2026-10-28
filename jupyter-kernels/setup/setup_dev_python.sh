@@ -90,7 +90,7 @@ fi
 export FIRECROWN_SITE_PACKAGES=$CONDA_PREFIX/lib/$DESCPYTHONVER/site-packages
 export FIRECROWN_DIR=$FIRECROWN_SITE_PACKAGES
 
-export DESC_PY_EXTRA_PACKAGES=/global/common/software/lsst/gitlab/desc-python-prod/prod/extra
+export DESC_PY_EXTRA_PACKAGES=/global/common/software/lsst/gitlab/desc-python-prod/$DESC_PYTHON_VER/extra
 export PATH=$DESC_PY_EXTRA_PACKAGES/bin:$PATH
 export PYTHONPATH=$DESC_PY_EXTRA_PACKAGES/lib/$DESCPYTHONVER/site-packages/:$PYTHONPATH
 
