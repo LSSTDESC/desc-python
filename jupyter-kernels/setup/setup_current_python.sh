@@ -87,7 +87,8 @@ if [ -n "$DESCPYTHONUSERBASE" ]; then
     echo "using DESCPYTHONUSERBASE: $DESCPYTHONUSERBASE"
 fi
 
-export FIRECROWN_DIR=$CONDA_PREFIX/lib/$DESCPYTHONVER/site-packages
+export FIRECROWN_SITE_PACKAGES=$CONDA_PREFIX/lib/$DESCPYTHONVER/site-packages
+export FIRECROWN_DIR=$FIRECROWN_SITE_PACKAGES
 
 export DESC_PY_EXTRA_PACKAGES=/global/common/software/lsst/gitlab/desc-python-prod/prod/extra
 export PATH=$DESC_PY_EXTRA_PACKAGES/bin:$PATH
