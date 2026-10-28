@@ -35,7 +35,7 @@ dependencies:
   - fast3tree
   - fast-pt
   - fastparquet
-  - firecrown
+  - firecrown>=1.16.1
   - fitsio
   - flake8
   - galsim
