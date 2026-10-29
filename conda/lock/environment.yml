@@ -110,6 +110,7 @@ dependencies:
   - pip:
     - ceci
     - derivkit
+    - dsigma
     - fits2hdf
     - glass
     - git+https://github.com/beckermr/hybrideb@a3198ea5bc8175542b058e5c1289d910f05fd99d
