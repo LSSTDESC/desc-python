@@ -54,7 +54,7 @@ dependencies:
   - jaxlib
   - jupyter
   - lsdb
-  - lsstdesc-ceci
+  - lsstdesc-ceci<2.7
   - lsstdesc-coord
   - lsstdesc-crow
   - lsstdesc-gcr-catalogs
