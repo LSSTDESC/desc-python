@@ -117,6 +117,7 @@ dependencies:
     - git+https://github.com/jlvdb/hyperbolic@b88b107a291fa16c2006cf971ce610248d58e94c
     - ligo.skymap
     - lsstdesc-dataregistry
+    - lsst-desc-dsf
     - nvidia-nccl-cu13!=2.32.3
     - pybinny
     - pz-rail[algos]>=1.2.3
