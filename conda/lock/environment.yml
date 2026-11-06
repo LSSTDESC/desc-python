@@ -54,7 +54,7 @@ dependencies:
   - jaxlib
   - jupyter
   - lsdb
-  - lsstdesc-ceci<2.7
+  - lsstdesc-ceci
   - lsstdesc-coord
   - lsstdesc-crow
   - lsstdesc-gcr-catalogs
@@ -108,7 +108,6 @@ dependencies:
   - treecorr
   - yaml
   - pip:
-    - ceci
     - derivkit
     - dsigma
     - fits2hdf
