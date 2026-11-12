@@ -58,6 +58,7 @@ dependencies:
   - lsstdesc-coord
   - lsstdesc-crow
   - lsstdesc-gcr-catalogs
+  - lsstdesc-smokescreen
   - markupsafe
   - matplotlib
   - mockmpi
@@ -114,6 +115,8 @@ dependencies:
     - glass
     - git+https://github.com/beckermr/hybrideb@a3198ea5bc8175542b058e5c1289d910f05fd99d
     - git+https://github.com/jlvdb/hyperbolic@b88b107a291fa16c2006cf971ce610248d58e94c
+    - git+https://github.com//LSSTDESC/rail_base@u/jzuntz/fix-mpi-warning
+    - git+https://github.com/LSSTDESC/rail_sompz@u/jzuntz/iterate-tomobin-nz-one
     - ligo.skymap
     - lsstdesc-dataregistry
     - lsst-desc-dsf
