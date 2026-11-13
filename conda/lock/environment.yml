@@ -115,8 +115,8 @@ dependencies:
     - glass
     - git+https://github.com/beckermr/hybrideb@a3198ea5bc8175542b058e5c1289d910f05fd99d
     - git+https://github.com/jlvdb/hyperbolic@b88b107a291fa16c2006cf971ce610248d58e94c
-    - git+https://github.com//LSSTDESC/rail_base@04f0023
-    - git+https://github.com/LSSTDESC/rail_sompz@020f34e
+    - pz-rail-base @ git+https://github.com/LSSTDESC/rail_base@04f00233b431c24e1849bf08b98026209b3b7adc
+    - pz-rail-sompz @ git+https://github.com/LSSTDESC/rail_sompz@020f34e7928c7f956c90518b056a344ed2aa06f6
     - ligo.skymap
     - lsstdesc-dataregistry
     - lsst-desc-dsf
