@@ -108,7 +108,7 @@ conda clean -y -a
 
 cd $curBuildDir
 echo "Setting up copy of firecrown"
-firecrown_ver=$(conda list firecrown | grep firecrown|tr -s " " | cut -d " " -f 2)
+firecrown_ver=$(conda list firecrown | awk '$1 == "firecrown" {print $2}')
 echo $firecrown_ver
 curl -LO https://github.com/LSSTDESC/firecrown/archive/refs/tags/v$firecrown_ver.tar.gz
 tar xvzf v$firecrown_ver.tar.gz
